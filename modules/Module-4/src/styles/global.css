@@ -1,0 +1,426 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+  --sal-ink: #0c0c0c;
+  --sal-ink-soft: #242424;
+  --sal-paper: #f4f1ea;
+  --sal-paper-deep: #e7e0d4;
+  --sal-line: rgba(12, 12, 12, 0.12);
+  --sal-cinder: #141414;
+  --sal-lime: #e6dfd3;
+  --sal-pink: #9d7861;
+  --sal-glacier: #d9ddd5;
+  --sal-sand: #d7cebf;
+  --sal-shadow: 0 24px 80px rgba(12, 12, 12, 0.08);
+  --sal-radius: 0.5625rem;
+  --sal-font: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --sal-display: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sal-font);
+  color: var(--sal-ink);
+  background:
+    radial-gradient(circle at top left, rgba(230, 223, 211, 0.18), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(12, 12, 12, 0.05), transparent 22%),
+    linear-gradient(180deg, #f7f4ef 0%, var(--sal-paper) 45%, var(--sal-paper-deep) 100%);
+}
+
+.sal-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.sal-shell::before,
+.sal-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sal-shell::before {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.72), transparent 26%),
+    radial-gradient(circle at 100% 0%, rgba(230, 223, 211, 0.08), transparent 22%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 22%);
+}
+
+.sal-shell::after {
+  background-image:
+    linear-gradient(135deg, rgba(12, 12, 12, 0.022) 0, rgba(12, 12, 12, 0.022) 1px, transparent 1px, transparent 18px);
+  background-size: 18px 18px;
+  opacity: 0.45;
+}
+
+.sal-section {
+  position: relative;
+  z-index: 1;
+}
+
+.sal-card {
+  border: 1px solid var(--sal-line);
+  border-radius: var(--sal-radius);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px rgba(12, 12, 12, 0.06);
+}
+
+.sal-card-dark {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--sal-radius);
+  background:
+    linear-gradient(140deg, rgba(24, 24, 24, 0.96) 0%, rgba(10, 10, 10, 0.98) 100%);
+  color: white;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+}
+
+.sal-kicker {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.sal-display {
+  font-family: var(--sal-display);
+  font-weight: 900;
+  line-height: 0.93;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.sal-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5625rem;
+  border: 1px solid rgba(12, 12, 12, 0.1);
+  background: rgba(255, 255, 255, 0.86);
+  padding: 0.55rem 0.95rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+.sal-topo-divider {
+  position: relative;
+}
+
+.sal-topo-divider::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.45rem;
+  width: 100%;
+  height: 0.22rem;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, rgba(12, 12, 12, 0.84) 0%, rgba(12, 12, 12, 0.18) 70%, var(--sal-sand) 100%);
+}
+
+.sal-hero-photo {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  border-radius: 0.5625rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #111111;
+}
+
+.sal-hero-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sal-hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.06) 0%, rgba(10, 10, 10, 0.42) 100%);
+}
+
+.sal-hero-photo > * {
+  position: relative;
+  z-index: 1;
+}
+
+.sal-photo-strip {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5625rem;
+  border: 1px solid rgba(12, 12, 12, 0.08);
+  background: #111111;
+}
+
+.sal-photo-strip img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sal-product-stage {
+  position: relative;
+  display: flex;
+  min-height: 15.75rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0.5625rem;
+  border: 1px solid rgba(12, 12, 12, 0.08);
+  background: #f1f0eb;
+}
+
+.sal-product-stage img {
+  width: auto;
+  max-width: 110%;
+  max-height: 15.35rem;
+  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.16));
+}
+
+.sal-product-stage-dark {
+  position: relative;
+  display: flex;
+  min-height: 10.5rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0.5625rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+}
+
+.sal-product-stage-dark img {
+  width: auto;
+  max-width: 92%;
+  max-height: 8.8rem;
+  filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.28));
+}
+
+.sal-history-stack {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+}
+
+.sal-history-stack::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 0.85rem;
+  bottom: 0.85rem;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(12, 12, 12, 0.18) 0%, rgba(12, 12, 12, 0.05) 100%);
+}
+
+.sal-history-entry {
+  position: relative;
+  padding-left: 2.9rem;
+}
+
+.sal-history-entry::before {
+  content: "";
+  position: absolute;
+  left: 0.56rem;
+  top: 1.15rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  background: var(--sal-cinder);
+  box-shadow:
+    0 0 0 0.32rem rgba(12, 12, 12, 0.08),
+    0 0 0 0.68rem rgba(255, 255, 255, 0.72);
+}
+
+.sal-history-card {
+  border: 1px solid rgba(12, 12, 12, 0.08);
+  border-radius: 0.5625rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.25rem;
+  box-shadow: 0 16px 38px rgba(12, 12, 12, 0.05);
+}
+
+.sal-history-card--image {
+  background: rgba(247, 246, 243, 0.96);
+}
+
+.sal-history-year {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.5625rem;
+  border: 1px solid rgba(12, 12, 12, 0.1);
+  background: #161616;
+  padding: 0.45rem 0.72rem;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: white;
+}
+
+.sal-history-mark {
+  display: inline-flex;
+  align-items: center;
+}
+
+.sal-history-mark img {
+  display: block;
+  width: auto;
+  max-width: min(100%, 12rem);
+  max-height: 3.1rem;
+  object-fit: contain;
+}
+
+.sal-history-note {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.5625rem;
+  border: 1px solid rgba(12, 12, 12, 0.08);
+  background: #f1ebdf;
+  padding: 0.45rem 0.72rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #615a50;
+}
+
+.sal-history-photo {
+  overflow: hidden;
+  border-radius: 0.5625rem;
+  border: 1px solid rgba(12, 12, 12, 0.08);
+  background: #eeede8;
+  height: 10.75rem;
+}
+
+.sal-history-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sal-history-photo--contain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: #f2f1ec;
+}
+
+.sal-history-photo--contain img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 8.5rem;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.14));
+}
+
+.sal-image-placeholder {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.sal-image-placeholder::before,
+.sal-image-placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.sal-image-placeholder::before {
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.34), transparent 36%),
+    linear-gradient(120deg, rgba(24, 24, 24, 0.82), rgba(60, 58, 53, 0.78) 55%, rgba(183, 173, 158, 0.72));
+}
+
+.sal-image-placeholder::after {
+  inset: auto 1rem 1rem 1rem;
+  color: white;
+  content: "Replace with Salomon imagery";
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sal-compare-reveal {
+  overflow: hidden;
+  border: 1px solid rgba(12, 12, 12, 0.08);
+  border-radius: 0.5625rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 30px rgba(12, 12, 12, 0.05);
+}
+
+.sal-compare-reveal summary {
+  list-style: none;
+}
+
+.sal-compare-reveal summary::-webkit-details-marker {
+  display: none;
+}
+
+.sal-compare-summary {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  cursor: pointer;
+}
+
+.sal-compare-summary__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5625rem;
+  border: 1px solid rgba(12, 12, 12, 0.1);
+  background: #f0efeb;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5e574d;
+  white-space: nowrap;
+}
+
+.sal-compare-reveal[open] .sal-compare-summary {
+  border-bottom: 1px solid rgba(12, 12, 12, 0.08);
+}
+
+.sal-compare-reveal[open] .sal-compare-summary__cta {
+  background: #151515;
+  color: white;
+  border-color: rgba(21, 21, 21, 0.9);
+}
+
+.sal-compare-answer {
+  padding: 1.15rem 1.25rem 1.25rem;
+  background: rgba(244, 243, 239, 0.75);
+}
+
+.sal-metric-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .sal-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

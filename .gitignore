@@ -1,0 +1,13 @@
+**/.DS_Store
+**/.astro/
+**/.codex/
+**/node_modules/
+**/dist/
+/.chrome-headless/
+/.chrome-headless-pdf-temp/
+/.chrome-headless-pdf-temp2/
+/.edge-headless/
+/tools/.edge-headless/
+/tools/pdf-page-shots/
+/tools/tmp-glossary-inspect/
+/references/salomon-pdf-images/

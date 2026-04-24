@@ -1,0 +1,422 @@
+---
+import "../styles/global.css";
+
+const salomonImages = import.meta.glob("../images/salomon/**/*.{png,jpg,jpeg,avif,svg}", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
+const resolveSalomonImage = (path) =>
+  path.startsWith("/salomon/")
+    ? salomonImages[`../images/salomon/${path.slice("/salomon/".length)}`] ?? path
+    : path;
+
+const navItems = [
+  { href: "#concept", label: "Concept" },
+  { href: "#products", label: "Products" },
+  { href: "#sell", label: "Sell it" },
+];
+
+const conceptCards = [
+  {
+    title: "Road feeling",
+    detail: "Gravel should keep the cushioned road sensation the runner already likes, rather than forcing them straight into a full trail-shoe experience.",
+  },
+  {
+    title: "Better grip",
+    detail: "The point of the category is simple: same run feel, stronger confidence once the route leaves the pavement and moves onto parks, dust, or gravel.",
+  },
+  {
+    title: "Mixed-surface freedom",
+    detail: "This is the answer for city runners who want to move from roads to parks and then into more natural routes without changing personality underfoot.",
+  },
+];
+
+const products = [
+  {
+    title: "Aero Glide 4 Gravel",
+    image: "/salomon/aero-glide-4-gravel.png",
+    strap: "Made for gravel running, or easy trails with dynamic comfort",
+    metrics: ["Dynamic comfort", "Maximum cushioning", "Adaptive ride", "Adaptive grip"],
+    detail:
+      "Aero Glide 4 Gravel gives the runner the freedom to switch between surfaces whenever they choose. It brings exceptional comfort and dynamic performance, then adds a grippy sole for more versatility and confidence.",
+    highlight: {
+      image: "/salomon/aero-glide-4-gravel-numbers.jpg",
+      points: [
+        {
+          number: "1",
+          title: "3D mesh upper with endoFIT",
+          detail: "An internal fit sleeve designed to hug the foot in exactly the right places and provide a precise fit",
+        },
+        {
+          number: "2",
+          title: "quickLACE neo",
+          detail: "Effortless lacing with a thicker lace for enhanced comfort and a secure, evenly adjusted fit on any terrain",
+        },
+        {
+          number: "3",
+          title: "optiFOAM2",
+          detail: "Soft, bouncy and durable. Made with 100% TPU, recyclable",
+        },
+        {
+          number: "4",
+          title: "Gravel contaGRIP\u00AE",
+          detail: "Optimal for multi surface traction & transitioning from paved to non-paved... and back again!",
+        },
+      ],
+    },
+    specs: [
+      { label: "Drop", lines: ["8 mm", "41 / 33mm"] },
+      {
+        label: "Weight",
+        columns: [
+          { value: "270 g", note: "M UK 8.5" },
+          { value: "230 g", note: "W UK 5.5" },
+        ],
+      },
+      { label: "Cushion", lines: ["Maximum"] },
+      { label: "Practice", lines: ["Running"] },
+      { label: "Terrain", lines: ["City parks, mixed,", "paved surface, smooth"] },
+      { label: "Fit", lines: ["Standard"] },
+    ],
+    benefits: ["Adaptive ride", "Adaptive grip", "Adaptive fit"],
+    tech: ["3D mesh upper with endoFIT", "quickLACE neo", "optiFOAM2", "Gravel contaGRIP"],
+    say: "Explain it as road comfort with better grip once the route leaves asphalt. This is the max-cushion gravel answer.",
+  },
+  {
+    title: "Aero Blaze 3 Gravel",
+    image: "/salomon/aero-blaze-3-gravel.png",
+    strap: "Made for everyday running from paved to gravel roads, or easy trails",
+    metrics: ["Dynamic comfort", "Lighter feel", "Responsive ride", "Versatile grip"],
+    detail:
+      "Aero Blaze 3 Gravel is the lightweight all-terrain running shoe that lets the runner head from road to gravel and beyond. It keeps the landings soft and bouncy, but the ride feels more agile and more responsive than the max-cushion option.",
+    highlight: {
+      image: "/salomon/aero-blaze-3-gravel-numbers.jpg",
+      points: [
+        {
+          number: "1",
+          title: "Engineered mesh upper with sensiFIT",
+          detail: "Technology that wraps your foot like a car's seatbelt.",
+        },
+        {
+          number: "2",
+          title: "optiFOAM2",
+          detail: "Soft, bouncy and durable. Made with 100% TPU, recyclable",
+        },
+        {
+          number: "3",
+          title: "Gravel contaGRIP\u00AE",
+          detail: "Optimal for multi surface traction & transitioning from paved to non-paved... and back again!",
+        },
+      ],
+    },
+    specs: [
+      { label: "Drop", lines: ["8 mm", "35 / 27mm"] },
+      {
+        label: "Weight",
+        columns: [
+          { value: "248 g", note: "M UK 8.5" },
+          { value: "204 g", note: "W UK 5.5" },
+        ],
+      },
+      { label: "Cushion", lines: ["Maximum"] },
+      { label: "Practice", lines: ["Running"] },
+      { label: "Terrain", lines: ["City parks, mixed,", "paved surface, smooth"] },
+      { label: "Fit", lines: ["Standard"] },
+    ],
+    benefits: ["Comfort and agility", "Versatility and grip", "Reinforcement and protection"],
+    tech: ["Engineered mesh upper with sensiFIT", "optiFOAM2", "Gravel contaGRIP"],
+    say: "Use Aero Blaze 3 Gravel for runners who want the gravel category, but with a snappier, lower-stack feeling than Aero Glide 4 Gravel.",
+  },
+];
+
+const sellingRows = [
+  {
+    prompt: "I want the plushest gravel ride and the easiest long-distance comfort.",
+    start: "Aero Glide 4 Gravel",
+    why: "It is the max-cushion gravel answer, built for freedom across surfaces with a softer, more protected ride.",
+  },
+  {
+    prompt: "I want the gravel concept, but I prefer something more responsive and lively.",
+    start: "Aero Blaze 3 Gravel",
+    why: "It keeps the same road-to-gravel logic with less cushioning and a snappier sensation underfoot.",
+  },
+  {
+    prompt: "I run roads first, then parks, then gravel when I can.",
+    start: "Either gravel shoe",
+    why: "That is exactly the category use case. The choice becomes max comfort versus a more responsive feel.",
+  },
+  {
+    prompt: "I do not want a full trail shoe feel.",
+    start: "Aero Glide 4 Gravel or Aero Blaze 3 Gravel",
+    why: "Gravel keeps the road-running sensation, then adds better grip once the runner leaves asphalt.",
+  },
+];
+
+const sectionPadding = "p-6 md:p-8 lg:p-10";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 3 | Gravel running</title>
+  </head>
+  <body class="selection:bg-[var(--sal-lime)] selection:text-black">
+    <main class="sal-shell min-h-screen">
+      <div class="mx-auto max-w-[1260px] px-4 pt-2 pb-4 md:px-6 md:pt-3 md:pb-6">
+        <header class="sal-card sal-section sticky top-2 z-30 overflow-visible px-4 py-4 md:top-3 md:px-6" style="z-index:60; isolation:isolate;">
+          <div class="flex items-center justify-between gap-4 md:hidden">
+            <div class="flex min-w-0 items-center gap-3">
+              <img src="/tfg-logo.svg" alt="TFG logo" class="h-10 w-10 shrink-0" />
+              <p class="min-w-0 text-sm font-medium leading-5 text-[var(--sal-ink-soft)]">Module 3 | Gravel running</p>
+            </div>
+
+            <details class="relative z-[70] shrink-0 md:hidden" data-mobile-nav style="z-index:70;">
+              <summary class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-[rgba(12,12,12,0.1)] bg-white text-[var(--sal-ink-soft)] transition hover:bg-[#f4efea] [&::-webkit-details-marker]:hidden">
+                <span class="sr-only">Toggle lesson navigation</span>
+                <span aria-hidden="true" class="flex flex-col gap-[0.28rem]">
+                  <span class="block h-[2px] w-5 rounded-full bg-current"></span>
+                  <span class="block h-[2px] w-5 rounded-full bg-current"></span>
+                  <span class="block h-[2px] w-5 rounded-full bg-current"></span>
+                </span>
+              </summary>
+
+              <div class="absolute right-0 top-[calc(100%+0.75rem)] z-[80] w-64 max-w-[calc(100vw-1.5rem)] overflow-hidden rounded-[0.9rem] border border-[rgba(12,12,12,0.08)] bg-white p-2 shadow-[0_14px_36px_rgba(56,39,27,0.09)]" style="z-index:80;">
+                <div class="flex flex-col gap-1.5 text-sm text-[var(--sal-ink-soft)]">
+                  {navItems.map((item) => (
+                    <a href={item.href} class="rounded-[0.75rem] px-4 py-3 transition hover:bg-[#f4efea]" data-mobile-nav-link>{item.label}</a>
+                  ))}
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <div class="hidden md:flex md:items-center md:justify-between md:gap-6">
+            <div class="flex min-w-0 items-center gap-4">
+              <img src="/tfg-logo.svg" alt="TFG logo" class="h-11 w-11 shrink-0" />
+              <div class="min-w-0">
+                <p class="text-lg font-semibold tracking-[-0.03em] text-[var(--sal-ink-soft)]">Module 3 | Gravel running</p>
+              </div>
+            </div>
+
+            <nav class="flex gap-2 overflow-x-auto pb-1 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-[var(--sal-ink-soft)]">
+              {navItems.map((item) => (
+                <a href={item.href} class="sal-chip whitespace-nowrap hover:border-[rgba(12,12,12,0.22)] hover:bg-white">{item.label}</a>
+              ))}
+            </nav>
+          </div>
+        </header>
+
+        <section class="sal-card-dark sal-section mt-5 overflow-hidden px-6 py-8 md:mt-6 md:px-10 md:py-12">
+          <div class="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
+            <div>
+              <p class="sal-kicker text-[var(--sal-glacier)]">Gravel running</p>
+              <h1 class="mt-4 max-w-[13ch] text-[2.95rem] font-black uppercase leading-[0.92] tracking-[-0.07em] text-white md:text-[4.95rem]">
+                Sell the bridge between road comfort and trail confidence
+              </h1>
+              <p class="mt-5 max-w-[46rem] text-[1.08rem] leading-8 text-white/78 md:text-[1.18rem]">
+                Gravel is for runners who leave the pavement without wanting a full trail-shoe feel. Keep the promise simple: road comfort with more grip and more freedom across surfaces.
+              </p>
+
+            </div>
+
+            <div class="sal-hero-photo">
+              <img src={resolveSalomonImage("/salomon/hero-gravel.png")} alt="Two Salomon runners moving from city edge to more natural terrain" />
+            </div>
+          </div>
+        </section>
+
+        <section id="concept" class="sal-card sal-section mt-6">
+          <div class={sectionPadding}>
+            <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+              <div>
+                <p class="sal-kicker text-[#6a6257]">What is gravel running?</p>
+                <h2 class="mt-3 text-[2.15rem] font-black uppercase leading-[0.96] tracking-[-0.06em] text-[var(--sal-ink)] md:text-[3rem]">
+                  Cushion and rebound from road, grip and versatility from trail
+                </h2>
+                <p class="mt-5 text-[1.08rem] leading-8 text-[#403c35]">
+                  Salomon's GRVL range combines the feel of road shoes with the confidence of a trail outsole for runs that mix paved roads, city parks, and dusty gravel paths.
+                </p>
+              </div>
+
+              <div class="grid gap-4 md:grid-cols-3">
+                {conceptCards.map((card) => (
+                  <article class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white/88 p-5">
+                    <h3 class="text-[1.25rem] font-semibold tracking-[-0.03em] text-[var(--sal-ink)]">{card.title}</h3>
+                    <p class="mt-3 text-sm leading-7 text-[#47433d]">{card.detail}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="products" class="sal-card sal-section mt-6">
+          <div class={sectionPadding}>
+            <p class="sal-kicker text-[#6a6257]">Gravel lineup</p>
+            <h2 class="mt-3 text-[2.15rem] font-black uppercase leading-[0.96] tracking-[-0.06em] text-[var(--sal-ink)] md:text-[3rem]">
+              Two products, two clear ways into the category
+            </h2>
+
+            <div class="mt-8 grid gap-5">
+              {products.map((product, index) => (
+                <article
+                  class="sal-model-card p-5 md:p-6"
+                  style={`background:${index % 2 === 0 ? "rgba(255,255,255,0.92)" : "rgba(247,246,243,0.96)"};`}
+                >
+                  <div class="grid gap-6 xl:grid-cols-[0.72fr_1.28fr] xl:items-start">
+                    <div>
+                      <div class="sal-product-stage">
+                        <img src={resolveSalomonImage(product.image)} alt={`${product.title} product cutout`} />
+                      </div>
+                    </div>
+
+                    <div class="sal-model-card__header">
+                      <p class="sal-kicker text-[#6a6257]">{product.strap}</p>
+                      <h3 class="mt-2 text-[1.4rem] font-semibold tracking-[-0.04em] text-[var(--sal-ink)]">{product.title}</h3>
+                      <p class="mt-4 text-sm leading-7 text-[#45413b]">{product.detail}</p>
+                    </div>
+                  </div>
+
+                  {product.highlight && (
+                    <div class="mt-5 rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#f2f1ed] p-4">
+                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#71695d]">Highlight</p>
+                      <div class="mt-4 grid gap-4 xl:grid-cols-[0.9fr_1.1fr]">
+                        <div class="sal-inline-figure rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white p-0">
+                          <img src={resolveSalomonImage(product.highlight.image)} alt={`${product.title} highlight view with numbered callouts`} class="rounded-[0.5625rem]" />
+                        </div>
+
+                        <div class="grid gap-3">
+                          {product.highlight.points.map((point) => (
+                            <article class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white p-4">
+                              <div class="flex items-start gap-3">
+                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--sal-ink)] text-xs font-black text-white">
+                                  {point.number}
+                                </span>
+                                <div>
+                                  <h4 class="text-[1rem] font-semibold tracking-[-0.03em] text-[var(--sal-ink)]">{point.title}</h4>
+                                  {point.detail && <p class="mt-2 text-sm leading-7 text-[#45413b]">{point.detail}</p>}
+                                </div>
+                              </div>
+                            </article>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div class="mt-4 grid gap-4 xl:grid-cols-[1.02fr_0.98fr]">
+                    <div class="rounded-[0.5625rem] bg-[#f0efeb] p-4">
+                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#71695d]">Tech features</p>
+                      <div class="mt-4 sal-spec-grid">
+                        {product.specs.map((spec) => (
+                          <article class="sal-spec-card">
+                            <p class="sal-spec-label">{spec.label}</p>
+                            {spec.columns ? (
+                              <div class="sal-spec-columns">
+                                {spec.columns.map((column) => (
+                                  <div class="sal-spec-stack">
+                                    <p class="sal-spec-value">{column.value}</p>
+                                    {column.note && <p class="sal-spec-note">{column.note}</p>}
+                                  </div>
+                                ))}
+                              </div>
+                            ) : (
+                              <div class="sal-spec-stack">
+                                {spec.lines.map((line) => (
+                                  <p class="sal-spec-value">{line}</p>
+                                ))}
+                              </div>
+                            )}
+                          </article>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div class="rounded-[0.5625rem] bg-white p-4">
+                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#71695d]">Why people love this shoe</p>
+                      <ul class="mt-3 space-y-2 text-sm leading-7 text-[#403b34]">
+                        {product.benefits.map((item) => (
+                          <li class="flex gap-2"><span class="mt-[0.58rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--sal-pink)]"></span><span>{item}</span></li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="sell" class="sal-section mt-6 grid gap-6 lg:grid-cols-[0.88fr_1.12fr]">
+          <article class="sal-card-dark px-6 py-7 md:px-8 md:py-8">
+            <p class="sal-kicker text-[var(--sal-pink)]">Selling starts</p>
+            <h2 class="mt-4 text-[2.1rem] font-black uppercase leading-[0.94] tracking-[-0.06em] text-white md:text-[3rem]">Keep the gravel choice clear and easy to explain</h2>
+            <p class="mt-5 text-[1.02rem] leading-8 text-white/78">
+              Listen for the route and the ride feel, name the best place to start, and explain the benefit in plain language.
+            </p>
+            <div class="mt-8 overflow-hidden rounded-[0.5625rem]">
+              <img
+                src={resolveSalomonImage("/salomon/hero-gravel.png")}
+                alt="Salomon runners moving from city edge onto gravel terrain"
+                class="h-[13.5rem] w-full object-cover md:h-[16rem]"
+              />
+            </div>
+          </article>
+
+          <article class="sal-card">
+            <div class={sectionPadding}>
+              <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Tap a customer line to reveal the answer</p>
+              <div class="mt-4 grid gap-4">
+                {sellingRows.map((row) => (
+                  <details class="sal-compare-reveal" name="gravel-sell">
+                    <summary class="sal-compare-summary">
+                      <div>
+                        <p class="text-[1.02rem] font-semibold leading-7 tracking-[-0.02em] text-[var(--sal-ink)]">{row.prompt}</p>
+                      </div>
+                      <span class="sal-compare-summary__cta">Reveal answer</span>
+                    </summary>
+
+                    <div class="sal-compare-answer">
+                      <div class="grid gap-4 lg:grid-cols-[0.72fr_1.18fr]">
+                        <div>
+                          <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Start with</p>
+                          <p class="mt-2 text-sm leading-7 text-[#44403a]">{row.start}</p>
+                        </div>
+                        <div>
+                          <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Why</p>
+                          <p class="mt-2 text-sm leading-7 text-[#44403a]">{row.why}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+    <script>
+      const mobileNavs = document.querySelectorAll("[data-mobile-nav]");
+
+      document.addEventListener("click", (event) => {
+        mobileNavs.forEach((menu) => {
+          if (!menu.contains(event.target)) {
+            menu.removeAttribute("open");
+          }
+        });
+      });
+
+      mobileNavs.forEach((menu) => {
+        menu.querySelectorAll("[data-mobile-nav-link]").forEach((link) => {
+          link.addEventListener("click", () => {
+            menu.removeAttribute("open");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

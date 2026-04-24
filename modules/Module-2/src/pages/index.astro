@@ -1,0 +1,855 @@
+---
+import "../styles/global.css";
+
+const salomonImages = import.meta.glob("../images/salomon/**/*.{png,jpg,jpeg,avif,svg}", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
+const resolveSalomonImage = (path) =>
+  path.startsWith("/salomon/")
+    ? salomonImages[`../images/salomon/${path.slice("/salomon/".length)}`] ?? path
+    : path;
+
+const navItems = [
+  { href: "#basics", label: "Basics" },
+  { href: "#groups", label: "Trail groups" },
+  { href: "#lineup", label: "Lineup" },
+  { href: "#sell", label: "Sell it" },
+];
+
+const distanceBands = [
+  {
+    title: "Short",
+    strap: "Up to 42 km",
+    detail: "Short trail efforts still need grip and confidence, but they do not always demand the most protective or most cushioned option.",
+  },
+  {
+    title: "Long",
+    strap: "42 to 80 km",
+    detail: "This is where comfort, traction, and stability need to work together so the runner can stay smooth over changing ground.",
+  },
+  {
+    title: "Ultra",
+    strap: "80 km and beyond",
+    detail: "Ultra distance raises the importance of fatigue management, impact distribution, fit security, and durable grip.",
+  },
+];
+
+const terrainCards = [
+  {
+    title: "Smooth terrain",
+    strap: "Predictable surface, minimal elevation",
+    detail: "Great for beginners or recovery runs.",
+    image: "/salomon/terrain-smooth.png",
+    needs: ["Cushioned ride", "Flexible sole", "Moderate grip", "Lightweight build"],
+  },
+  {
+    title: "Rolling terrain",
+    strap: "Mix of uphill and downhill, moderate technicality",
+    detail: "Varied foot placement and rhythm changes call for balanced product choices.",
+    image: "/salomon/terrain-rolling.png",
+    needs: ["Versatility", "Grip plus comfort", "Mid-range stack and drop", "Responsive midsole"],
+  },
+  {
+    title: "Technical terrain",
+    strap: "Steep, unstable, and less predictable",
+    detail: "This is where protection, precision, and confidence become the selling language.",
+    image: "/salomon/terrain-technical.png",
+    needs: ["Aggressive lug pattern", "Rock protection", "Reinforced upper", "Secure fit"],
+  },
+];
+
+const trailGroups = [
+  {
+    title: "Dynamic comfort",
+    models: "Ultra Glide 4, Ultra Flow 2",
+    detail: "For runners chasing cushioning, confidence, and less fatigue over longer or more approachable trail days.",
+    tone: "rgba(247,246,243,0.96)",
+  },
+  {
+    title: "Dynamic support",
+    models: "Genesis, XA Pro 3D V9",
+    detail: "For technical terrain, mountain confidence, stability, and all-round protection.",
+    tone: "rgba(242,241,238,0.96)",
+  },
+  {
+    title: "Dynamic speed",
+    models: "Pulsar, Speedcross 6, Speedcross Peak",
+    detail: "For runners who want pace, traction, a lighter sensation, and stronger confidence on aggressive terrain.",
+    tone: "rgba(245,244,241,0.96)",
+  },
+  {
+    title: "Versatile easy trail",
+    models: "Alphaglide",
+    detail: "For broad use cases, easy miles, and runners who want one shoe that can handle different trail moments.",
+    tone: "rgba(244,243,240,0.96)",
+  },
+];
+
+const products = [
+  {
+    title: "Ultra Glide 4",
+    image: "/salomon/ultra-glide-4.png",
+    lane: "Dynamic comfort",
+    strap: "Made for long-distance comfort",
+    metrics: ["Mixed terrain", "Maximum cushioning", "Dynamic comfort", "Long-distance comfort"],
+    detail:
+      "Ease into the Ultra Glide 4 and feel the difference. The latest version of Salomon's most comfortable trail running shoe is lighter, more breathable, and more dynamic underfoot, so the runner can stack up the miles comfortably.",
+    highlight: {
+      image: "/salomon/ultra-glide-4-numbers.jpg",
+      points: [
+        {
+          number: "1",
+          title: "Engineered Mesh sensiFIT & endoFIT",
+          detail: "Light weight, breathable and comfortable, featuring 50% recycled content",
+        },
+        {
+          number: "2",
+          title: "optiFOAM",
+          detail: "Is a super springy and comfortable midsole compound",
+        },
+        {
+          number: "3",
+          title: "relieveSPHERE",
+          detail: "Designed to distribute pressure and absorb repetitive impact underfoot for lasting comfort",
+        },
+        {
+          number: "4",
+          title: "All Terrain contaGRIP®",
+          detail: "Confidence in a wide variety of terrains",
+        },
+      ],
+    },
+    specs: [
+      { label: "Drop", lines: ["6 mm", "41 / 35mm"] },
+      {
+        label: "Weight",
+        columns: [
+          { value: "280 g", note: "M UK 8.5" },
+          { value: "250 g", note: "W UK 5.5" },
+        ],
+      },
+      { label: "Lug", lines: ["4 mm"] },
+      { label: "Cushion", lines: ["Maximum"] },
+      { label: "Terrain", lines: ["Mixed"] },
+      { label: "Fit", lines: ["Standard"] },
+    ],
+    benefits: ["Dynamic cushioning", "Grip", "Long-lasting comfort"],
+    tech: ["Engineered mesh upper", "sensiFIT and endoFIT", "optiFOAM midsole", "relieveSPHERE geometry", "All Terrain contaGRIP"],
+    differenceTitle: "What differentiates the Ultra Glide 4 from the Ultra Glide 3?",
+    difference: "The latest version is lighter, more breathable, and more dynamic underfoot for long-distance comfort.",
+    say: "Lead with Ultra Glide 4 when the customer wants one of the most comfortable trail shoes in the range without losing stability and trust underfoot.",
+  },
+  {
+    title: "Ultra Flow 2",
+    image: "/salomon/ultra-flow-2.png",
+    lane: "Dynamic comfort",
+    strap: "Made for new trail runners looking for comfort trails",
+    metrics: ["Mixed terrain", "Maximum cushioning", "Accessible comfort", "Road-to-trail entry"],
+    detail:
+      "Ultra Flow 2 makes endurance feel effortless. It pairs optiFOAM cushioning, reassuring grip, and a lightweight breathable upper to create a softer, more approachable trail experience.",
+    highlight: {
+      image: "/salomon/ultra-flow-2-numbers.jpg",
+      points: [
+        {
+          number: "1",
+          title: "3D Mesh & sensiFIT",
+          detail: "Technology that wraps your foot like a car’s seatbelt",
+        },
+        {
+          number: "2",
+          title: "optiFOAM",
+          detail: "Is a super springy and comfortable midsole compound",
+        },
+        {
+          number: "3",
+          title: "Relieve SPHERE",
+          detail: "Designed to distribute pressure and absorb repetitive impact underfoot for lasting comfort.",
+        },
+        {
+          number: "4",
+          title: "All Terrain contaGRIP®",
+          detail: "Confidence in a wide variety of terrains",
+        },
+      ],
+    },
+    specs: [
+      { label: "Drop", lines: ["6 mm", "34 / 28mm"] },
+      {
+        label: "Weight",
+        columns: [
+          { value: "273 g", note: "M UK 8.5" },
+          { value: "233 g", note: "W UK 5.5" },
+        ],
+      },
+      { label: "Lug", lines: ["4 mm"] },
+      { label: "Cushion", lines: ["Maximum"] },
+      { label: "Terrain", lines: ["Mixed"] },
+      { label: "Fit", lines: ["Standard"] },
+    ],
+    benefits: ["Dynamic cushioning", "Grip", "Snug fit"],
+    tech: ["3D mesh upper", "sensiFIT", "optiFOAM", "relieveSPHERE", "All Terrain contaGRIP"],
+    say: "Use Ultra Flow 2 for new trail runners, road runners trying trail for the first time, or anyone who wants Ultra Glide comfort at a more accessible level.",
+  },
+  {
+    title: "Genesis",
+    image: "/salomon/genesis.png",
+    lane: "Dynamic support",
+    strap: "Made for fun, day-long mountain runs in technical terrain",
+    metrics: ["Rocky and mixed terrain", "Maximum cushioning", "Mountain confidence", "Technical support"],
+    detail:
+      "Genesis is a mountain running shoe that stays comfortable, confidence-boosting, dynamic, and agile at the same time. It is designed for hard-wearing durability and precise movement in tricky terrain.",
+    highlight: {
+      image: "/salomon/genesis-numbers.jpg",
+      points: [
+        {
+          number: "1",
+          title: "Matryx®",
+          detail: "Upper Matryx® technology is highly resistant. Seamless, lightweight, foothold, and breathable",
+        },
+        {
+          number: "2",
+          title: "optiFOAM",
+          detail: "Is a super springy and comfortable midsole compound.",
+        },
+        {
+          number: "3",
+          title: "activeCHASSIS",
+          detail: "A chassis for increased guidance, uncompromised agility and fluid freedom of movement",
+        },
+        {
+          number: "4",
+          title: "All Terrain contaGRIP®",
+          detail: "Confidence in a wide variety of terrains",
+        },
+      ],
+    },
+    specs: [
+      { label: "Drop", lines: ["8 mm", "30 / 22mm"] },
+      {
+        label: "Weight",
+        columns: [
+          { value: "269 g", note: "M UK 8.5" },
+          { value: "242 g", note: "W UK 8.5" },
+        ],
+      },
+      { label: "Lug", lines: ["4.5 mm"] },
+      { label: "Cushion", lines: ["Maximum"] },
+      { label: "Terrain", lines: ["Rocky and", "mixed terrains"] },
+      { label: "Fit", lines: ["Standard"] },
+    ],
+    benefits: ["Running performance", "Resistance", "Grip"],
+    tech: ["Matryx upper", "quickLACE", "optiFOAM", "activeCHASSIS", "All Terrain contaGRIP"],
+    say: "Use Genesis for short or long mountain adventures when the customer wants comfort and stability together, especially on rolling to technical terrain.",
+  },
+  {
+    title: "Pulsar",
+    image: "/salomon/pulsar.png",
+    lane: "Dynamic speed",
+    strap: "Made for your fast(er) daily runs",
+    metrics: ["Mixed terrain", "Maximum cushioning", "Road-like trail feel", "Faster training"],
+    detail:
+      "Pulsar is built to pump up the pace with exceptional propulsion and cushioning. It gives the trail runner a more road-running-like sensation while keeping Salomon grip and stability.",
+    highlight: {
+      image: "/salomon/pulsar-numbers.jpg",
+      points: [
+        {
+          number: "1",
+          title: "quickLACE",
+          detail: "",
+        },
+        {
+          number: "2",
+          title: "sensiFIT & endoFIT",
+          detail: "Cradles the foot from midsole to laces to ensure a secure and snug mid foot support",
+        },
+        {
+          number: "3",
+          title: "optiFOAM2",
+          detail: "Is a super springy and comfortable midsole compound.",
+        },
+        {
+          number: "4",
+          title: "All Terrain contaGRIP\u00AE",
+          detail: "Confidence in a wide variety of terrains",
+        },
+      ],
+    },
+    specs: [
+      { label: "Drop", lines: ["6 mm", "29 / 23mm"] },
+      {
+        label: "Weight",
+        columns: [
+          { value: "290 g", note: "M UK 8.5" },
+          { value: "265 g", note: "W UK 5.5" },
+        ],
+      },
+      { label: "Lug", lines: ["4 mm"] },
+      { label: "Cushion", lines: ["Maximum"] },
+      { label: "Terrain", lines: ["Mixed"] },
+      { label: "Fit", lines: ["Standard"] },
+    ],
+    benefits: ["Superfoam cushioning", "Grip", "Lightweight feel"],
+    tech: ["quickLACE", "sensiFIT and endoFIT", "optiFOAM2", "All Terrain contaGRIP"],
+    say: "Position Pulsar for runners who want to go faster on rolling terrain and keep the ride feeling lively, light, and more road-inspired.",
+  },
+  {
+    title: "Speedcross 6",
+    image: "/salomon/speedcross-6.png",
+    lane: "Dynamic speed",
+    strap: "Made for training with grip and traction",
+    metrics: ["Muddy terrain", "Regular cushioning", "Trail legend", "Aggressive traction"],
+    detail:
+      "Speedcross 6 stays true to its legendary roots while getting lighter and even more grippy. It is the fast answer for muddy, soft, and uneven ground where traction and confidence matter most.",
+    highlight: {
+      image: "/salomon/speedcross-6-numbers.jpg",
+      points: [
+        {
+          number: "1",
+          title: "quickLACE",
+          detail: "",
+        },
+        {
+          number: "2",
+          title: "Ripstop fabric upper",
+          detail: "Abrasion resistant (30% recycled materials) with sensiFIT",
+        },
+        {
+          number: "3",
+          title: "energyCELL+",
+          detail: "A midsole compound that provides energy return along with substantial cushioning and durability",
+        },
+        {
+          number: "4",
+          title: "Mud contaGRIP\u00AE",
+          detail: "Traction and mud evacuation in muddy, soft or uneven terrain",
+        },
+      ],
+    },
+    specs: [
+      { label: "Drop", lines: ["10 mm", "32 / 22mm"] },
+      {
+        label: "Weight",
+        columns: [
+          { value: "298 g", note: "M UK 8.5" },
+          { value: "262 g", note: "W UK 5.5" },
+        ],
+      },
+      { label: "Lug", lines: ["5 mm"] },
+      { label: "Cushion", lines: ["Regular"] },
+      { label: "Terrain", lines: ["Muddy"] },
+      { label: "Fit", lines: ["Standard"] },
+    ],
+    benefits: ["Grip", "Fit", "Comfort"],
+    tech: ["quickLACE", "ripstop upper with sensiFIT", "energyCELL+", "Mud contaGRIP"],
+    say: "Describe it in one sentence: speed and confidence on muddy trails. This is still the shoe that brought speed to the trails.",
+  },
+  {
+    title: "Speedcross Peak",
+    image: "/salomon/speedcross-peak.png",
+    lane: "Dynamic speed",
+    strap: "Made for easy runs with grip and traction",
+    metrics: ["Mixed terrain", "Regular cushioning", "Accessible Speedcross DNA", "Grip-first trail use"],
+    detail:
+      "Speedcross Peak keeps the aggressive outsole and unmistakable Speedcross DNA, but packages it in a more accessible, easier-going proposition for broader trail use.",
+    highlight: {
+      image: "/salomon/speedcross-peak-numbers.jpg",
+      points: [
+        {
+          number: "1",
+          title: "quickLACE",
+          detail: "",
+        },
+        {
+          number: "2",
+          title: "sensiFIT",
+          detail: "Cradles the foot from midsole to laces to ensure a secure and snug mid foot support",
+        },
+        {
+          number: "3",
+          title: "fuzeFOAM",
+          detail: "Soft EVA foam for a smooth yet dynamic stride",
+        },
+        {
+          number: "4",
+          title: "All Terrain contaGRIP\u00AE",
+          detail: "Confidence in a wide variety of terrains",
+        },
+      ],
+    },
+    specs: [
+      { label: "Drop", lines: ["10 mm", "28 / 18mm"] },
+      {
+        label: "Weight",
+        columns: [
+          { value: "319 g", note: "M UK 8.5" },
+          { value: "267 g", note: "W UK 5.5" },
+        ],
+      },
+      { label: "Lug", lines: ["5 mm"] },
+      { label: "Cushion", lines: ["Regular"] },
+      { label: "Terrain", lines: ["Mixed terrain"] },
+      { label: "Fit", lines: ["Standard"] },
+    ],
+    benefits: ["Precise fit", "All-terrain protection", "Active grip"],
+    tech: ["quickLACE", "sensiFIT", "fuzeFOAM", "All Terrain contaGRIP"],
+    say: "Use it when the customer likes the Speedcross story but does not need the most premium or most aggressive version of that idea.",
+  },
+  {
+    title: "Alphaglide",
+    image: "/salomon/alphaglide.png",
+    lane: "Versatile easy trail",
+    strap: "Made for easy and versatile runs",
+    metrics: ["Mixed terrain", "Moderate cushioning", "Easy trail", "Do-it-all use"],
+    detail:
+      "Alphaglide is a versatile trail shoe that scores high on cushioning, comfort, and terrain adaptability. It is reassuring in grip, broad in use, and easy to recommend.",
+    highlight: {
+      image: "/salomon/alphaglide-numbers.jpg",
+      points: [
+        {
+          number: "1",
+          title: "sensiFIT",
+          detail: "Cradles the foot from midsole to laces to ensure a secure and snug mid foot support",
+        },
+        {
+          number: "2",
+          title: "fuzeFOAM",
+          detail: "Soft EVA foam for a smooth yet dynamic stride",
+        },
+        {
+          number: "3",
+          title: "All Terrain contaGRIP\u00AE",
+          detail: "Confidence in a wide variety of terrains",
+        },
+      ],
+    },
+    specs: [
+      { label: "Drop", lines: ["9 mm", "30 / 21mm"] },
+      {
+        label: "Weight",
+        columns: [
+          { value: "285 g", note: "M UK 8.5" },
+          { value: "250 g", note: "W UK 5.5" },
+        ],
+      },
+      { label: "Lug", lines: ["3.5 mm"] },
+      { label: "Cushion", lines: ["Moderate"] },
+      { label: "Terrain", lines: ["Mixed terrain"] },
+      { label: "Fit", lines: ["Standard"] },
+    ],
+    benefits: ["Responsive ride", "Foothold protection", "Versatile grip"],
+    tech: ["sensiFIT", "fuzeFOAM", "All Terrain contaGRIP", "Anti-debris mesh"],
+    say: "Use Alphaglide when the customer wants one reliable trail answer that can handle easy runs, mixed use, and a wide variety of trail moments.",
+  },
+  {
+    title: "XA Pro 3D V9",
+    image: "/salomon/xa-pro-3d-v9.png",
+    lane: "Dynamic support",
+    strap: "Made for versatility on technical hikes and runs",
+    metrics: ["Mixed and rocky terrain", "Regular cushioning", "Multi-activity icon", "Stability and durability"],
+    detail:
+      "XA Pro 3D V9 is the icon for stability, durability, and support in a trail package tough enough for demanding adventure. Originally introduced for trail running, it is now equally trusted for multi-activity use.",
+    highlight: {
+      image: "/salomon/xa-pro-3d-v9-numbers.jpg",
+      points: [
+        {
+          number: "1",
+          title: "3D mesh welded upper with sensiFIT",
+          detail: "For comfort and foothold",
+        },
+        {
+          number: "2",
+          title: "Large protective toe cap",
+          detail: "",
+        },
+        {
+          number: "3",
+          title: "advancedCHASSIS",
+          detail: "This chassis provides stability on the rear-foot while keeping the front flexible",
+        },
+        {
+          number: "4",
+          title: "All Terrain contaGRIP\u00AE",
+          detail: "Confidence in a wide variety of terrains. Upgraded pattern and compound vs V8",
+        },
+      ],
+    },
+    specs: [
+      { label: "Drop", lines: ["11 mm", "28.7 / 17.3mm"] },
+      {
+        label: "Weight",
+        columns: [
+          { value: "323 g", note: "M UK 8.5" },
+          { value: "300 g", note: "W UK 5.5" },
+        ],
+      },
+      { label: "Lug", lines: ["3.5 mm"] },
+      { label: "Cushion", lines: ["Regular"] },
+      { label: "Terrain", lines: ["Mixed, rocky"] },
+      { label: "Fit", lines: ["Standard - wide", "version available"] },
+    ],
+    benefits: ["Stability", "Protection", "Grip", "Durability"],
+    tech: ["3D mesh upper with sensiFIT", "Large protective toe cap", "advancedCHASSIS", "All Terrain contaGRIP"],
+    say: "Call it the Swiss army knife of shoes. It is the right move when the conversation expands beyond pure running into hike, walk, travel, or all-round adventure.",
+  },
+];
+
+const sellingRows = [
+  {
+    prompt: "I want maximum comfort for longer trail days.",
+    start: "Ultra Glide 4",
+    backup: "Ultra Flow 2",
+    why: "Ultra Glide 4 is the premium long-distance comfort answer. Ultra Flow 2 keeps the ride softer, simpler, and more accessible.",
+  },
+  {
+    prompt: "I am a road runner trying trail for the first time.",
+    start: "Ultra Flow 2",
+    backup: "Alphaglide",
+    why: "Ultra Flow 2 feels welcoming and cushioned. Alphaglide becomes the better answer when versatility matters more than plushness.",
+  },
+  {
+    prompt: "I want something secure for rocky or technical terrain.",
+    start: "Genesis",
+    backup: "XA Pro 3D V9",
+    why: "Genesis is the mountain-running answer. XA Pro 3D V9 becomes the better move when the use case broadens into hike or all-round adventure.",
+  },
+  {
+    prompt: "I want grip and confidence on muddy trails.",
+    start: "Speedcross 6",
+    backup: "Speedcross Peak",
+    why: "Speedcross 6 is the full legend. Speedcross Peak keeps the same DNA while softening the feel and the price.",
+  },
+  {
+    prompt: "I want something light and lively on trail.",
+    start: "Pulsar",
+    why: "Pulsar is the best answer when the runner wants a faster, more energetic, more road-like trail feel.",
+  },
+];
+
+const sectionPadding = "p-6 md:p-8 lg:p-10";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 2 | Trail running</title>
+  </head>
+  <body class="selection:bg-[var(--sal-lime)] selection:text-black">
+    <main class="sal-shell min-h-screen">
+      <div class="mx-auto max-w-[1260px] px-4 pt-2 pb-4 md:px-6 md:pt-3 md:pb-6">
+        <header class="sal-card sal-section sticky top-2 z-30 overflow-visible px-4 py-4 md:top-3 md:px-6" style="z-index:60; isolation:isolate;">
+          <div class="flex items-center justify-between gap-4 md:hidden">
+            <div class="flex min-w-0 items-center gap-3">
+              <img src="/tfg-logo.svg" alt="TFG logo" class="h-10 w-10 shrink-0" />
+              <p class="min-w-0 text-sm font-medium leading-5 text-[var(--sal-ink-soft)]">Module 2 | Trail running</p>
+            </div>
+
+            <details class="relative z-[70] shrink-0 md:hidden" data-mobile-nav style="z-index:70;">
+              <summary class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-[rgba(12,12,12,0.1)] bg-white text-[var(--sal-ink-soft)] transition hover:bg-[#f4efea] [&::-webkit-details-marker]:hidden">
+                <span class="sr-only">Toggle lesson navigation</span>
+                <span aria-hidden="true" class="flex flex-col gap-[0.28rem]">
+                  <span class="block h-[2px] w-5 rounded-full bg-current"></span>
+                  <span class="block h-[2px] w-5 rounded-full bg-current"></span>
+                  <span class="block h-[2px] w-5 rounded-full bg-current"></span>
+                </span>
+              </summary>
+
+              <div class="absolute right-0 top-[calc(100%+0.75rem)] z-[80] w-64 max-w-[calc(100vw-1.5rem)] overflow-hidden rounded-[0.9rem] border border-[rgba(12,12,12,0.08)] bg-white p-2 shadow-[0_14px_36px_rgba(56,39,27,0.09)]" style="z-index:80;">
+                <div class="flex flex-col gap-1.5 text-sm text-[var(--sal-ink-soft)]">
+                  {navItems.map((item) => (
+                    <a href={item.href} class="rounded-[0.75rem] px-4 py-3 transition hover:bg-[#f4efea]" data-mobile-nav-link>{item.label}</a>
+                  ))}
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <div class="hidden md:flex md:items-center md:justify-between md:gap-6">
+            <div class="flex min-w-0 items-center gap-4">
+              <img src="/tfg-logo.svg" alt="TFG logo" class="h-11 w-11 shrink-0" />
+              <div class="min-w-0">
+                <p class="text-lg font-semibold tracking-[-0.03em] text-[var(--sal-ink-soft)]">Module 2 | Trail running</p>
+              </div>
+            </div>
+
+            <nav class="flex gap-2 overflow-x-auto pb-1 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-[var(--sal-ink-soft)]">
+              {navItems.map((item) => (
+                <a href={item.href} class="sal-chip whitespace-nowrap hover:border-[rgba(12,12,12,0.22)] hover:bg-white">{item.label}</a>
+              ))}
+            </nav>
+          </div>
+        </header>
+
+        <section class="sal-card-dark sal-section mt-5 overflow-hidden px-6 py-8 md:mt-6 md:px-10 md:py-12">
+          <div class="grid gap-8 lg:grid-cols-[1.12fr_0.88fr] lg:items-end">
+            <div>
+              <p class="sal-kicker text-[var(--sal-pink)]">Trail running</p>
+              <h1 class="mt-4 max-w-[13ch] text-[2.95rem] font-black uppercase leading-[0.92] tracking-[-0.07em] text-white md:text-[4.95rem]">
+                Start with the type of trail run
+              </h1>
+              <p class="mt-5 max-w-[46rem] text-[1.08rem] leading-8 text-white/78 md:text-[1.18rem]">
+                Trail conversations get easier when you ask three things first: how far, what kind of ground, and what the runner wants to feel underfoot. Then the right shoe becomes much clearer.
+              </p>
+
+            </div>
+
+            <div class="sal-hero-photo">
+              <img src={resolveSalomonImage("/salomon/hero-icons.png")} alt="Runners moving uphill through open mountain terrain" />
+            </div>
+          </div>
+        </section>
+
+        <section id="basics" class="sal-card sal-section mt-6">
+          <div class={sectionPadding}>
+            <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+              <div>
+                <p class="sal-kicker text-[#6a6257]">Trail running basics</p>
+                <h2 class="mt-3 text-[2.2rem] font-black uppercase leading-[0.96] tracking-[-0.06em] text-[var(--sal-ink)] md:text-[3rem]">
+                  Start with distance, terrain, and confidence
+                </h2>
+                <p class="mt-5 text-[1.08rem] leading-8 text-[#3f3b35]">
+                  Keep the first part of the conversation simple: how far, on what kind of ground, and what should the shoe help the runner feel?
+                </p>
+              </div>
+
+              <div class="grid gap-4 md:grid-cols-3">
+                {distanceBands.map((item, index) => (
+                  <article
+                    class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] p-5"
+                    style={`background:${index === 0 ? "rgba(247,246,243,0.96)" : index === 1 ? "rgba(243,242,239,0.96)" : "rgba(241,240,237,0.96)"};`}
+                  >
+                    <p class="sal-kicker text-[#605b52]">{item.strap}</p>
+                    <h3 class="mt-3 text-[1.45rem] font-black uppercase tracking-[-0.05em] text-[var(--sal-ink)]">{item.title}</h3>
+                    <p class="mt-3 text-sm leading-7 text-[#433f39]">{item.detail}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div class="mt-8 grid gap-4 md:grid-cols-3">
+              {terrainCards.map((item) => (
+                  <article class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white/88 p-5">
+                    <div class="sal-photo-strip mb-5 h-[11rem]" style="border:none;">
+                    <img src={resolveSalomonImage(item.image)} alt={`${item.title} visual`} class="h-full w-full object-cover" />
+                    </div>
+                  <p class="sal-kicker text-[#6a6257]">{item.strap}</p>
+                  <h3 class="mt-3 text-[1.32rem] font-semibold tracking-[-0.04em] text-[var(--sal-ink)]">{item.title}</h3>
+                  <p class="mt-3 text-sm leading-7 text-[#47433d]">{item.detail}</p>
+                  <ul class="mt-4 space-y-2 text-sm leading-7 text-[#3f3b35]">
+                    {item.needs.map((need) => (
+                      <li class="flex gap-2"><span class="mt-[0.58rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--sal-ink)]"></span><span>{need}</span></li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="groups" class="sal-card sal-section mt-6">
+          <div class={sectionPadding}>
+            <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p class="sal-kicker text-[#6a6257]">Trail groups</p>
+                <h2 class="mt-3 text-[2.15rem] font-black uppercase leading-[0.96] tracking-[-0.06em] text-[var(--sal-ink)] md:text-[3rem]">
+                  Split the range into four simple groups
+                </h2>
+              </div>
+            </div>
+
+            <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {trailGroups.map((group) => (
+                <article class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] p-5" style={`background:${group.tone};`}>
+                  <h3 class="text-[1.38rem] font-black uppercase tracking-[-0.05em] text-[var(--sal-ink)]">{group.title}</h3>
+                  <p class="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#5d584f]">{group.models}</p>
+                  <p class="mt-4 text-sm leading-7 text-[#444039]">{group.detail}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="lineup" class="sal-card sal-section mt-6">
+          <div class={sectionPadding}>
+            <p class="sal-kicker text-[#6a6257]">Trail lineup</p>
+            <h2 class="mt-3 text-[2.15rem] font-black uppercase leading-[0.96] tracking-[-0.06em] text-[var(--sal-ink)] md:text-[3rem]">
+              The full trail running range
+            </h2>
+
+            <div class="mt-8 grid gap-5">
+              {products.map((product, index) => (
+                <article
+                  class="sal-model-card p-5 md:p-6"
+                  style={`background:${index % 2 === 0 ? "rgba(255,255,255,0.92)" : "rgba(247,246,243,0.96)"};`}
+                >
+                  <div class="grid gap-6 xl:grid-cols-[0.72fr_1.28fr] xl:items-start">
+                    <div>
+                      <div class="sal-product-stage">
+                        <img src={resolveSalomonImage(product.image)} alt={`${product.title} product cutout`} />
+                      </div>
+                    </div>
+
+                    <div class="sal-model-card__header">
+                      <p class="sal-kicker text-[#6a6257]">{product.lane}</p>
+                      <h3 class="mt-2 text-[1.4rem] font-semibold tracking-[-0.04em] text-[var(--sal-ink)]">{product.title}</h3>
+                      <p class="mt-2 text-sm font-semibold uppercase tracking-[0.12em] text-[#5d584f]">{product.strap}</p>
+                      <p class="mt-4 text-sm leading-7 text-[#45413b]">{product.detail}</p>
+                    </div>
+                  </div>
+
+                  {product.highlight && (
+                    <div class="mt-5 rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#f2f1ed] p-4">
+                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#71695d]">Highlight</p>
+                      <div class="mt-4 grid gap-4 xl:grid-cols-[0.9fr_1.1fr]">
+                        <div class="sal-inline-figure rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white p-0">
+                          <img src={resolveSalomonImage(product.highlight.image)} alt={`${product.title} highlight view with numbered callouts`} class="rounded-[0.5625rem]" />
+                        </div>
+
+                        <div class="grid gap-3">
+                          {product.highlight.points.map((point) => (
+                            <article class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white p-4">
+                              <div class="flex items-start gap-3">
+                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--sal-ink)] text-xs font-black text-white">
+                                  {point.number}
+                                </span>
+                                <div>
+                                  <h4 class="text-[1rem] font-semibold tracking-[-0.03em] text-[var(--sal-ink)]">{point.title}</h4>
+                                  {point.detail && <p class="mt-2 text-sm leading-7 text-[#45413b]">{point.detail}</p>}
+                                </div>
+                              </div>
+                            </article>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div class="mt-4 grid gap-4 xl:grid-cols-[1.02fr_0.98fr]">
+                    <div class="rounded-[0.5625rem] bg-[#f0efeb] p-4">
+                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#71695d]">Tech features</p>
+                      <div class="mt-4 sal-spec-grid">
+                        {product.specs.map((spec) => (
+                          <article class="sal-spec-card">
+                            <p class="sal-spec-label">{spec.label}</p>
+                            {spec.columns ? (
+                              <div class="sal-spec-columns">
+                                {spec.columns.map((column) => (
+                                  <div class="sal-spec-stack">
+                                    <p class="sal-spec-value">{column.value}</p>
+                                    {column.note && <p class="sal-spec-note">{column.note}</p>}
+                                  </div>
+                                ))}
+                              </div>
+                            ) : (
+                              <div class="sal-spec-stack">
+                                {spec.lines.map((line) => (
+                                  <p class="sal-spec-value">{line}</p>
+                                ))}
+                              </div>
+                            )}
+                          </article>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div class="rounded-[0.5625rem] bg-white p-4">
+                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#71695d]">Why people love this shoe</p>
+                      <ul class="mt-3 space-y-2 text-sm leading-7 text-[#403b34]">
+                        {product.benefits.map((item) => (
+                          <li class="flex gap-2"><span class="mt-[0.58rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--sal-pink)]"></span><span>{item}</span></li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {product.differenceTitle && product.difference && (
+                    <div class="mt-4 rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#151515] p-4 text-white">
+                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-white/56">{product.differenceTitle}</p>
+                      <p class="mt-2 text-sm leading-7 text-white/82">{product.difference}</p>
+                    </div>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="sell" class="sal-section mt-6 grid gap-6 lg:grid-cols-[0.88fr_1.12fr]">
+          <article class="sal-card-dark px-6 py-7 md:px-8 md:py-8">
+            <p class="sal-kicker text-[var(--sal-lime)]">Selling starts</p>
+            <h2 class="mt-4 text-[2.1rem] font-black uppercase leading-[0.94] tracking-[-0.06em] text-white md:text-[3rem]">Keep the recommendation simple and easy to say</h2>
+            <p class="mt-5 text-[1.02rem] leading-8 text-white/78">
+              Listen for the customer clue, name the best place to start, and explain the benefit in plain language.
+            </p>
+            <div class="mt-8 overflow-hidden rounded-[0.5625rem]">
+              <img
+                src={resolveSalomonImage("/salomon/selling-trail-lifestyle.png")}
+                alt="Salomon runner moving through open mountain terrain"
+                class="h-[13.5rem] w-full object-cover md:h-[16rem]"
+              />
+            </div>
+          </article>
+
+          <article class="sal-card">
+            <div class={sectionPadding}>
+              <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Tap a customer line to reveal the answer</p>
+              <div class="mt-4 grid gap-4">
+                {sellingRows.map((row) => (
+                  <details class="sal-compare-reveal" name="trail-sell">
+                    <summary class="sal-compare-summary">
+                      <div>
+                        <p class="text-[1.02rem] font-semibold leading-7 tracking-[-0.02em] text-[var(--sal-ink)]">{row.prompt}</p>
+                      </div>
+                      <span class="sal-compare-summary__cta">Reveal answer</span>
+                    </summary>
+
+                    <div class="sal-compare-answer">
+                      <div class={row.backup ? "grid gap-4 lg:grid-cols-[0.7fr_0.7fr_1.15fr]" : "grid gap-4 lg:grid-cols-[0.72fr_1.18fr]"}>
+                        <div>
+                          <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Start with</p>
+                          <p class="mt-2 text-sm leading-7 text-[#44403a]">{row.start}</p>
+                        </div>
+                        {row.backup && (
+                          <div>
+                            <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Backup</p>
+                            <p class="mt-2 text-sm leading-7 text-[#44403a]">{row.backup}</p>
+                          </div>
+                        )}
+                        <div>
+                          <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Why</p>
+                          <p class="mt-2 text-sm leading-7 text-[#44403a]">{row.why}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+    <script>
+      const mobileNavs = document.querySelectorAll("[data-mobile-nav]");
+
+      document.addEventListener("click", (event) => {
+        mobileNavs.forEach((menu) => {
+          if (!menu.contains(event.target)) {
+            menu.removeAttribute("open");
+          }
+        });
+      });
+
+      mobileNavs.forEach((menu) => {
+        menu.querySelectorAll("[data-mobile-nav-link]").forEach((link) => {
+          link.addEventListener("click", () => {
+            menu.removeAttribute("open");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

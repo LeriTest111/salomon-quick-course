@@ -1,8 +1,9 @@
 ---
 import "../styles/global.css";
-import productBanner from "../images/prod-banner.jpg?url";
-import whoWeAreBanner from "../images/who we are banner.avif?url";
-import whoWeAreVideoOne from "../images/who we are 1.mp4?url";
+import productBanner from "../images/product-banner.jpg?url";
+import whoWeAreBanner from "../images/who-we-are-banner.avif?url";
+import whoWeAreVideoOne from "../images/who-we-are-1.mp4?url";
+import whiteLogo from "../images/White-logo.svg?url";
 
 const salomonImages = import.meta.glob("../images/salomon/**/*.{png,jpg,jpeg,avif,svg}", {
   eager: true,
@@ -25,42 +26,42 @@ const navItems = [
 const moduleGuide = [
   {
     module: "Module 1",
-    title: "Brand story, history, and tech legends",
-    detail: "Start with the brand, the timeline, the key technology terms, and simple selling habits.",
+    title: "Salomon Footwear History",
+    detail: "Learn how Salomon footwear evolved and how the brand story supports confident selling.",
     image: "/salomon/hero-brand.png",
   },
   {
     module: "Module 2",
-    title: "Trail running",
-    detail: "Learn the trail range, from easy-entry comfort to technical and speed-led shoes.",
+    title: "Trail Running Basics",
+    detail: "Understand trail running and how terrain, distance, and product choice connect.",
     image: "/salomon/hero-icons.png",
   },
   {
     module: "Module 3",
-    title: "Gravel running",
-    detail: "Understand the two gravel options and when to use each one.",
-    image: "/salomon/hero-gravel.png",
+    title: "Road Running Basics",
+    detail: "Understand road running needs and how Salomon supports different running goals.",
+    image: "/salomon/hero-road.png",
   },
   {
     module: "Module 4",
-    title: "Road running",
-    detail: "Learn the road comfort and speed shoes, plus the rest of the road range.",
-    image: "/salomon/hero-road.png",
+    title: "Gravel Running Explained",
+    detail: "Understand the gravel range and when to use each model.",
+    image: "/salomon/hero-gravel.png",
   },
 ];
 
 const positioningPillars = [
   {
     title: "Premium",
-    detail: "Salomon should feel like the premium choice: well made, trusted, and built for real mountain use.",
+    detail: "The shoes are built for performance and comfort, using quality materials that last longer and perform better in tough conditions. Customers are paying for reliability, comfort and confidence, not just a name.",
   },
   {
     title: "Innovative",
-    detail: "Translate technology into a felt benefit: more bounce, more grip, more comfort, more protection, and a cleaner fit.",
+    detail: "This shoe creates solutions to real running and outdoor problems. This includes better grip on wet or uneven surfaces, more comfort over long distances, and a more secure fit.",
   },
   {
     title: "Authentic",
-    detail: "Salomon comes from mountain sport. The story feels believable because it was built in real terrain, not styled from a distance.",
+    detail: "This shoe comes from real mountain sport experience. The products are shaped by athletes, designers and engineers who test them in real outdoor environments, not just in a lab.",
   },
 ];
 
@@ -73,12 +74,12 @@ const timeline = [
   },
   {
     year: "1993",
-    title: "quickLACE",
+    title: "QUICKLACE",
     image: "/salomon/history-quicklace.jpg",
   },
   {
     year: "1994",
-    title: "contaGRIP",
+    title: "CONTAGRIP",
     image: "/salomon/history-contagrip.jpg",
   },
   {
@@ -101,7 +102,7 @@ const timeline = [
   },
   {
     year: "2013",
-    title: "LAUNCH OFXT-6",
+    title: "LAUNCH OF XT-6",
     detail: "Designed for ultra-distance athletes now a fashion icon",
     image: "/salomon/history-xt-6.jpg",
   },
@@ -119,242 +120,6 @@ const timeline = [
   },
 ];
 
-const legendGroups = [
-  {
-    title: "Other",
-    detail: "Brand, grip, and movement stories.",
-    panel: "rgba(247,246,243,0.96)",
-    border: "rgba(157,120,97,0.2)",
-    accent: "#8f705d",
-    items: [
-      {
-        title: "contaGrip",
-        summary: "Grip to play in all conditions.",
-        meaning:
-          "Developed with Salomon engineers and athletes since 1994 (Salomon exclusive patent), contaGRIP® combines varying compounds with different lug designs optimized for each sport. It provides durable traction for all seasons in dry and wet conditions, see the dedicated chart to discover all our different contaGRIP® families.",
-        image: "/salomon/glossary/other-contagrip.png",
-      },
-      {
-        title: "Reverse Camber",
-        summary: "Inspired by Salomon's ski heritage, this curved midsole geometry helps you feel like you are floating over the ground.",
-        image: "/salomon/glossary/other-reverse-camber.png",
-      },
-      {
-        title: "Made in France",
-        summary: "Bringing production closer to consumers is essential to reduce our carbon footprint.",
-        meaning: "The corresponding model has been assembled in the ASF 4.0 (automated shoe factory), located in Ardéche, France.",
-        image: "/salomon/glossary/other-made-in-france.png",
-      },
-      {
-        title: "recyclable Model",
-        summary: "Scan the QR code on the upper or the box to register the pair and to send them back to us at the end of its life to be turned into another product.",
-        image: "/salomon/glossary/other-recyclable-model.png",
-      },
-      {
-        title: "relieveSpehere",
-        summary: "relieveSPHERE technology designed to distribute pressure and absorb repetitive impact underfoot for lasting comfort.",
-        meaning: "This pattern is derived from 6 years of research at the Salomon Sciences Laboratory.",
-        image: "/salomon/glossary/other-relieve-sphere.png",
-      },
-      ],
-    },
-  {
-    title: "Midsole Cushioning Foams",
-    detail: "Foam and underfoot comfort stories.",
-    panel: "rgba(244,243,240,0.96)",
-    border: "rgba(109,96,82,0.18)",
-    accent: "#6d6052",
-    items: [
-      {
-        title: "Energy Cell",
-        summary: "Salomon high performance EVA foam that provides shock attenuation.",
-        meaning: "Salomon standard cushioning midsole system.",
-        image: "/salomon/glossary/midsole-energy-cell.png",
-      },
-      {
-        title: "Energy Cell+",
-        summary: "A high-rebound midsole compound that provides exceptional energy return along with substantial cushioning and durability.",
-        image: "/salomon/glossary/midsole-energy-cell-plus.png",
-      },
-      {
-        title: "fuzeFOAM",
-        summary: "An EVA compound engineered to use less artificial polymers.",
-        meaning: "Composed of 30% natural rubber, smooth yet dynamic.",
-        image: "/salomon/glossary/midsole-fuzefoam.png",
-      },
-      {
-        title: "optiFOAM",
-        summary: "Lightweight, super responsive cushioning.",
-        meaning: "A foam created by combining EVA and Olefin [OBC] to deliver long-lasting cushion and bouncy energy return.",
-        image: "/salomon/glossary/midsole-optifoam.png",
-      },
-      {
-        title: "optiFOAM+",
-        summary: "A lightweight foam with superior energy absorption and the most energy return.",
-        meaning: "Responsive and cushioned for resilient bounce and pop in highly responsive shoes. The most responsive and bouncy foam.",
-        image: "/salomon/glossary/midsole-optifoam-plus.png",
-      },
-      {
-        title: "infiniFOAM",
-        summary: "Nitrogen-infused TPU-based foam used on recyclable models such as INDEX.03.",
-        meaning: "Position it as plush, long-lasting cushioning with a sustainability angle.",
-        image: "/salomon/glossary/midsole-infinifoam.png",
-      },
-      {
-        title: "optiFOAM²",
-        summary: "optiFOAM² (100% TPU) is basically the best compromise for a training shoe.",
-        meaning: "Performances are almost the same as optiFOAM+ (slightly less resilient and bouncy) but less expensive.",
-        image: "/salomon/glossary/midsole-optifoam2.png",
-      },
-    ],
-  },
-  {
-    title: "Chassis",
-    detail: "Support and guidance stories.",
-    panel: "rgba(241,242,241,0.96)",
-    border: "rgba(93,100,93,0.18)",
-    accent: "#586159",
-    items: [
-      {
-        title: "advancedCHASSIS",
-        summary: "A molded insert embedded in the outsole.",
-        meaning: "Providing strong lateral support and reassuring protection, it also delivers optimal mobility and flexibility.",
-        image: "/salomon/glossary/chassis-advanced-chassis.png",
-      },
-      {
-        title: "activeCHASSIS",
-        summary: "A chassis made from a stiffer and denser material than the midsole foam.",
-        meaning: "Designed for increased guidance, uncompromised agility and fluid freedom of movement.",
-        image: "/salomon/glossary/chassis-active-chassis.png",
-      },
-        {
-          title: "4D CHASSIS",
-          summary: "This stable chassis construction harnesses two different midsole components for enhanced foot control and active comfort.",
-          meaning: "Found in our Quest 4.",
-          image: "/salomon/glossary/chassis-4d-chassis.png",
-        },
-        {
-          title: "SHANK",
-          summary: "A molded piece between the outsole and the midsole that provides torsional rigidity and stability.",
-          meaning: "At a lower level than a chassis.",
-          image: "/salomon/glossary/shank.png",
-        },
-      ],
-    },
-  {
-    title: "Ground Filter & Blades",
-    detail: "Protection and structure for rougher ground.",
-    panel: "rgba(245,244,240,0.96)",
-    border: "rgba(138,117,82,0.18)",
-    accent: "#7f6b4d",
-    items: [
-      {
-        title: "energyBLADE",
-        summary: "Lightweight, responsive plates connected to the midsole foam and sole geometry create an energy-infused alliance of velocity gain and smooth transitions.",
-        meaning: "Fused into the sole, energyBLADE technology heightens your footwear experience by injecting power and propulsion into your stride.",
-        image: "/salomon/glossary/ground-energy-blade.png",
-      },
-      {
-        title: "PROFEEL FILM",
-        summary: "Trail running protection.",
-        meaning: "A thin TPU film placed between the midsole and the outsole that helps filter out rocks and sharp surfaces, for more comfort and stability without compromising on flexibility to keep a natural foot flexion and fluid ride.",
-        image: "/salomon/glossary/ground-profeel-film.png",
-      },
-      {
-        title: "PROFEEL PLATE",
-        summary: "A hybrid between an energyBLADE and a ground filter.",
-        meaning: "Used to filter out sharp objects while maintaining dynamism, ideal for long distance runs for when your foot becomes very sensible.",
-        image: "/salomon/glossary/ground-profeel-plate.png",
-      },
-    ],
-  },
-  {
-    title: "Upper",
-    detail: "Fit-system stories.",
-    panel: "rgba(243,242,240,0.96)",
-    border: "rgba(117,103,89,0.18)",
-    accent: "#6f6256",
-    items: [
-      {
-        title: "quickLACE",
-        summary: "Minimalist and strong lace (4 times stronger than regular flat laces) for one pull tightening.",
-        meaning: "Easy-on, easy-off.",
-        image: "/salomon/glossary/upper-quicklace.png",
-      },
-      {
-        title: "sensiFIT",
-        summary: "Foothold support.",
-        meaning: "Cradles the foot from the midsole to the lacing system, providing a secure and snug fit all round the foot. Your foot seat belt.",
-        image: "/salomon/glossary/upper-sensifit.png",
-      },
-      {
-        title: "endoFIT",
-        summary: "An internal fit sleeve designed to hug the foot in exactly the right places and provide a precise fit.",
-        image: "/salomon/glossary/upper-endofit.png",
-      },
-      {
-        title: "MATRYX",
-        summary: "High tenacity fibers woven together to provide an ultra-resistant, ultra-breathable upper material.",
-        image: "/salomon/glossary/upper-matryx.png",
-      },
-    ],
-  },
-  {
-    title: "Upper Construction",
-    detail: "Mesh and upper material stories.",
-    panel: "rgba(241,243,243,0.96)",
-    border: "rgba(89,104,110,0.18)",
-    accent: "#56676c",
-    items: [
-      {
-        title: "single layer MESH",
-        summary: "A single layer of Mesh, close to the foot, for maximum feel, lightness, and breathability.",
-        image: "/salomon/glossary/upper-construction-single-layer-mesh.png",
-      },
-      {
-        title: "engineered MESH",
-        summary: "Engineered mesh is a structure that varies the weave to offer more support and durability or flexibility and breathability, according to the specific needs of the shoe.",
-        image: "/salomon/glossary/upper-construction-engineered-mesh.png",
-      },
-      {
-        title: "3D MESH",
-        summary: "With a unique and very precise design at thread level, our Custom Engineered Mesh delivers just the right balance of protection, foot hold, and breathability.",
-        image: "/salomon/glossary/upper-construction-3d-mesh.png",
-      },
-      {
-        title: "ripstop MESH",
-        summary: "Woven fabrics, often made of nylon, with reinforcement to resist tearing, ripping and abrasion.",
-        image: "/salomon/glossary/upper-construction-ripstop-mesh.png",
-      },
-    ],
-  },
-  {
-    title: "Waterproof & Insulation",
-    detail: "Weather and warmth stories.",
-    panel: "rgba(239,242,243,0.96)",
-    border: "rgba(94,109,117,0.18)",
-    accent: "#5b6c73",
-    items: [
-      {
-        title: "adv.DRY",
-        image: "/salomon/glossary/waterproof-adv-dry.png",
-        summary: "Salomon’s new 3-layer waterproof laminate featuring a PFC-free membrane secured between a 100% recycled face and backing fabric.",
-      },
-      {
-        title: "adv.WARM",
-        image: "/salomon/glossary/waterproof-adv-warm.png",
-        summary: "Salomon’s new high-performance cold-weather insulation featuring 70% recycled.",
-      },
-      {
-        title: "activ.WARM",
-        image: "/salomon/glossary/waterproof-activ-warm.png",
-        summary: "Our comfort insulation technology made with 90% recycled polyester.",
-        meaning: "A lightweight insulation layer covers the mid-foot and toe area to create warmth in the most essential areas.",
-      },
-    ],
-  },
-];
-
 const dareSteps = [
   "Divide the team into two groups: customers and sales associates.",
   "Form two lines facing each other.",
@@ -364,7 +129,7 @@ const dareSteps = [
   "Debrief what felt easy to connect, what felt difficult, and what made the customer react.",
 ];
 
-const sectionPadding = "p-6 md:p-8 lg:p-10";
+const sectionPadding = "px-6 pt-6 pb-10 md:px-8 md:pt-8 md:pb-12 lg:px-10 lg:pt-10 lg:pb-14";
 ---
 
 <html lang="en">
@@ -375,12 +140,12 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
   </head>
   <body class="selection:bg-[var(--sal-lime)] selection:text-black">
     <main class="sal-shell min-h-screen">
-      <div class="mx-auto max-w-[1260px] px-4 pt-2 pb-4 md:px-6 md:pt-3 md:pb-6">
-        <header class="sal-card sal-section sticky top-2 z-30 overflow-visible px-4 py-4 md:top-3 md:px-6" style="z-index:60; isolation:isolate;">
+      <div class="sal-fixed-nav fixed inset-x-0 top-0 z-[90]">
+        <header class="sal-section overflow-visible px-4 py-4 md:px-6 lg:px-[8vw]" style="z-index:90; isolation:isolate;">
           <div class="flex items-center justify-between gap-4 md:hidden">
             <div class="flex min-w-0 items-center gap-3">
               <img src="/tfg-logo.svg" alt="TFG logo" class="h-10 w-10 shrink-0" />
-              <p class="min-w-0 text-sm font-medium leading-5 text-[var(--sal-ink-soft)]">Module 1 | Brand story, history, and tech legends</p>
+              <p class="sal-ui-text min-w-0 font-medium text-[var(--sal-ink-soft)]">Module 1 | Brand story, history, and tech legends</p>
             </div>
 
             <details class="relative z-[70] shrink-0 md:hidden" data-mobile-nav style="z-index:70;">
@@ -394,7 +159,7 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
               </summary>
 
               <div class="absolute right-0 top-[calc(100%+0.75rem)] z-[80] w-64 max-w-[calc(100vw-1.5rem)] overflow-hidden rounded-[0.9rem] border border-[rgba(12,12,12,0.08)] bg-white p-2 shadow-[0_14px_36px_rgba(56,39,27,0.09)]" style="z-index:80;">
-                <div class="flex flex-col gap-1.5 text-sm text-[var(--sal-ink-soft)]">
+                <div class="sal-ui-text flex flex-col gap-1.5 text-[var(--sal-ink-soft)]">
                   {navItems.map((item) => (
                     <a href={item.href} class="rounded-[0.75rem] px-4 py-3 transition hover:bg-[#f4efea]" data-mobile-nav-link>{item.label}</a>
                   ))}
@@ -407,54 +172,61 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
             <div class="flex min-w-0 items-center gap-4">
               <img src="/tfg-logo.svg" alt="TFG logo" class="h-11 w-11 shrink-0" />
               <div class="min-w-0">
-                <p class="text-lg font-semibold tracking-[-0.03em] text-[var(--sal-ink-soft)]">Module 1 | Brand story, history, and tech legends</p>
+                <p class="sal-body-copy font-semibold tracking-[-0.03em] text-[var(--sal-ink-soft)]">Module 1 | Brand story, history, and tech legends</p>
               </div>
             </div>
 
-            <nav class="flex gap-2 overflow-x-auto pb-1 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-[var(--sal-ink-soft)]">
+            <nav class="sal-ui-text flex gap-2 overflow-x-auto pb-1 font-bold uppercase tracking-[0.12em] text-[var(--sal-ink-soft)]">
               {navItems.map((item) => (
                 <a href={item.href} class="sal-chip whitespace-nowrap hover:border-[rgba(12,12,12,0.22)] hover:bg-white">{item.label}</a>
               ))}
             </nav>
           </div>
         </header>
+      </div>
 
-        <section class="sal-card-dark sal-section mt-5 overflow-hidden px-6 py-8 md:mt-6 md:px-10 md:py-12">
+      <div class="w-full pb-4 pt-24 md:pb-6 md:pt-28">
+        <section
+          class="sal-card-dark sal-section sal-hero-banner mt-5 overflow-hidden px-6 py-8 md:mt-6 md:px-10 md:py-12"
+          style={`--sal-hero-image:url(${resolveSalomonImage("/salomon/hero-brand.png")});`}
+        >
           <div class="grid gap-8 lg:grid-cols-[1.18fr_0.82fr] lg:items-end">
-            <div>
-              <p class="sal-kicker text-[var(--sal-lime)]">Start here</p>
-              <h1 class="mt-4 max-w-[13ch] text-[2.95rem] font-black uppercase leading-[0.92] tracking-[-0.07em] text-white md:text-[4.95rem]">
-                the salomon story
-              </h1>
-              <p class="mt-5 max-w-[46rem] text-[1.08rem] leading-8 text-white/78 md:text-[1.18rem]">
-                Get clear on what the brand stands for, where it comes from, the technology terms that matter, and the selling habits that help customers trust your recommendation.
+            <div class="sal-hero-stack">
+              <div class="sal-hero-lockup">
+                <img src={whiteLogo} alt="Salomon logo" class="sal-hero-logo" />
+                <span class="sal-module-pill">Module 1</span>
+              </div>
+
+              <div class="sal-hero-heading">
+                <span class="sal-hero-heading__intro">Welcome to</span>
+                <h1 class="sal-title-hero sal-hero-heading__title text-white">
+                  The Salomon Quick Course
+                </h1>
+              </div>
+              <p class="sal-body-copy text-white/78">
+                This quick course will help you learn how to choose the right Salomon shoes for customers based on their needs and running conditions.
               </p>
-
-            </div>
-
-            <div class="sal-hero-photo">
-              <img src={resolveSalomonImage("/salomon/hero-brand.png")} alt="Two Salomon runners moving through an elevated natural landscape" />
             </div>
           </div>
         </section>
 
-        <section id="overview" class="sal-card sal-section mt-6">
+        <section id="overview" class="sal-card sal-section mt-6 scroll-mt-28 md:scroll-mt-32">
           <div class={sectionPadding}>
             <div>
               <div>
                 <p class="sal-kicker text-[#6a6257]">In this course</p>
-                <h2 class="mt-3 text-[2.2rem] font-black uppercase leading-[0.95] tracking-[-0.06em] text-[var(--sal-ink)] md:text-[3.1rem]">
-                  The four modules in this course
-                </h2>
-                <div class="mt-8 grid gap-4 md:grid-cols-2">
+                <p class="sal-body-copy mt-5 max-w-[42rem] text-[#403b34]">
+                  In this course, you will be introduced to the following modules.
+                </p>
+                <div class="mt-8 grid gap-4 xl:grid-cols-4 md:grid-cols-2">
                   {moduleGuide.map((item) => (
                     <article
-                      class="flex min-h-[11.5rem] flex-col justify-end overflow-hidden rounded-[0.5625rem] border border-white/10 p-6 text-white shadow-[0_18px_36px_rgba(12,12,12,0.08)] md:min-h-[12.5rem] md:p-6"
+                      class="sal-module-card"
                       style={`background-image:url(${resolveSalomonImage(item.image)}); background-size:cover; background-position:center;`}
                     >
-                      <div class="inline-flex max-w-[19rem] flex-col gap-2 rounded-[0.5625rem] border border-white/10 bg-black/58 px-4 py-3 backdrop-blur-[2px]">
+                      <div class="sal-module-card__overlay max-w-[19rem]">
                         <p class="sal-kicker text-white/72">{item.module}</p>
-                        <h3 class="text-[1.2rem] font-semibold tracking-[-0.03em] text-white">{item.title}</h3>
+                        <h3 class="sal-title-product text-white">{item.title}</h3>
                       </div>
                     </article>
                   ))}
@@ -464,34 +236,37 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
           </div>
         </section>
 
-        <section class="sal-section mt-6 overflow-hidden rounded-[0.5625rem]">
-          <div class="sal-photo-strip aspect-[16/6] md:aspect-[18/6]" style="border:none;">
+        <section class="sal-section mt-0 overflow-hidden">
+          <div
+            class="sal-photo-strip sal-course-banner"
+            style="border:none; border-top-left-radius:0.5625rem; border-top-right-radius:0.5625rem; border-bottom-left-radius:0; border-bottom-right-radius:0;"
+          >
             <img src={whoWeAreBanner} alt="Mountain landscape from Salomon brand imagery" />
           </div>
         </section>
 
-        <section id="positioning" class="sal-card sal-section mt-6">
+        <section id="positioning" class="sal-card-dark sal-section mt-0 scroll-mt-28 md:scroll-mt-32">
           <div class={sectionPadding}>
-            <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <div class="grid gap-8">
               <div>
-                <p class="sal-kicker text-[#6a6257]">Brand positioning</p>
-                <h2 class="sal-topo-divider mt-3 inline-block text-[2.3rem] font-black uppercase leading-[0.94] tracking-[-0.06em] text-[var(--sal-ink)] md:text-[3.35rem]">
+                <p class="sal-kicker text-white/64">Brand positioning</p>
+                <h2 class="sal-topo-divider sal-title-section mt-3 inline-block text-white">
                   Premium, innovative, authentic
                 </h2>
-                <div class="mt-6 rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#181818] p-6 text-white">
+                <div class="mt-6 rounded-[0.5625rem] border border-white/10 bg-white/6 p-6 text-white">
                   <p class="sal-kicker text-[var(--sal-lime)]">The line to remember</p>
-                  <p class="mt-4 text-[1.35rem] font-semibold uppercase leading-8 tracking-[-0.03em]">WE ARE THE MOST PREMIUM, INNOVATIVE AND AUTHENTIC BRAND FOR THE MOUNTAIN SPORT LIFESTYLE</p>
+                  <p class="sal-title-product mt-4 uppercase text-white">We are the most premium, innovative and authentic brand for the mountain sport lifestyle</p>
                 </div>
               </div>
 
               <div class="grid gap-4 md:grid-cols-3">
                 {positioningPillars.map((pillar, index) => (
                   <article
-                    class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] p-5 shadow-[0_18px_36px_rgba(12,12,12,0.05)]"
-                    style={`background:${index === 0 ? "rgba(247,246,243,0.96)" : index === 1 ? "rgba(242,241,238,0.96)" : "rgba(245,244,241,0.96)"};`}
+                    class="rounded-[0.5625rem] border border-white/10 p-5 shadow-[0_18px_36px_rgba(0,0,0,0.22)]"
+                    style={`background:${index === 0 ? "rgba(255,255,255,0.08)" : index === 1 ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.1)"};`}
                   >
-                    <h3 class="text-[1.45rem] font-black uppercase tracking-[-0.05em] text-[var(--sal-ink)]">{pillar.title}</h3>
-                    <p class="mt-3 text-sm leading-7 text-[#423f38]">{pillar.detail}</p>
+                    <h3 class="sal-title-product text-white">{pillar.title}</h3>
+                    <p class="sal-body-copy mt-3 text-white/78">{pillar.detail}</p>
                   </article>
                 ))}
               </div>
@@ -499,115 +274,92 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
           </div>
         </section>
 
-        <section id="timeline" class="sal-card sal-section mt-6">
-          <div class={sectionPadding}>
-            <div>
-              <div class="sal-history-hero">
-                <video
-                  src={whoWeAreVideoOne}
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                  preload="metadata"
-                  aria-label="Looping Salomon brand video showing movement in mountain terrain"
-                ></video>
-                <div class="sal-history-hero__content">
-                  <p class="sal-kicker text-white/72">Brand history</p>
-                  <h2 class="mt-3 max-w-[12ch] text-[2.2rem] font-black uppercase leading-[0.95] tracking-[-0.06em] text-white md:text-[3.2rem]">
-                    From mountain roots to icons customers ask for by name
-                  </h2>
+        <section id="timeline" class="sal-card sal-section mt-6 overflow-hidden scroll-mt-28 md:scroll-mt-32">
+          <div>
+            <div
+              class="sal-history-hero"
+              style="border-top-left-radius:0; border-top-right-radius:0; border-bottom-left-radius:0.5625rem; border-bottom-right-radius:0.5625rem;"
+            >
+              <video
+                src={whoWeAreVideoOne}
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="Looping Salomon brand video showing movement in mountain terrain"
+              ></video>
+            </div>
+          </div>
+
+          <div class={`${sectionPadding} pt-7`}>
+            <p class="sal-kicker text-[#6a6257]">Brand history</p>
+            <h2 class="sal-topo-divider sal-title-section mt-3 text-[var(--sal-ink)]">
+              Learn how Salomon footwear evolved to meet different running and outdoor needs
+            </h2>
+            <p class="sal-body-copy mt-5 max-w-none text-[#403b34]">
+              Let's look at the brand history below. Scroll through the carousel to discover the milestones that shaped Salomon into the brand customers know today.
+            </p>
+
+            <div class="sal-history-carousel mt-6" data-history-carousel>
+              <div class="sal-history-carousel__head">
+                <div class="sal-history-carousel__controls">
+                  <button type="button" class="sal-history-carousel__button" data-history-nav="prev" aria-label="Previous timeline slide">
+                    Prev
+                  </button>
+                  <button type="button" class="sal-history-carousel__button" data-history-nav="next" aria-label="Next timeline slide">
+                    Next
+                  </button>
                 </div>
               </div>
 
-              <div class="mt-7">
-                <div class="sal-history-stack xl:pt-1">
-                  {timeline.map((item) => (
-                    <article class="sal-history-entry">
-                      <div class="sal-history-entry__year">
-                        <span class="sal-history-year">{item.year}</span>
-                      </div>
-                      <div class:list={["sal-history-card", item.image && "sal-history-card--image"]}>
-                        <div class:list={["grid gap-4", item.image && "lg:grid-cols-[1fr_10.5rem] lg:items-center"]}>
-                          <div>
-                            <h3 class="text-[1.28rem] font-semibold tracking-[-0.03em] text-[var(--sal-ink)]">{item.title}</h3>
-                            {item.detail && <p class="mt-3 text-sm leading-7 text-[#46423c]">{item.detail}</p>}
-                          </div>
+              <div class="sal-history-carousel__track" data-history-track>
+                {timeline.map((item) => (
+                  <article class="sal-history-slide" data-history-slide>
+                    <div class="sal-history-slide__frame">
+                      <p class="sal-history-slide__year">{item.year}</p>
+                      <p class="sal-history-slide__title">{item.title}</p>
 
-                          {item.image && (
-                            <div class="sal-history-photo">
-                              <img src={resolveSalomonImage(item.image)} alt={`${item.title} Salomon product visual`} />
-                            </div>
-                          )}
+                      {item.image && (
+                        <div class="sal-history-slide__photo">
+                          <img src={resolveSalomonImage(item.image)} alt={`${item.title} Salomon product visual`} />
                         </div>
+                      )}
+
+                      <div class="sal-history-slide__copy">
+                        {item.detail ? (
+                          <p class="sal-body-copy text-[#2f2b26]">{item.detail}</p>
+                        ) : (
+                          <p class="sal-body-copy text-[#2f2b26]">
+                            A defining Salomon milestone that helped shape the brand story customers know today.
+                          </p>
+                        )}
                       </div>
-                    </article>
-                  ))}
-                </div>
+                    </div>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section class="sal-section mt-6 overflow-hidden rounded-[0.5625rem]">
-          <div class="sal-photo-strip aspect-[16/6] md:aspect-[18/6]" style="border:none;">
+        <section class="sal-section mt-0 overflow-hidden">
+          <div
+            class="sal-photo-strip sal-course-banner"
+            style="border:none; border-top-left-radius:0.5625rem; border-top-right-radius:0.5625rem; border-bottom-left-radius:0; border-bottom-right-radius:0;"
+          >
             <img src={productBanner} alt="Salomon product banner imagery" />
           </div>
         </section>
 
-        <section id="legends" class="sal-card sal-section mt-6">
+        <section id="legends" class="sal-card-dark sal-section mt-0 scroll-mt-28 md:scroll-mt-32">
           <div class={sectionPadding}>
-            <p class="sal-kicker text-[#6a6257]">Salomon tech legends</p>
-            <h2 class="mt-3 text-[2.15rem] font-black uppercase leading-[0.96] tracking-[-0.06em] text-[var(--sal-ink)] md:text-[3rem]">
+            <p class="sal-kicker text-white/64">Salomon tech legends</p>
+            <h2 class="sal-topo-divider sal-title-section mt-3 text-white">
               The glossary that helps the range make sense
             </h2>
-
-            <div class="mt-8 grid gap-6">
-              {legendGroups.map((group) => (
-                <section
-                  data-carousel
-                  class="min-w-0 overflow-hidden rounded-[0.5625rem] border p-5 md:p-6"
-                  style={`background:${group.panel}; border-color:${group.border};`}
-                >
-                  <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-                    <div>
-                      <div class="mb-4 h-[2px] w-14 rounded-full" style={`background:${group.accent};`}></div>
-                      <h3 class="text-[1.5rem] font-black uppercase tracking-[-0.05em] text-[var(--sal-ink)]">{group.title}</h3>
-                    </div>
-                  </div>
-
-                  <div class="sal-carousel-shell mt-6">
-                    <div class="sal-carousel-viewport">
-                      <div
-                        class="sal-carousel-track"
-                        data-track
-                        aria-label={`${group.title} glossary items`}
-                        onpointerdown="if(event.button!==0){return;} this.dataset.dragging='true'; this.dataset.startX=String(event.clientX); this.dataset.startScroll=String(this.scrollLeft); this.classList.add('is-dragging'); this.setPointerCapture(event.pointerId);"
-                        onpointermove="if(this.dataset.dragging==='true'){ const startX=Number(this.dataset.startX||0); const startScroll=Number(this.dataset.startScroll||0); this.scrollLeft=startScroll-(event.clientX-startX); }"
-                        onpointerup="this.dataset.dragging='false'; this.classList.remove('is-dragging'); if(this.hasPointerCapture && this.hasPointerCapture(event.pointerId)){ this.releasePointerCapture(event.pointerId); }"
-                        onpointercancel="this.dataset.dragging='false'; this.classList.remove('is-dragging'); if(this.hasPointerCapture && this.hasPointerCapture(event.pointerId)){ this.releasePointerCapture(event.pointerId); }"
-                        onlostpointercapture="this.dataset.dragging='false'; this.classList.remove('is-dragging');"
-                      >
-                        {group.items.map((legend) => (
-                          <article class="sal-carousel-card rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white/92 p-5">
-                            {legend.image && (
-                              <div class="mb-4 px-2">
-                                <div class="flex min-h-[3.25rem] items-center justify-center">
-                                  <img src={resolveSalomonImage(legend.image)} alt={`${legend.title} glossary icon`} class="max-h-12 max-w-full object-contain" />
-                                </div>
-                                <div class="mt-3 h-px w-full bg-[rgba(12,12,12,0.1)]"></div>
-                              </div>
-                            )}
-                            <h4 class="text-[1.12rem] font-semibold tracking-[-0.03em] text-[var(--sal-ink)]">{legend.title}</h4>
-                            <p class="mt-3 text-sm leading-7 text-[#403b34]">{legend.summary}</p>
-                            {legend.meaning && <p class="mt-4 text-sm leading-7 text-[#47433d]">{legend.meaning}</p>}
-                          </article>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              ))}
+            <div class="mt-8">
+              <a href="/downloads/salomon-tech-legends-glossary.pdf" class="sal-glossary-cta__link" download>Download glossary PDF</a>
             </div>
           </div>
         </section>
@@ -616,6 +368,11 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
     </main>
     <script>
       const mobileNavs = document.querySelectorAll("[data-mobile-nav]");
+      const historyCarousel = document.querySelector("[data-history-carousel]");
+      const historyTrack = historyCarousel?.querySelector("[data-history-track]");
+      const historySlides = historyTrack ? Array.from(historyTrack.querySelectorAll("[data-history-slide]")) : [];
+      const historyPrevButton = historyCarousel?.querySelector('[data-history-nav="prev"]');
+      const historyNextButton = historyCarousel?.querySelector('[data-history-nav="next"]');
 
       document.addEventListener("click", (event) => {
         mobileNavs.forEach((menu) => {
@@ -632,6 +389,21 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
           });
         });
       });
+
+      if (historyTrack && historySlides.length) {
+        const scrollTimeline = (direction) => {
+          const firstSlide = historySlides[0];
+          const gap = 24;
+          const distance = firstSlide.getBoundingClientRect().width + gap;
+          historyTrack.scrollBy({
+            left: direction * distance,
+            behavior: "smooth",
+          });
+        };
+
+        historyPrevButton?.addEventListener("click", () => scrollTimeline(-1));
+        historyNextButton?.addEventListener("click", () => scrollTimeline(1));
+      }
     </script>
   </body>
 </html>

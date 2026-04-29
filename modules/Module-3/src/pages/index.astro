@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import whiteLogo from "../images/White-logo.svg?url";
 
 const salomonImages = import.meta.glob("../images/salomon/**/*.{png,jpg,jpeg,avif,svg}", {
   eager: true,
@@ -13,145 +14,169 @@ const resolveSalomonImage = (path) =>
     : path;
 
 const navItems = [
-  { href: "#concept", label: "Concept" },
-  { href: "#products", label: "Products" },
+  { href: "#groups", label: "Road models" },
+  { href: "#lineup", label: "Lineup" },
   { href: "#sell", label: "Sell it" },
 ];
 
-const conceptCards = [
+const roadGroups = [
   {
-    title: "Road feeling",
-    detail: "Gravel should keep the cushioned road sensation the runner already likes, rather than forcing them straight into a full trail-shoe experience.",
+    title: "Dynamic comfort",
+    models: "Aero Glide 4, Aero Blaze 3",
+    detail: "For long-distance runners and everyday runners seeking cushioning, smooth transitions, and dynamic comfort.",
+    bestFor: ["Easy to moderate pace", "Smooth running feel", "Cushion and bounce"],
+    tone: "rgba(247,246,243,0.96)",
   },
   {
-    title: "Better grip",
-    detail: "The point of the category is simple: same run feel, stronger confidence once the route leaves the pavement and moves onto parks, dust, or gravel.",
-  },
-  {
-    title: "Mixed-surface freedom",
-    detail: "This is the answer for city runners who want to move from roads to parks and then into more natural routes without changing personality underfoot.",
+    title: "Dynamic speed",
+    models: "S/LAB Phantasm 3",
+    detail: "For fast-paced runners chasing performance, energy return, and a lighter, more propulsive road feeling.",
+    bestFor: ["Running fast", "Propulsion", "Performance training and competition"],
+    tone: "rgba(242,241,238,0.96)",
   },
 ];
 
-const products = [
+const coreProducts = [
   {
-    title: "Aero Glide 4 Gravel",
-    image: "/salomon/aero-glide-4-gravel.png",
-    strap: "Made for gravel running, or easy trails with dynamic comfort",
-    metrics: ["Dynamic comfort", "Maximum cushioning", "Adaptive ride", "Adaptive grip"],
+    title: "Aero Glide 4",
+    image: "/salomon/aero-glide-4.png",
+    lane: "Dynamic comfort",
+    group: "Dynamic comfort",
+    strap: "The iconic premium comfort road model",
+    metrics: ["Long-distance comfort", "Premium cushioning", "Cushion and bounce", "Everyday road use"],
     detail:
-      "Aero Glide 4 Gravel gives the runner the freedom to switch between surfaces whenever they choose. It brings exceptional comfort and dynamic performance, then adds a grippy sole for more versatility and confidence.",
-    highlight: {
-      image: "/salomon/aero-glide-4-gravel-numbers.jpg",
-      points: [
-        {
-          number: "1",
-          title: "3D mesh upper with endoFIT",
-          detail: "An internal fit sleeve designed to hug the foot in exactly the right places and provide a precise fit",
-        },
-        {
-          number: "2",
-          title: "quickLACE neo",
-          detail: "Effortless lacing with a thicker lace for enhanced comfort and a secure, evenly adjusted fit on any terrain",
-        },
-        {
-          number: "3",
-          title: "optiFOAM2",
-          detail: "Soft, bouncy and durable. Made with 100% TPU, recyclable",
-        },
-        {
-          number: "4",
-          title: "Gravel contaGRIP\u00AE",
-          detail: "Optimal for multi surface traction & transitioning from paved to non-paved... and back again!",
-        },
-      ],
-    },
+      "Aero Glide 4 is the premium comfort answer for long-distance runners and everyday runners who want cushioning and smooth, easy miles.",
     specs: [
-      { label: "Drop", lines: ["8 mm", "41 / 33mm"] },
-      {
-        label: "Weight",
-        columns: [
-          { value: "270 g", note: "M UK 8.5" },
-          { value: "230 g", note: "W UK 5.5" },
-        ],
-      },
-      { label: "Cushion", lines: ["Maximum"] },
-      { label: "Practice", lines: ["Running"] },
-      { label: "Terrain", lines: ["City parks, mixed,", "paved surface, smooth"] },
-      { label: "Fit", lines: ["Standard"] },
+      { label: "Use", lines: ["Long distance", "Everyday road"] },
+      { label: "Ride", lines: ["Soft cushioning", "Smooth transitions"] },
+      { label: "Feel", lines: ["Premium comfort"] },
+      { label: "Runner", lines: ["Comfort-led", "Mileage-focused"] },
     ],
-    benefits: ["Adaptive ride", "Adaptive grip", "Adaptive fit"],
-    tech: ["3D mesh upper with endoFIT", "quickLACE neo", "optiFOAM2", "Gravel contaGRIP"],
-    say: "Explain it as road comfort with better grip once the route leaves asphalt. This is the max-cushion gravel answer.",
+    benefits: ["Premium cushioning", "Smooth transitions", "Long-run comfort"],
+    say: "Use Aero Glide 4 for runners who want the plushest, most comfort-led road feeling in the range.",
   },
   {
-    title: "Aero Blaze 3 Gravel",
-    image: "/salomon/aero-blaze-3-gravel.png",
-    strap: "Made for everyday running from paved to gravel roads, or easy trails",
-    metrics: ["Dynamic comfort", "Lighter feel", "Responsive ride", "Versatile grip"],
+    title: "Aero Blaze 3",
+    image: "/salomon/aero-blaze-3.png",
+    lane: "Dynamic comfort",
+    group: "Dynamic comfort",
+    strap: "Made for everyone, a reliable everyday running shoe",
+    metrics: ["Dynamic comfort", "Fluid transitions", "High comfort fit", "Versatile road training"],
     detail:
-      "Aero Blaze 3 Gravel is the lightweight all-terrain running shoe that lets the runner head from road to gravel and beyond. It keeps the landings soft and bouncy, but the ride feels more agile and more responsive than the max-cushion option.",
-    highlight: {
-      image: "/salomon/aero-blaze-3-gravel-numbers.jpg",
-      points: [
-        {
-          number: "1",
-          title: "Engineered mesh upper with sensiFIT",
-          detail: "Technology that wraps your foot like a car's seatbelt.",
-        },
-        {
-          number: "2",
-          title: "optiFOAM2",
-          detail: "Soft, bouncy and durable. Made with 100% TPU, recyclable",
-        },
-        {
-          number: "3",
-          title: "Gravel contaGRIP\u00AE",
-          detail: "Optimal for multi surface traction & transitioning from paved to non-paved... and back again!",
-        },
-      ],
-    },
+      "Aero Blaze 3 is the one shoe that nails every session. It mixes cushioning, dynamic comfort, and smooth transitions in a lightweight construction with premium-feel performance.",
     specs: [
       { label: "Drop", lines: ["8 mm", "35 / 27mm"] },
       {
         label: "Weight",
         columns: [
-          { value: "248 g", note: "M UK 8.5" },
-          { value: "204 g", note: "W UK 5.5" },
+          { value: "230 g", note: "M UK 8.5" },
+          { value: "193 g", note: "W UK 5.5" },
         ],
       },
-      { label: "Cushion", lines: ["Maximum"] },
+      { label: "Cushion", lines: ["Regular"] },
       { label: "Practice", lines: ["Running"] },
-      { label: "Terrain", lines: ["City parks, mixed,", "paved surface, smooth"] },
+      { label: "Terrain", lines: ["Road"] },
       { label: "Fit", lines: ["Standard"] },
     ],
-    benefits: ["Comfort and agility", "Versatility and grip", "Reinforcement and protection"],
-    tech: ["Engineered mesh upper with sensiFIT", "optiFOAM2", "Gravel contaGRIP"],
-    say: "Use Aero Blaze 3 Gravel for runners who want the gravel category, but with a snappier, lower-stack feeling than Aero Glide 4 Gravel.",
+    benefits: ["Versatile performance", "Lightweight comfort", "Smooth daily running"],
+    say: "Frame Aero Blaze 3 as the go-to road shoe: very good at everything, versatile, light, and dynamic.",
+  },
+  {
+    title: "S/LAB Phantasm 3",
+    image: "/salomon/slab-phantasm-3.png",
+    lane: "Dynamic speed",
+    group: "Dynamic speed",
+    strap: "The road answer for maximum propulsion",
+    metrics: ["Performance training", "Competition", "Lightweight propulsion", "Dynamic speed"],
+    detail:
+      "S/LAB Phantasm 3 is the speed answer for runners who want maximum energy return, lighter-feeling speed, and a stronger performance-training point of view.",
+    specs: [
+      { label: "Use", lines: ["Performance training", "Competition"] },
+      { label: "Ride", lines: ["Propulsive", "Fast turnover"] },
+      { label: "Feel", lines: ["Lightweight speed"] },
+      { label: "Runner", lines: ["Performance-led"] },
+    ],
+    benefits: ["Fast ride feel", "Energy return", "Race-day mindset"],
+    say: "Lead with S/LAB Phantasm 3 when the customer wants to run fast and clearly identifies as performance-minded rather than comfort-led.",
+  },
+];
+
+const lineupSections = [
+  {
+    title: "Dynamic comfort",
+    intro: "Dynamic comfort is for road runners who want smooth cushioning, everyday versatility, and easy miles. Start here with Aero Glide 4 and Aero Blaze 3.",
+    products: ["Aero Glide 4", "Aero Blaze 3"],
+  },
+  {
+    title: "Dynamic speed",
+    intro: "Dynamic speed is for runners who clearly want propulsion, performance training, and a faster road feeling. Start here with S/LAB Phantasm 3.",
+    products: ["S/LAB Phantasm 3"],
+  },
+];
+
+const moreRoadProducts = [
+  {
+    title: "S/LAB Phantasm 2 Made in France",
+    image: "/salomon/road-phantasm-2-made-in-france.png",
+    row: "S/LAB Proracing concept",
+    group: "Dynamic speed",
+    detail: "Part of the S/LAB Proracing concept within the road range.",
+  },
+  {
+    title: "S/LAB Spectur",
+    image: "/salomon/road-spectur.png",
+    row: "S/LAB Proracing concept",
+    group: "Dynamic speed",
+    detail: "Another speed-led S/LAB option in the road range.",
+  },
+  {
+    title: "Spectur 3",
+    image: "/salomon/road-spectur-3.png",
+    row: "Performance and racing",
+    group: "Dynamic speed",
+    detail: "A performance and racing option for runners looking for a faster road shoe.",
+  },
+  {
+    title: "INDEX.03",
+    image: "/salomon/road-index-03.png",
+    row: "Recreational multi-activity",
+    group: "Dynamic comfort",
+    detail: "A comfort-led option for broader recreational and multi-activity use.",
   },
 ];
 
 const sellingRows = [
   {
-    prompt: "I want the plushest gravel ride and the easiest long-distance comfort.",
-    start: "Aero Glide 4 Gravel",
-    why: "It is the max-cushion gravel answer, built for freedom across surfaces with a softer, more protected ride.",
+    prompt: "I just want one great road shoe for most runs.",
+    start: "Aero Blaze 3",
+    why: "Aero Blaze 3 is the reliable everyday-running answer and the broadest road recommendation in the pack.",
   },
   {
-    prompt: "I want the gravel concept, but I prefer something more responsive and lively.",
-    start: "Aero Blaze 3 Gravel",
-    why: "It keeps the same road-to-gravel logic with less cushioning and a snappier sensation underfoot.",
+    prompt: "I want the plushest, easiest comfort ride.",
+    start: "Aero Glide 4",
+    why: "Aero Glide 4 is the clearest answer for premium cushion and bounce.",
   },
   {
-    prompt: "I run roads first, then parks, then gravel when I can.",
-    start: "Either gravel shoe",
-    why: "That is exactly the category use case. The choice becomes max comfort versus a more responsive feel.",
+    prompt: "I care about speed, energy return, and race-day feeling.",
+    start: "S/LAB Phantasm 3",
+    why: "That request points directly to the speed side of the range and the S/LAB Phantasm 3 story.",
   },
-  {
-    prompt: "I do not want a full trail shoe feel.",
-    start: "Aero Glide 4 Gravel or Aero Blaze 3 Gravel",
-    why: "Gravel keeps the road-running sensation, then adds better grip once the runner leaves asphalt.",
-  },
+];
+
+const conversationOpeners = [
+  "What kind of run are you shopping for most?",
+  "Do you want the ride to feel softer and easier, or faster and more responsive?",
+  "Is this mainly for everyday runs, longer comfort runs, or speed sessions?",
+  "Do you want one shoe for most runs, or something more performance-led?",
+];
+
+const dareSteps = [
+  "Divide the team into two groups: customers and sales associates.",
+  "Form two lines facing each other.",
+  "Customers each hide a random object behind their back.",
+  "Sales associates have up to 10 seconds to break the ice with one sentence based on that object.",
+  "Walk forward, swap roles, and repeat.",
+  "Debrief what felt easy to connect, what felt difficult, and what made the customer react.",
 ];
 
 const sectionPadding = "p-6 md:p-8 lg:p-10";
@@ -161,16 +186,16 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Module 3 | Gravel running</title>
+    <title>Module 3 | Road running</title>
   </head>
   <body class="selection:bg-[var(--sal-lime)] selection:text-black">
     <main class="sal-shell min-h-screen">
-      <div class="mx-auto max-w-[1260px] px-4 pt-2 pb-4 md:px-6 md:pt-3 md:pb-6">
-        <header class="sal-card sal-section sticky top-2 z-30 overflow-visible px-4 py-4 md:top-3 md:px-6" style="z-index:60; isolation:isolate;">
+      <div class="sal-fixed-nav fixed inset-x-0 top-0 z-[90]">
+        <header class="sal-section overflow-visible px-4 py-4 md:px-6 lg:px-[8vw]" style="z-index:90; isolation:isolate;">
           <div class="flex items-center justify-between gap-4 md:hidden">
             <div class="flex min-w-0 items-center gap-3">
               <img src="/tfg-logo.svg" alt="TFG logo" class="h-10 w-10 shrink-0" />
-              <p class="min-w-0 text-sm font-medium leading-5 text-[var(--sal-ink-soft)]">Module 3 | Gravel running</p>
+              <p class="sal-ui-text min-w-0 font-medium text-[var(--sal-ink-soft)]">Module 3 | Road running</p>
             </div>
 
             <details class="relative z-[70] shrink-0 md:hidden" data-mobile-nav style="z-index:70;">
@@ -184,7 +209,7 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
               </summary>
 
               <div class="absolute right-0 top-[calc(100%+0.75rem)] z-[80] w-64 max-w-[calc(100vw-1.5rem)] overflow-hidden rounded-[0.9rem] border border-[rgba(12,12,12,0.08)] bg-white p-2 shadow-[0_14px_36px_rgba(56,39,27,0.09)]" style="z-index:80;">
-                <div class="flex flex-col gap-1.5 text-sm text-[var(--sal-ink-soft)]">
+                <div class="sal-ui-text flex flex-col gap-1.5 text-[var(--sal-ink-soft)]">
                   {navItems.map((item) => (
                     <a href={item.href} class="rounded-[0.75rem] px-4 py-3 transition hover:bg-[#f4efea]" data-mobile-nav-link>{item.label}</a>
                   ))}
@@ -197,184 +222,260 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
             <div class="flex min-w-0 items-center gap-4">
               <img src="/tfg-logo.svg" alt="TFG logo" class="h-11 w-11 shrink-0" />
               <div class="min-w-0">
-                <p class="text-lg font-semibold tracking-[-0.03em] text-[var(--sal-ink-soft)]">Module 3 | Gravel running</p>
+                <p class="sal-body-copy font-semibold tracking-[-0.03em] text-[var(--sal-ink-soft)]">Module 3 | Road running</p>
               </div>
             </div>
 
-            <nav class="flex gap-2 overflow-x-auto pb-1 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-[var(--sal-ink-soft)]">
+            <nav class="sal-ui-text flex gap-2 overflow-x-auto pb-1 font-bold uppercase tracking-[0.12em] text-[var(--sal-ink-soft)]">
               {navItems.map((item) => (
                 <a href={item.href} class="sal-chip whitespace-nowrap hover:border-[rgba(12,12,12,0.22)] hover:bg-white">{item.label}</a>
               ))}
             </nav>
           </div>
         </header>
+      </div>
 
-        <section class="sal-card-dark sal-section mt-5 overflow-hidden px-6 py-8 md:mt-6 md:px-10 md:py-12">
+      <div class="w-full pb-4 pt-24 md:pb-6 md:pt-28">
+        <section
+          class="sal-card-dark sal-section sal-hero-banner mt-5 overflow-hidden px-6 py-8 md:mt-6 md:px-10 md:py-12"
+          style={`--sal-hero-image:url(${resolveSalomonImage("/salomon/hero-road.png")});`}
+        >
           <div class="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
-            <div>
-              <p class="sal-kicker text-[var(--sal-glacier)]">Gravel running</p>
-              <h1 class="mt-4 max-w-[13ch] text-[2.95rem] font-black uppercase leading-[0.92] tracking-[-0.07em] text-white md:text-[4.95rem]">
-                Sell the bridge between road comfort and trail confidence
+            <div class="sal-hero-stack">
+              <div class="sal-hero-lockup">
+                <img src={whiteLogo} alt="Salomon logo" class="sal-hero-logo" />
+                <span class="sal-module-pill">Module 3</span>
+              </div>
+              <p class="sal-kicker text-[var(--sal-pink)]">Road running</p>
+              <h1 class="sal-title-hero text-white">
+                Start road conversations with feel
               </h1>
-              <p class="mt-5 max-w-[46rem] text-[1.08rem] leading-8 text-white/78 md:text-[1.18rem]">
-                Gravel is for runners who leave the pavement without wanting a full trail-shoe feel. Keep the promise simple: road comfort with more grip and more freedom across surfaces.
+              <p class="sal-body-copy text-white/78">
+                Most road runners are looking for one of two things: smoother comfort or faster response. Start there, then guide them to the right shoe.
               </p>
-
-            </div>
-
-            <div class="sal-hero-photo">
-              <img src={resolveSalomonImage("/salomon/hero-gravel.png")} alt="Two Salomon runners moving from city edge to more natural terrain" />
             </div>
           </div>
         </section>
 
-        <section id="concept" class="sal-card sal-section mt-6">
+        <section id="groups" class="sal-card sal-section mt-0 scroll-mt-28 md:scroll-mt-32">
           <div class={sectionPadding}>
-            <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+            <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>
-                <p class="sal-kicker text-[#6a6257]">What is gravel running?</p>
-                <h2 class="mt-3 text-[2.15rem] font-black uppercase leading-[0.96] tracking-[-0.06em] text-[var(--sal-ink)] md:text-[3rem]">
-                  Cushion and rebound from road, grip and versatility from trail
+                <p class="sal-kicker text-[#6a6257]">Start here</p>
+                <h2 class="sal-topo-divider sal-title-section mt-3 text-[var(--sal-ink)]">
+                  Most road runners want comfort or speed
                 </h2>
-                <p class="mt-5 text-[1.08rem] leading-8 text-[#403c35]">
-                  Salomon's GRVL range combines the feel of road shoes with the confidence of a trail outsole for runs that mix paved roads, city parks, and dusty gravel paths.
+                <p class="sal-body-copy mt-5 text-[#444039]">
+                  Start the conversation by finding out whether the runner wants smoother comfort or a faster, more propulsive feel. Once that is clear, the right road model becomes much easier to recommend. The following are key Salomon road running models and who they are for.
                 </p>
               </div>
-
-              <div class="grid gap-4 md:grid-cols-3">
-                {conceptCards.map((card) => (
-                  <article class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white/88 p-5">
-                    <h3 class="text-[1.25rem] font-semibold tracking-[-0.03em] text-[var(--sal-ink)]">{card.title}</h3>
-                    <p class="mt-3 text-sm leading-7 text-[#47433d]">{card.detail}</p>
-                  </article>
-                ))}
-              </div>
             </div>
-          </div>
-        </section>
 
-        <section id="products" class="sal-card sal-section mt-6">
-          <div class={sectionPadding}>
-            <p class="sal-kicker text-[#6a6257]">Gravel lineup</p>
-            <h2 class="mt-3 text-[2.15rem] font-black uppercase leading-[0.96] tracking-[-0.06em] text-[var(--sal-ink)] md:text-[3rem]">
-              Two products, two clear ways into the category
-            </h2>
-
-            <div class="mt-8 grid gap-5">
-              {products.map((product, index) => (
+            <div class="mt-8 grid gap-4 md:grid-cols-2">
+              {roadGroups.map((group, index) => (
                 <article
-                  class="sal-model-card p-5 md:p-6"
-                  style={`background:${index % 2 === 0 ? "rgba(255,255,255,0.92)" : "rgba(247,246,243,0.96)"};`}
+                  class="flex h-full flex-col rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] p-5"
+                  style={`background:${index === 0 ? "rgba(247,246,243,0.96)" : "rgba(242,241,238,0.96)"};`}
                 >
-                  <div class="grid gap-6 xl:grid-cols-[0.72fr_1.28fr] xl:items-start">
-                    <div>
-                      <div class="sal-product-stage">
-                        <img src={resolveSalomonImage(product.image)} alt={`${product.title} product cutout`} />
-                      </div>
-                    </div>
-
-                    <div class="sal-model-card__header">
-                      <p class="sal-kicker text-[#6a6257]">{product.strap}</p>
-                      <h3 class="mt-2 text-[1.4rem] font-semibold tracking-[-0.04em] text-[var(--sal-ink)]">{product.title}</h3>
-                      <p class="mt-4 text-sm leading-7 text-[#45413b]">{product.detail}</p>
-                    </div>
-                  </div>
-
-                  {product.highlight && (
-                    <div class="mt-5 rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#f2f1ed] p-4">
-                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#71695d]">Highlight</p>
-                      <div class="mt-4 grid gap-4 xl:grid-cols-[0.9fr_1.1fr]">
-                        <div class="sal-inline-figure rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white p-0">
-                          <img src={resolveSalomonImage(product.highlight.image)} alt={`${product.title} highlight view with numbered callouts`} class="rounded-[0.5625rem]" />
-                        </div>
-
-                        <div class="grid gap-3">
-                          {product.highlight.points.map((point) => (
-                            <article class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white p-4">
-                              <div class="flex items-start gap-3">
-                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--sal-ink)] text-xs font-black text-white">
-                                  {point.number}
-                                </span>
-                                <div>
-                                  <h4 class="text-[1rem] font-semibold tracking-[-0.03em] text-[var(--sal-ink)]">{point.title}</h4>
-                                  {point.detail && <p class="mt-2 text-sm leading-7 text-[#45413b]">{point.detail}</p>}
-                                </div>
-                              </div>
-                            </article>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  <div class="mt-4 grid gap-4 xl:grid-cols-[1.02fr_0.98fr]">
-                    <div class="rounded-[0.5625rem] bg-[#f0efeb] p-4">
-                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#71695d]">Tech features</p>
-                      <div class="mt-4 sal-spec-grid">
-                        {product.specs.map((spec) => (
-                          <article class="sal-spec-card">
-                            <p class="sal-spec-label">{spec.label}</p>
-                            {spec.columns ? (
-                              <div class="sal-spec-columns">
-                                {spec.columns.map((column) => (
-                                  <div class="sal-spec-stack">
-                                    <p class="sal-spec-value">{column.value}</p>
-                                    {column.note && <p class="sal-spec-note">{column.note}</p>}
-                                  </div>
-                                ))}
-                              </div>
-                            ) : (
-                              <div class="sal-spec-stack">
-                                {spec.lines.map((line) => (
-                                  <p class="sal-spec-value">{line}</p>
-                                ))}
-                              </div>
-                            )}
-                          </article>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div class="rounded-[0.5625rem] bg-white p-4">
-                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#71695d]">Why people love this shoe</p>
-                      <ul class="mt-3 space-y-2 text-sm leading-7 text-[#403b34]">
-                        {product.benefits.map((item) => (
-                          <li class="flex gap-2"><span class="mt-[0.58rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--sal-pink)]"></span><span>{item}</span></li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+                  <h3 class="sal-title-product uppercase text-[var(--sal-ink)]">{group.title}</h3>
+                  <p class="sal-ui-text mt-3 font-semibold uppercase tracking-[0.12em] text-[#5d584f]">{group.models}</p>
+                  <p class="sal-body-copy mt-4 text-[#444039]">{group.detail}</p>
+                  <ul class="sal-body-copy mt-4 space-y-2 text-[#403b34]">
+                    {group.bestFor.map((item) => (
+                      <li class="flex gap-2"><span class="mt-[0.58rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--sal-ink)]"></span><span>{item}</span></li>
+                    ))}
+                  </ul>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="sell" class="sal-section mt-6 grid gap-6 lg:grid-cols-[0.88fr_1.12fr]">
-          <article class="sal-card-dark px-6 py-7 md:px-8 md:py-8">
-            <p class="sal-kicker text-[var(--sal-pink)]">Selling starts</p>
-            <h2 class="mt-4 text-[2.1rem] font-black uppercase leading-[0.94] tracking-[-0.06em] text-white md:text-[3rem]">Keep the gravel choice clear and easy to explain</h2>
-            <p class="mt-5 text-[1.02rem] leading-8 text-white/78">
-              Listen for the route and the ride feel, name the best place to start, and explain the benefit in plain language.
+        <section class="sal-section mt-6 overflow-hidden">
+          <div class="sal-photo-strip sal-course-banner">
+            <img
+              src={resolveSalomonImage("/salomon/roadrunning2.jpg")}
+              alt="Road runners in motion"
+              class="sal-course-banner-image"
+            />
+          </div>
+        </section>
+
+        <section id="lineup" class="sal-card sal-section mt-0 scroll-mt-28 md:scroll-mt-32">
+          <div class={sectionPadding}>
+            <p class="sal-kicker text-[#6a6257]">Road lineup</p>
+            <h2 class="sal-topo-divider sal-title-section mt-3 text-[var(--sal-ink)]">
+              The full road running range
+            </h2>
+            <p class="sal-body-copy mt-5 text-[#45413b]">
+              Click each shoe to reveal more product detail.
             </p>
-            <div class="mt-8 overflow-hidden rounded-[0.5625rem]">
+            <div class="mt-8 grid gap-5">
+              {lineupSections.map((section, sectionIndex) => (
+                <section
+                  class={sectionIndex % 2 === 1
+                    ? "rounded-[0.5625rem] border border-white/10 bg-[linear-gradient(140deg,rgba(24,24,24,0.96)_0%,rgba(10,10,10,0.98)_100%)] p-5 text-white md:p-6"
+                    : "rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#f3f1ed] p-5 md:p-6"}
+                >
+                  <div>
+                    <p class={sectionIndex % 2 === 1 ? "sal-kicker text-white" : "sal-kicker text-[#6a6257]"}>{section.title}</p>
+                    <p class={sectionIndex % 2 === 1 ? "sal-body-copy mt-3 text-white" : "sal-body-copy mt-3 text-[#45413b]"}>{section.intro}</p>
+                  </div>
+
+                  <div class="mt-5 grid gap-5">
+                  {coreProducts
+                    .filter((product) => section.products.includes(product.title))
+                    .map((product) => (
+                      <details
+                        class={sectionIndex % 2 === 1 ? "sal-model-card sal-model-card--dark p-5 md:p-6" : "sal-model-card p-5 md:p-6"}
+                        style={sectionIndex % 2 === 1
+                          ? "background:linear-gradient(140deg, rgba(58, 58, 58, 0.96) 0%, rgba(36, 36, 36, 0.98) 100%); border-color:rgba(255,255,255,0.1); color:white;"
+                          : "background:white;"}
+                        name={`road-shoe-${section.title}`}
+                      >
+                        <summary class="sal-product-reveal-summary">
+                        <div class="grid gap-6 xl:grid-cols-[0.72fr_1.28fr] xl:items-start">
+                          <div>
+                            <div class="sal-product-stage">
+                              <img src={resolveSalomonImage(product.image)} alt={`${product.title} product visual`} />
+                            </div>
+                          </div>
+
+                          <div class={sectionIndex % 2 === 1 ? "sal-model-card__header border-white/10" : "sal-model-card__header"}>
+                            <h3 class={sectionIndex % 2 === 1 ? "sal-title-product mt-3 text-white" : "sal-title-product mt-3 text-[var(--sal-ink)]"}>{product.title}</h3>
+                            <p class={sectionIndex % 2 === 1 ? "sal-ui-text mt-3 font-semibold uppercase tracking-[0.12em] text-white" : "sal-ui-text mt-3 font-semibold uppercase tracking-[0.12em] text-[#5d584f]"}>{product.strap}</p>
+                            <p class={sectionIndex % 2 === 1 ? "sal-body-copy mt-4 text-white" : "sal-body-copy mt-4 text-[#45413b]"}>{product.detail}</p>
+                            <span class={sectionIndex % 2 === 1 ? "sal-product-reveal-summary__cta sal-product-reveal-summary__cta--dark" : "sal-product-reveal-summary__cta"}>Reveal more</span>
+                          </div>
+                        </div>
+                        </summary>
+
+                        <div class="sal-product-reveal-body">
+                        <div class="mt-4 flex flex-wrap gap-2">
+                          {product.metrics.map((metric) => (
+                            <span class={sectionIndex % 2 === 1
+                              ? "rounded-[0.5625rem] border border-white/10 bg-white/8 px-3 py-2 text-[18px] font-bold uppercase tracking-[0.12em] text-white"
+                              : "rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#f8f7f4] px-3 py-2 text-[18px] font-bold uppercase tracking-[0.12em] text-[#5e574d]"}>
+                              {metric}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div class="mt-4 grid gap-4 xl:grid-cols-[3fr_1fr]">
+                          <div class={sectionIndex % 2 === 1
+                            ? "rounded-[0.5625rem] border border-white/10 bg-[linear-gradient(140deg,rgba(92,92,92,0.96)_0%,rgba(66,66,66,0.98)_100%)] p-4 text-white"
+                            : "rounded-[0.5625rem] bg-[#f0efeb] p-4"}>
+                          <p class={sectionIndex % 2 === 1 ? "text-[18px] font-bold uppercase tracking-[0.14em] text-white" : "text-[18px] font-bold uppercase tracking-[0.14em] text-[#71695d]"}>Tech features</p>
+                          <div class="mt-4 sal-spec-grid">
+                            {product.specs.map((spec) => (
+                              <article class={sectionIndex % 2 === 1 ? "sal-spec-card border-white/12" : "sal-spec-card"}>
+                                <p class={sectionIndex % 2 === 1 ? "sal-spec-label text-white/64" : "sal-spec-label"}>{spec.label}</p>
+                                {spec.columns ? (
+                                  <div class="sal-spec-columns">
+                                    {spec.columns.map((column) => (
+                                      <div class="sal-spec-stack">
+                                        <p class={sectionIndex % 2 === 1 ? "sal-spec-value text-white" : "sal-spec-value"}>{column.value}</p>
+                                        {column.note && <p class={sectionIndex % 2 === 1 ? "sal-spec-note text-white/78" : "sal-spec-note"}>{column.note}</p>}
+                                      </div>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <div class="sal-spec-stack">
+                                    {spec.lines.map((line) => (
+                                      <p class={sectionIndex % 2 === 1 ? "sal-spec-value text-white" : "sal-spec-value"}>{line}</p>
+                                    ))}
+                                  </div>
+                                )}
+                              </article>
+                            ))}
+                          </div>
+                          </div>
+
+                          <div class={sectionIndex % 2 === 1
+                            ? "rounded-[0.5625rem] border border-white/10 bg-[linear-gradient(140deg,rgba(92,92,92,0.96)_0%,rgba(66,66,66,0.98)_100%)] p-4 text-white"
+                            : "rounded-[0.5625rem] bg-white p-4"}>
+                          <p class={sectionIndex % 2 === 1 ? "text-[18px] font-bold uppercase tracking-[0.14em] text-white" : "text-[18px] font-bold uppercase tracking-[0.14em] text-[#71695d]"}>Key features</p>
+                          <ul class={sectionIndex % 2 === 1 ? "mt-3 space-y-2 text-[18px] leading-8 text-white" : "mt-3 space-y-2 text-[18px] leading-8 text-[#403b34]"}>
+                            {product.benefits.map((item) => (
+                              <li class="flex gap-2"><span class={sectionIndex % 2 === 1 ? "mt-[0.58rem] h-1.5 w-1.5 shrink-0 rounded-full bg-white/64" : "mt-[0.58rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--sal-pink)]"}></span><span>{item}</span></li>
+                            ))}
+                          </ul>
+                          {product.tech && (
+                            <div class="mt-4">
+                              <p class={sectionIndex % 2 === 1 ? "text-[18px] font-bold uppercase tracking-[0.14em] text-white" : "text-[18px] font-bold uppercase tracking-[0.14em] text-[#71695d]"}>Technologies</p>
+                              <ul class={sectionIndex % 2 === 1 ? "mt-3 space-y-2 text-[18px] leading-8 text-white" : "mt-3 space-y-2 text-[18px] leading-8 text-[#403b34]"}>
+                                {product.tech.map((item) => (
+                                  <li class="flex gap-2"><span class={sectionIndex % 2 === 1 ? "mt-[0.58rem] h-1.5 w-1.5 shrink-0 rounded-full bg-white/64" : "mt-[0.58rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--sal-ink)]"}></span><span>{item}</span></li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          </div>
+                        </div>
+
+                        <div class={sectionIndex % 2 === 1
+                          ? "mt-4 rounded-[0.5625rem] border border-white/10 bg-[linear-gradient(140deg,rgba(92,92,92,0.96)_0%,rgba(66,66,66,0.98)_100%)] p-4 text-white"
+                          : "mt-4 rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#151515] p-4 text-white"}>
+                          <p class={sectionIndex % 2 === 1 ? "text-[18px] font-bold uppercase tracking-[0.14em] text-white" : "text-[18px] font-bold uppercase tracking-[0.14em] text-white"}>What to say</p>
+                          <p class={sectionIndex % 2 === 1 ? "mt-2 text-[18px] leading-8 text-white" : "mt-2 text-[18px] leading-8 text-white"}>{product.say}</p>
+                        </div>
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+
+            <section class="mt-6">
+              <div class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#f3f1ed] p-5 md:p-6">
+                <p class="sal-kicker text-[#6a6257]">More road shoes</p>
+                <p class="sal-body-copy mt-3 text-[#45413b]">
+                  These are supporting road models to know when the customer wants a more specific race, speed, or multi-activity option.
+                </p>
+
+                <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                  {moreRoadProducts.map((product) => (
+                    <article class="sal-model-card bg-white p-5 md:p-6">
+                      <div class="sal-product-stage mb-5 p-4">
+                        <img src={resolveSalomonImage(product.image)} alt={`${product.title} product visual`} class="max-h-[13.5rem] max-w-[92%]" />
+                      </div>
+                      <h3 class="text-[1.18rem] font-semibold tracking-[-0.03em] text-[var(--sal-ink)]">{product.title}</h3>
+                      <p class="mt-2 text-[18px] font-bold uppercase tracking-[0.14em] text-[#71695d]">{product.row}</p>
+                      <p class="sal-body-copy mt-4 text-[#47433d]">{product.detail}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section id="sell" class="sal-section mt-6 grid gap-4 scroll-mt-28 lg:grid-cols-[0.88fr_1.12fr] md:scroll-mt-32">
+          <article class="sal-card-dark flex h-full flex-col px-6 py-7 md:px-8 md:py-8">
+            <p class="sal-kicker text-white/64">Selling starts</p>
+            <h2 class="sal-topo-divider sal-title-section mt-3 text-white">Keep the road choice clear and easy to explain</h2>
+            <p class="sal-body-copy mt-5 text-white/78">
+              Listen for the ride feel the runner wants, name the best place to start, and explain the benefit in plain language.
+            </p>
+            <div class="sal-course-banner sal-sell-banner mt-8 min-h-[14rem] flex-1 overflow-hidden rounded-[0.5625rem]">
               <img
-                src={resolveSalomonImage("/salomon/hero-gravel.png")}
-                alt="Salomon runners moving from city edge onto gravel terrain"
-                class="h-[13.5rem] w-full object-cover md:h-[16rem]"
+                src={resolveSalomonImage("/salomon/hero-road.png")}
+                alt="Salomon runners moving fast on road terrain"
+                class="sal-course-banner-image"
               />
             </div>
           </article>
 
-          <article class="sal-card">
-            <div class={sectionPadding}>
-              <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Tap a customer line to reveal the answer</p>
-              <div class="mt-4 grid gap-4">
+          <article class="sal-card-dark flex h-full flex-col">
+            <div class={`${sectionPadding} flex h-full flex-col`}>
+              <p class="sal-kicker text-white/64">Tap a customer line to reveal the answer</p>
+              <div class="mt-6 flex flex-1 flex-col justify-end gap-4">
                 {sellingRows.map((row) => (
-                  <details class="sal-compare-reveal" name="gravel-sell">
+                  <details class="sal-compare-reveal" name="road-sell">
                     <summary class="sal-compare-summary">
                       <div>
-                        <p class="text-[1.02rem] font-semibold leading-7 tracking-[-0.02em] text-[var(--sal-ink)]">{row.prompt}</p>
+                        <p class="text-[18px] font-semibold leading-8 tracking-[-0.02em] text-white">{row.prompt}</p>
                       </div>
                       <span class="sal-compare-summary__cta">Reveal answer</span>
                     </summary>
@@ -382,12 +483,12 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
                     <div class="sal-compare-answer">
                       <div class="grid gap-4 lg:grid-cols-[0.72fr_1.18fr]">
                         <div>
-                          <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Start with</p>
-                          <p class="mt-2 text-sm leading-7 text-[#44403a]">{row.start}</p>
+                          <p class="text-xs font-bold uppercase tracking-[0.14em] text-white/64">Start with</p>
+                          <p class="mt-2 text-[18px] leading-8 text-white">{row.start}</p>
                         </div>
                         <div>
-                          <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Why</p>
-                          <p class="mt-2 text-sm leading-7 text-[#44403a]">{row.why}</p>
+                          <p class="text-xs font-bold uppercase tracking-[0.14em] text-white/64">Why</p>
+                          <p class="mt-2 text-[18px] leading-8 text-white">{row.why}</p>
                         </div>
                       </div>
                     </div>
@@ -396,6 +497,46 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
               </div>
             </div>
           </article>
+        </section>
+
+        <section class="sal-section mt-6">
+          <div class={sectionPadding}>
+            <p class="sal-kicker text-[#6a6257]">Team activity</p>
+            <h2 class="sal-topo-divider sal-title-section mt-3 text-[var(--sal-ink)]">Practice the road conversation</h2>
+            <p class="sal-body-copy mt-5 max-w-[40rem] text-[#45413b]">
+              Use this activity to practice opening quickly, reading the runner, and guiding them toward the right road shoe.
+            </p>
+
+            <div class="mt-6 grid items-stretch gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+              <article class="sal-card h-full">
+                <div class="grid h-full gap-4">
+                  {dareSteps.map((step, index) => (
+                    <article class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white/88 p-5">
+                      <div class="flex items-center gap-4">
+                        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--sal-cinder)] text-[18px] font-black uppercase tracking-[0.12em] text-[var(--sal-lime)]">
+                          0{index + 1}
+                        </span>
+                        <p class="text-[18px] leading-8 text-[#45413b]">{step}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </article>
+
+              <article class="flex h-full flex-col rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#f3f1ed] px-6 py-7 md:px-8 md:py-8">
+                <div class="flex h-full flex-col">
+                  <p class="sal-kicker text-[#6a6257]">Try these opening lines</p>
+                  <div class="mt-4 flex flex-1 flex-col gap-3">
+                    {conversationOpeners.map((line) => (
+                      <article class="flex flex-1 items-center rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white p-5">
+                        <p class="sal-body-copy text-[#45413b]">{line}</p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
         </section>
       </div>
     </main>

@@ -16,6 +16,12 @@
   --sal-radius: 0.5625rem;
   --sal-font: Arial, "Helvetica Neue", Helvetica, sans-serif;
   --sal-display: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --sal-text-hero: 2.25rem;
+  --sal-text-section: 1.5rem;
+  --sal-text-product: 1.5rem;
+  --sal-text-body: 1.125rem;
+  --sal-text-ui: 1.125rem;
+  --sal-text-label: 0.75rem;
 }
 
 html {
@@ -25,20 +31,25 @@ html {
 body {
   font-family: var(--sal-font);
   color: var(--sal-ink);
-  background:
-    radial-gradient(circle at top left, rgba(230, 223, 211, 0.18), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(12, 12, 12, 0.05), transparent 22%),
-    linear-gradient(180deg, #f7f4ef 0%, var(--sal-paper) 45%, var(--sal-paper-deep) 100%);
+  background: #ffffff;
 }
 
 .sal-shell {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding-inline: 0;
+}
+
+@media (min-width: 1024px) {
+  .sal-shell {
+    padding-inline: 8vw;
+  }
 }
 
 .sal-shell::before,
 .sal-shell::after {
-  content: "";
+  content: none;
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -64,27 +75,80 @@ body {
 }
 
 .sal-card {
-  border: 1px solid var(--sal-line);
+  border: 0;
   border-radius: var(--sal-radius);
-  background: rgba(255, 255, 255, 0.84);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 20px 60px rgba(12, 12, 12, 0.06);
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.sal-fixed-nav {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(12, 12, 12, 0.08);
+  box-shadow: 0 8px 22px rgba(12, 12, 12, 0.09);
 }
 
 .sal-card-dark {
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 0;
   border-radius: var(--sal-radius);
   background:
     linear-gradient(140deg, rgba(24, 24, 24, 0.96) 0%, rgba(10, 10, 10, 0.98) 100%);
   color: white;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+  box-shadow: none;
 }
 
 .sal-kicker {
-  font-size: 0.76rem;
+  font-size: var(--sal-text-label);
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+}
+
+.sal-title-hero {
+  font-size: var(--sal-text-hero);
+  font-family: var(--sal-display);
+  font-weight: 900;
+  line-height: 0.93;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  max-width: none;
+}
+
+.sal-title-section {
+  font-size: var(--sal-text-section);
+  font-family: var(--sal-display);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  max-width: none;
+}
+
+.sal-title-product {
+  font-size: var(--sal-text-product);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.03em;
+}
+
+.sal-body-copy {
+  font-size: var(--sal-text-body);
+  line-height: 1.7;
+}
+
+.sal-ui-text {
+  font-size: var(--sal-text-ui);
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --sal-text-hero: 2.875rem;
+  }
 }
 
 .sal-display {
@@ -126,40 +190,97 @@ body {
     linear-gradient(90deg, rgba(12, 12, 12, 0.84) 0%, rgba(12, 12, 12, 0.18) 70%, var(--sal-sand) 100%);
 }
 
-.sal-hero-photo {
+.sal-card-dark .sal-topo-divider::after {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.34) 70%, rgba(255, 255, 255, 0.08) 100%);
+}
+
+.sal-hero-banner {
   position: relative;
   overflow: hidden;
-  min-height: 320px;
-  border-radius: 0.5625rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  isolation: isolate;
   background: #111111;
 }
 
-.sal-hero-photo img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.sal-hero-photo::after {
+.sal-hero-banner::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.06) 0%, rgba(10, 10, 10, 0.42) 100%);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  z-index: 0;
+  background-image: var(--sal-hero-image);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.sal-hero-photo > * {
+.sal-hero-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  z-index: 0;
+  background:
+    linear-gradient(90deg, #111111 0%, rgba(24, 24, 24, 0) 100%);
+}
+
+.sal-hero-banner > * {
   position: relative;
   z-index: 1;
+}
+
+.sal-hero-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.75rem;
+}
+
+.sal-hero-logo {
+  width: clamp(11rem, 28vw, 16rem);
+  max-width: 100%;
+  height: auto;
+}
+
+.sal-module-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.12);
+  padding: 0.52rem 0.95rem;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: white;
+  backdrop-filter: blur(8px);
+}
+
+.sal-hero-stack {
+  display: flex;
+  max-width: 46rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.sal-hero-stack > .sal-kicker,
+.sal-hero-stack > .sal-title-hero,
+.sal-hero-stack > .sal-body-copy {
+  width: 100%;
 }
 
 .sal-photo-strip {
   position: relative;
   overflow: hidden;
-  border-radius: 0.5625rem;
-  border: 1px solid rgba(12, 12, 12, 0.08);
+  border-radius: var(--sal-radius);
+  border: 0;
   background: #111111;
 }
 
@@ -168,6 +289,40 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.sal-course-banner {
+  aspect-ratio: 8 / 3;
+}
+
+.sal-course-banner-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sal-sell-banner {
+  margin-top: auto;
+}
+
+section.sal-card,
+section.sal-card-dark {
+  overflow: hidden;
+}
+
+section.sal-section.mt-0.sal-card,
+section.sal-section.mt-0.sal-card-dark,
+section.sal-section.mt-0 .sal-photo-strip {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+section.sal-section.mt-0:has(+ section.sal-section.mt-0).sal-card,
+section.sal-section.mt-0:has(+ section.sal-section.mt-0).sal-card-dark,
+section.sal-section.mt-0:has(+ section.sal-section.mt-0) .sal-photo-strip {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .sal-product-stage {
@@ -357,6 +512,173 @@ body {
   text-transform: uppercase;
 }
 
+.sal-metric-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .sal-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.sal-inline-figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 15rem;
+}
+
+.sal-inline-figure img {
+  width: auto;
+  max-width: 128%;
+  max-height: 15.8rem;
+  object-fit: contain;
+}
+
+.sal-model-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5625rem;
+  border: 1px solid rgba(12, 12, 12, 0.08);
+  box-shadow: none;
+}
+
+.sal-model-card--dark {
+  color: white;
+}
+
+.sal-model-card--dark .sal-title-product,
+.sal-model-card--dark .sal-body-copy,
+.sal-model-card--dark .sal-ui-text,
+.sal-model-card--dark .sal-spec-value {
+  color: white;
+}
+
+.sal-model-card--dark .sal-spec-label,
+.sal-model-card--dark .sal-spec-note {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.sal-model-card--dark .sal-spec-card {
+  border-left-color: rgba(255, 255, 255, 0.18);
+}
+
+.sal-model-card::before {
+  content: none;
+}
+
+.sal-model-card__header {
+  min-width: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(12, 12, 12, 0.08);
+}
+
+.sal-product-reveal-summary {
+  display: block;
+  list-style: none;
+  cursor: pointer;
+}
+
+.sal-product-reveal-summary::-webkit-details-marker {
+  display: none;
+}
+
+.sal-product-reveal-summary__cta {
+  display: inline-flex;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5625rem;
+  border: 1px solid rgba(12, 12, 12, 0.08);
+  background: rgba(240, 239, 235, 0.9);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5e574d;
+  white-space: nowrap;
+}
+
+.sal-product-reveal-summary__cta--dark {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+.sal-product-reveal-body {
+  display: none;
+}
+
+.sal-model-card[open] .sal-product-reveal-summary__cta {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--sal-ink);
+  border-color: rgba(12, 12, 12, 0.12);
+}
+
+.sal-model-card[open] .sal-product-reveal-summary__cta--dark {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--sal-ink);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.sal-model-card[open] .sal-product-reveal-body {
+  display: block;
+}
+
+.sal-spec-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+}
+
+.sal-spec-card {
+  min-height: 100%;
+  border-left: 1px solid rgba(12, 12, 12, 0.12);
+  padding-left: 0.85rem;
+}
+
+.sal-spec-label {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6d665d;
+}
+
+.sal-spec-columns {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sal-spec-stack {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.18rem;
+}
+
+.sal-spec-value {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.45;
+  text-transform: uppercase;
+  color: var(--sal-ink);
+}
+
+.sal-spec-note {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #756d62;
+}
+
 .sal-compare-reveal {
   overflow: hidden;
   border: 1px solid rgba(12, 12, 12, 0.08);
@@ -375,10 +697,11 @@ body {
 
 .sal-compare-summary {
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 1.15rem 1.25rem;
+  min-height: 100%;
   cursor: pointer;
 }
 
@@ -387,8 +710,8 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 0.5625rem;
-  border: 1px solid rgba(12, 12, 12, 0.1);
-  background: #f0efeb;
+  border: 1px solid rgba(12, 12, 12, 0.08);
+  background: rgba(240, 239, 235, 0.9);
   padding: 0.7rem 0.9rem;
   font-size: 0.72rem;
   font-weight: 800;
@@ -403,9 +726,9 @@ body {
 }
 
 .sal-compare-reveal[open] .sal-compare-summary__cta {
-  background: #151515;
-  color: white;
-  border-color: rgba(21, 21, 21, 0.9);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--sal-ink);
+  border-color: rgba(12, 12, 12, 0.12);
 }
 
 .sal-compare-answer {
@@ -413,14 +736,32 @@ body {
   background: rgba(244, 243, 239, 0.75);
 }
 
-.sal-metric-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0.8rem;
+.sal-card-dark .sal-compare-reveal {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
 }
 
-@media (min-width: 768px) {
-  .sal-metric-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.sal-card-dark .sal-compare-summary {
+  color: white;
+}
+
+.sal-card-dark .sal-compare-summary__cta {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+.sal-card-dark .sal-compare-reveal[open] .sal-compare-summary {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.sal-card-dark .sal-compare-reveal[open] .sal-compare-summary__cta {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--sal-ink);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.sal-card-dark .sal-compare-answer {
+  background: rgba(255, 255, 255, 0.06);
 }

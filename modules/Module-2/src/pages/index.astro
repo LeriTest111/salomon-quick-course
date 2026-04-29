@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import whiteLogo from "../images/White-logo.svg?url";
 
 const salomonImages = import.meta.glob("../images/salomon/**/*.{png,jpg,jpeg,avif,svg}", {
   eager: true,
@@ -14,33 +15,18 @@ const resolveSalomonImage = (path) =>
 
 const navItems = [
   { href: "#basics", label: "Basics" },
-  { href: "#groups", label: "Trail groups" },
+  { href: "#groups", label: "Trail models" },
   { href: "#lineup", label: "Lineup" },
   { href: "#sell", label: "Sell it" },
-];
-
-const distanceBands = [
-  {
-    title: "Short",
-    strap: "Up to 42 km",
-    detail: "Short trail efforts still need grip and confidence, but they do not always demand the most protective or most cushioned option.",
-  },
-  {
-    title: "Long",
-    strap: "42 to 80 km",
-    detail: "This is where comfort, traction, and stability need to work together so the runner can stay smooth over changing ground.",
-  },
-  {
-    title: "Ultra",
-    strap: "80 km and beyond",
-    detail: "Ultra distance raises the importance of fatigue management, impact distribution, fit security, and durable grip.",
-  },
 ];
 
 const terrainCards = [
   {
     title: "Smooth terrain",
     strap: "Predictable surface, minimal elevation",
+    distanceTitle: "Short",
+    distanceStrap: "Up to 42 km",
+    distanceDetail: "Short trail efforts still need grip and confidence, but they do not always demand the most protective or most cushioned option.",
     detail: "Great for beginners or recovery runs.",
     image: "/salomon/terrain-smooth.png",
     needs: ["Cushioned ride", "Flexible sole", "Moderate grip", "Lightweight build"],
@@ -48,6 +34,9 @@ const terrainCards = [
   {
     title: "Rolling terrain",
     strap: "Mix of uphill and downhill, moderate technicality",
+    distanceTitle: "Long",
+    distanceStrap: "42 to 80 km",
+    distanceDetail: "This is where comfort, traction, and stability need to work together so the runner can stay smooth over changing ground.",
     detail: "Varied foot placement and rhythm changes call for balanced product choices.",
     image: "/salomon/terrain-rolling.png",
     needs: ["Versatility", "Grip plus comfort", "Mid-range stack and drop", "Responsive midsole"],
@@ -55,6 +44,9 @@ const terrainCards = [
   {
     title: "Technical terrain",
     strap: "Steep, unstable, and less predictable",
+    distanceTitle: "Ultra",
+    distanceStrap: "80 km and beyond",
+    distanceDetail: "Ultra distance raises the importance of fatigue management, impact distribution, fit security, and durable grip.",
     detail: "This is where protection, precision, and confidence become the selling language.",
     image: "/salomon/terrain-technical.png",
     needs: ["Aggressive lug pattern", "Rock protection", "Reinforced upper", "Secure fit"],
@@ -65,26 +57,60 @@ const trailGroups = [
   {
     title: "Dynamic comfort",
     models: "Ultra Glide 4, Ultra Flow 2",
-    detail: "For runners chasing cushioning, confidence, and less fatigue over longer or more approachable trail days.",
+    detail: "Dynamic Comfort is best for long distances, comfort-focused runners and everyday trail use.",
     tone: "rgba(247,246,243,0.96)",
   },
   {
     title: "Dynamic support",
     models: "Genesis, XA Pro 3D V9",
-    detail: "For technical terrain, mountain confidence, stability, and all-round protection.",
+    detail: "It is best for uneven terrain, stability needs and confidence on trails.",
     tone: "rgba(242,241,238,0.96)",
   },
   {
     title: "Dynamic speed",
-    models: "Pulsar, Speedcross 6, Speedcross Peak",
-    detail: "For runners who want pace, traction, a lighter sensation, and stronger confidence on aggressive terrain.",
+    models: "Pulsar",
+    detail: "This is best for faster runs, racing, lightweight feel.",
     tone: "rgba(245,244,241,0.96)",
   },
   {
-    title: "Versatile easy trail",
-    models: "Alphaglide",
-    detail: "For broad use cases, easy miles, and runners who want one shoe that can handle different trail moments.",
+    title: "Grip and mud",
+    models: "Speedcross 6, Speedcross Peak",
+    detail: "This is best for muddy, wet or slippery trails.",
     tone: "rgba(244,243,240,0.96)",
+  },
+  {
+    title: "Versatility and value",
+    models: "Alphaglide",
+    detail: "This is best for entry-level trail runners, mixed terrain, value seekers.",
+    tone: "rgba(244,243,240,0.96)",
+  },
+];
+
+const lineupSections = [
+  {
+    title: "Dynamic comfort",
+    intro: "Dynamic Comfort is best for long distances, comfort-focused runners and everyday trail use. Let's take a closer look at the Ultra Glide 4 and Ultra Flow 2.",
+    products: ["Ultra Glide 4", "Ultra Flow 2"],
+  },
+  {
+    title: "Dynamic support",
+    intro: "It is best for uneven terrain, stability needs and confidence on trails.",
+    products: ["Genesis", "XA Pro 3D V9"],
+  },
+  {
+    title: "Dynamic speed",
+    intro: "This is best for faster runs, racing, lightweight feel.",
+    products: ["Pulsar"],
+  },
+  {
+    title: "Grip and mud",
+    intro: "This is best for muddy, wet or slippery trails.",
+    products: ["Speedcross 6", "Speedcross Peak"],
+  },
+  {
+    title: "Versatility and value",
+    intro: "This is best for entry-level trail runners, mixed terrain, value seekers.",
+    products: ["Alphaglide"],
   },
 ];
 
@@ -141,6 +167,7 @@ const products = [
     differenceTitle: "What differentiates the Ultra Glide 4 from the Ultra Glide 3?",
     difference: "The latest version is lighter, more breathable, and more dynamic underfoot for long-distance comfort.",
     say: "Lead with Ultra Glide 4 when the customer wants one of the most comfortable trail shoes in the range without losing stability and trust underfoot.",
+    benefitNote: "This is a great option if comfort is your priority on longer trail runs.",
   },
   {
     title: "Ultra Flow 2",
@@ -192,6 +219,7 @@ const products = [
     benefits: ["Dynamic cushioning", "Grip", "Snug fit"],
     tech: ["3D mesh upper", "sensiFIT", "optiFOAM", "relieveSPHERE", "All Terrain contaGRIP"],
     say: "Use Ultra Flow 2 for new trail runners, road runners trying trail for the first time, or anyone who wants Ultra Glide comfort at a more accessible level.",
+    benefitNote: "This feels comfortable and forgiving, especially if you're new to trail running.",
   },
   {
     title: "Genesis",
@@ -243,6 +271,59 @@ const products = [
     benefits: ["Running performance", "Resistance", "Grip"],
     tech: ["Matryx upper", "quickLACE", "optiFOAM", "activeCHASSIS", "All Terrain contaGRIP"],
     say: "Use Genesis for short or long mountain adventures when the customer wants comfort and stability together, especially on rolling to technical terrain.",
+    benefitNote: "This helps keep your foot stable when the ground is uneven.",
+  },
+  {
+    title: "XA Pro 3D V9",
+    image: "/salomon/xa-pro-3d-v9.png",
+    lane: "Dynamic support",
+    strap: "Made for versatility on technical hikes and runs",
+    metrics: ["Mixed and rocky terrain", "Regular cushioning", "Multi-activity icon", "Stability and durability"],
+    detail:
+      "XA Pro 3D V9 is the icon for stability, durability, and support in a trail package tough enough for demanding adventure. Originally introduced for trail running, it is now equally trusted for multi-activity use.",
+    highlight: {
+      image: "/salomon/xa-pro-3d-v9-numbers.jpg",
+      points: [
+        {
+          number: "1",
+          title: "3D mesh welded upper with sensiFIT",
+          detail: "For comfort and foothold",
+        },
+        {
+          number: "2",
+          title: "Large protective toe cap",
+          detail: "",
+        },
+        {
+          number: "3",
+          title: "advancedCHASSIS",
+          detail: "This chassis provides stability on the rear-foot while keeping the front flexible",
+        },
+        {
+          number: "4",
+          title: "All Terrain contaGRIP®",
+          detail: "Confidence in a wide variety of terrains. Upgraded pattern and compound vs V8",
+        },
+      ],
+    },
+    specs: [
+      { label: "Drop", lines: ["11 mm", "28.7 / 17.3mm"] },
+      {
+        label: "Weight",
+        columns: [
+          { value: "323 g", note: "M UK 8.5" },
+          { value: "300 g", note: "W UK 5.5" },
+        ],
+      },
+      { label: "Lug", lines: ["3.5 mm"] },
+      { label: "Cushion", lines: ["Regular"] },
+      { label: "Terrain", lines: ["Mixed, rocky"] },
+      { label: "Fit", lines: ["Standard - wide", "version available"] },
+    ],
+    benefits: ["Stability", "Protection", "Grip", "Durability"],
+    tech: ["3D mesh upper with sensiFIT", "Large protective toe cap", "advancedCHASSIS", "All Terrain contaGRIP"],
+    say: "Call it the Swiss army knife of shoes. It is the right move when the conversation expands beyond pure running into hike, walk, travel, or all-round adventure.",
+    benefitNote: "This is ideal if you want a very stable, do-it-all trail shoe.",
   },
   {
     title: "Pulsar",
@@ -294,6 +375,7 @@ const products = [
     benefits: ["Superfoam cushioning", "Grip", "Lightweight feel"],
     tech: ["quickLACE", "sensiFIT and endoFIT", "optiFOAM2", "All Terrain contaGRIP"],
     say: "Position Pulsar for runners who want to go faster on rolling terrain and keep the ride feeling lively, light, and more road-inspired.",
+    benefitNote: "This is best if speed and performance matter most to you.",
   },
   {
     title: "Speedcross 6",
@@ -345,6 +427,7 @@ const products = [
     benefits: ["Grip", "Fit", "Comfort"],
     tech: ["quickLACE", "ripstop upper with sensiFIT", "energyCELL+", "Mud contaGRIP"],
     say: "Describe it in one sentence: speed and confidence on muddy trails. This is still the shoe that brought speed to the trails.",
+    benefitNote: "If you often run in mud, this gives you excellent grip and control.",
   },
   {
     title: "Speedcross Peak",
@@ -396,6 +479,7 @@ const products = [
     benefits: ["Precise fit", "All-terrain protection", "Active grip"],
     tech: ["quickLACE", "sensiFIT", "fuzeFOAM", "All Terrain contaGRIP"],
     say: "Use it when the customer likes the Speedcross story but does not need the most premium or most aggressive version of that idea.",
+    benefitNote: "This gives you Speedcross grip with a lighter, more versatile feel.",
   },
   {
     title: "Alphaglide",
@@ -442,57 +526,7 @@ const products = [
     benefits: ["Responsive ride", "Foothold protection", "Versatile grip"],
     tech: ["sensiFIT", "fuzeFOAM", "All Terrain contaGRIP", "Anti-debris mesh"],
     say: "Use Alphaglide when the customer wants one reliable trail answer that can handle easy runs, mixed use, and a wide variety of trail moments.",
-  },
-  {
-    title: "XA Pro 3D V9",
-    image: "/salomon/xa-pro-3d-v9.png",
-    lane: "Dynamic support",
-    strap: "Made for versatility on technical hikes and runs",
-    metrics: ["Mixed and rocky terrain", "Regular cushioning", "Multi-activity icon", "Stability and durability"],
-    detail:
-      "XA Pro 3D V9 is the icon for stability, durability, and support in a trail package tough enough for demanding adventure. Originally introduced for trail running, it is now equally trusted for multi-activity use.",
-    highlight: {
-      image: "/salomon/xa-pro-3d-v9-numbers.jpg",
-      points: [
-        {
-          number: "1",
-          title: "3D mesh welded upper with sensiFIT",
-          detail: "For comfort and foothold",
-        },
-        {
-          number: "2",
-          title: "Large protective toe cap",
-          detail: "",
-        },
-        {
-          number: "3",
-          title: "advancedCHASSIS",
-          detail: "This chassis provides stability on the rear-foot while keeping the front flexible",
-        },
-        {
-          number: "4",
-          title: "All Terrain contaGRIP\u00AE",
-          detail: "Confidence in a wide variety of terrains. Upgraded pattern and compound vs V8",
-        },
-      ],
-    },
-    specs: [
-      { label: "Drop", lines: ["11 mm", "28.7 / 17.3mm"] },
-      {
-        label: "Weight",
-        columns: [
-          { value: "323 g", note: "M UK 8.5" },
-          { value: "300 g", note: "W UK 5.5" },
-        ],
-      },
-      { label: "Lug", lines: ["3.5 mm"] },
-      { label: "Cushion", lines: ["Regular"] },
-      { label: "Terrain", lines: ["Mixed, rocky"] },
-      { label: "Fit", lines: ["Standard - wide", "version available"] },
-    ],
-    benefits: ["Stability", "Protection", "Grip", "Durability"],
-    tech: ["3D mesh upper with sensiFIT", "Large protective toe cap", "advancedCHASSIS", "All Terrain contaGRIP"],
-    say: "Call it the Swiss army knife of shoes. It is the right move when the conversation expands beyond pure running into hike, walk, travel, or all-round adventure.",
+    benefitNote: "This is a solid, comfortable trail shoe if you want value and versatility.",
   },
 ];
 
@@ -539,12 +573,12 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
   </head>
   <body class="selection:bg-[var(--sal-lime)] selection:text-black">
     <main class="sal-shell min-h-screen">
-      <div class="mx-auto max-w-[1260px] px-4 pt-2 pb-4 md:px-6 md:pt-3 md:pb-6">
-        <header class="sal-card sal-section sticky top-2 z-30 overflow-visible px-4 py-4 md:top-3 md:px-6" style="z-index:60; isolation:isolate;">
+      <div class="sal-fixed-nav fixed inset-x-0 top-0 z-[90]">
+        <header class="sal-section overflow-visible px-4 py-4 md:px-6 lg:px-[8vw]" style="z-index:90; isolation:isolate;">
           <div class="flex items-center justify-between gap-4 md:hidden">
             <div class="flex min-w-0 items-center gap-3">
               <img src="/tfg-logo.svg" alt="TFG logo" class="h-10 w-10 shrink-0" />
-              <p class="min-w-0 text-sm font-medium leading-5 text-[var(--sal-ink-soft)]">Module 2 | Trail running</p>
+              <p class="sal-ui-text min-w-0 font-medium text-[var(--sal-ink-soft)]">Module 2 | Trail running</p>
             </div>
 
             <details class="relative z-[70] shrink-0 md:hidden" data-mobile-nav style="z-index:70;">
@@ -558,7 +592,7 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
               </summary>
 
               <div class="absolute right-0 top-[calc(100%+0.75rem)] z-[80] w-64 max-w-[calc(100vw-1.5rem)] overflow-hidden rounded-[0.9rem] border border-[rgba(12,12,12,0.08)] bg-white p-2 shadow-[0_14px_36px_rgba(56,39,27,0.09)]" style="z-index:80;">
-                <div class="flex flex-col gap-1.5 text-sm text-[var(--sal-ink-soft)]">
+                <div class="sal-ui-text flex flex-col gap-1.5 text-[var(--sal-ink-soft)]">
                   {navItems.map((item) => (
                     <a href={item.href} class="rounded-[0.75rem] px-4 py-3 transition hover:bg-[#f4efea]" data-mobile-nav-link>{item.label}</a>
                   ))}
@@ -571,237 +605,316 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
             <div class="flex min-w-0 items-center gap-4">
               <img src="/tfg-logo.svg" alt="TFG logo" class="h-11 w-11 shrink-0" />
               <div class="min-w-0">
-                <p class="text-lg font-semibold tracking-[-0.03em] text-[var(--sal-ink-soft)]">Module 2 | Trail running</p>
+                <p class="sal-body-copy font-semibold tracking-[-0.03em] text-[var(--sal-ink-soft)]">Module 2 | Trail running</p>
               </div>
             </div>
 
-            <nav class="flex gap-2 overflow-x-auto pb-1 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-[var(--sal-ink-soft)]">
+            <nav class="sal-ui-text flex gap-2 overflow-x-auto pb-1 font-bold uppercase tracking-[0.12em] text-[var(--sal-ink-soft)]">
               {navItems.map((item) => (
                 <a href={item.href} class="sal-chip whitespace-nowrap hover:border-[rgba(12,12,12,0.22)] hover:bg-white">{item.label}</a>
               ))}
             </nav>
           </div>
         </header>
+      </div>
 
-        <section class="sal-card-dark sal-section mt-5 overflow-hidden px-6 py-8 md:mt-6 md:px-10 md:py-12">
+      <div class="w-full pb-4 pt-24 md:pb-6 md:pt-28">
+        <section
+          class="sal-card-dark sal-section sal-hero-banner mt-5 overflow-hidden px-6 py-8 md:mt-6 md:px-10 md:py-12"
+          style={`--sal-hero-image:url(${resolveSalomonImage("/salomon/hero-icons.png")});`}
+        >
           <div class="grid gap-8 lg:grid-cols-[1.12fr_0.88fr] lg:items-end">
-            <div>
+            <div class="sal-hero-stack">
+              <div class="sal-hero-lockup">
+                <img src={whiteLogo} alt="Salomon logo" class="sal-hero-logo" />
+                <span class="sal-module-pill">Module 2</span>
+              </div>
               <p class="sal-kicker text-[var(--sal-pink)]">Trail running</p>
-              <h1 class="mt-4 max-w-[13ch] text-[2.95rem] font-black uppercase leading-[0.92] tracking-[-0.07em] text-white md:text-[4.95rem]">
+              <h1 class="sal-title-hero text-white">
                 Start with the type of trail run
               </h1>
-              <p class="mt-5 max-w-[46rem] text-[1.08rem] leading-8 text-white/78 md:text-[1.18rem]">
+              <p class="sal-body-copy text-white/78">
                 Trail conversations get easier when you ask three things first: how far, what kind of ground, and what the runner wants to feel underfoot. Then the right shoe becomes much clearer.
               </p>
-
-            </div>
-
-            <div class="sal-hero-photo">
-              <img src={resolveSalomonImage("/salomon/hero-icons.png")} alt="Runners moving uphill through open mountain terrain" />
             </div>
           </div>
         </section>
 
-        <section id="basics" class="sal-card sal-section mt-6">
+        <section id="basics" class="sal-card sal-section mt-6 scroll-mt-28 md:scroll-mt-32">
           <div class={sectionPadding}>
-            <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-              <div>
-                <p class="sal-kicker text-[#6a6257]">Trail running basics</p>
-                <h2 class="mt-3 text-[2.2rem] font-black uppercase leading-[0.96] tracking-[-0.06em] text-[var(--sal-ink)] md:text-[3rem]">
-                  Start with distance, terrain, and confidence
-                </h2>
-                <p class="mt-5 text-[1.08rem] leading-8 text-[#3f3b35]">
-                  Keep the first part of the conversation simple: how far, on what kind of ground, and what should the shoe help the runner feel?
-                </p>
-              </div>
-
-              <div class="grid gap-4 md:grid-cols-3">
-                {distanceBands.map((item, index) => (
-                  <article
-                    class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] p-5"
-                    style={`background:${index === 0 ? "rgba(247,246,243,0.96)" : index === 1 ? "rgba(243,242,239,0.96)" : "rgba(241,240,237,0.96)"};`}
-                  >
-                    <p class="sal-kicker text-[#605b52]">{item.strap}</p>
-                    <h3 class="mt-3 text-[1.45rem] font-black uppercase tracking-[-0.05em] text-[var(--sal-ink)]">{item.title}</h3>
-                    <p class="mt-3 text-sm leading-7 text-[#433f39]">{item.detail}</p>
-                  </article>
-                ))}
-              </div>
+            <div>
+              <p class="sal-kicker text-[#6a6257]">Trail running basics</p>
+              <h2 class="sal-topo-divider sal-title-section mt-3 text-[var(--sal-ink)]">
+                Understand what trail running is and how terrain and distance affect shoe choice
+              </h2>
+              <p class="sal-body-copy mt-5 text-[#3f3b35]">
+                Trail running takes place off-road across surfaces like dirt paths, gravel tracks, forest trails, and rocky mountain routes. Because the terrain is less predictable than road running, the right shoe needs to offer more grip, protection, and stability. The terrain types below will help you match each runner to the best option.
+              </p>
             </div>
 
             <div class="mt-8 grid gap-4 md:grid-cols-3">
               {terrainCards.map((item) => (
-                  <article class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white/88 p-5">
+                  <article class="flex h-full flex-col rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white/88 p-5">
                     <div class="sal-photo-strip mb-5 h-[11rem]" style="border:none;">
                     <img src={resolveSalomonImage(item.image)} alt={`${item.title} visual`} class="h-full w-full object-cover" />
                     </div>
                   <p class="sal-kicker text-[#6a6257]">{item.strap}</p>
-                  <h3 class="mt-3 text-[1.32rem] font-semibold tracking-[-0.04em] text-[var(--sal-ink)]">{item.title}</h3>
-                  <p class="mt-3 text-sm leading-7 text-[#47433d]">{item.detail}</p>
-                  <ul class="mt-4 space-y-2 text-sm leading-7 text-[#3f3b35]">
+                  <h3 class="sal-title-product mt-3 text-[var(--sal-ink)]">{item.title}</h3>
+                  <p class="sal-body-copy mt-3 text-[#47433d]">{item.detail}</p>
+                  <ul class="sal-body-copy mt-4 space-y-2 text-[#3f3b35]">
                     {item.needs.map((need) => (
                       <li class="flex gap-2"><span class="mt-[0.58rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--sal-ink)]"></span><span>{need}</span></li>
                     ))}
                   </ul>
+                  <div class="mt-auto pt-4">
+                    <div class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#f4f2ed] p-4">
+                    <p class="sal-kicker text-[#605b52]">{item.distanceStrap}</p>
+                    <p class="sal-title-product mt-3 text-[var(--sal-ink)]">{item.distanceTitle}</p>
+                    <p class="sal-body-copy mt-3 text-[#433f39]">{item.distanceDetail}</p>
+                    </div>
+                  </div>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="groups" class="sal-card sal-section mt-6">
-          <div class={sectionPadding}>
+        <section class="sal-section mt-6 overflow-hidden">
+          <div
+            class="sal-photo-strip sal-course-banner"
+            style="border-bottom-left-radius:0; border-bottom-right-radius:0;"
+          >
+            <img
+              src={resolveSalomonImage("/salomon/trailrunning2.jpg")}
+              alt="Trail runners moving through natural terrain"
+              class="sal-course-banner-image"
+            />
+          </div>
+        </section>
+
+        <section id="groups" class="sal-card-dark sal-section mt-0 scroll-mt-28 md:scroll-mt-32">
+          <div class={`${sectionPadding} pb-12 md:pb-16`}>
             <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-              <div>
-                <p class="sal-kicker text-[#6a6257]">Trail groups</p>
-                <h2 class="mt-3 text-[2.15rem] font-black uppercase leading-[0.96] tracking-[-0.06em] text-[var(--sal-ink)] md:text-[3rem]">
-                  Split the range into four simple groups
+              <div class="w-full">
+                <p class="sal-kicker text-white/64">Trail models</p>
+                <h2 class="sal-topo-divider sal-title-section mt-3 text-white">
+                  The following are key Salomon trail running models and who they are for
                 </h2>
               </div>
             </div>
 
-            <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {trailGroups.map((group) => (
-                <article class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] p-5" style={`background:${group.tone};`}>
-                  <h3 class="text-[1.38rem] font-black uppercase tracking-[-0.05em] text-[var(--sal-ink)]">{group.title}</h3>
-                  <p class="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#5d584f]">{group.models}</p>
-                  <p class="mt-4 text-sm leading-7 text-[#444039]">{group.detail}</p>
+            <div class="mt-8 grid gap-4 xl:grid-cols-5">
+              {trailGroups.map((group, index) => (
+                <article
+                  class="flex h-full flex-col rounded-[0.5625rem] border border-white/10 p-5"
+                  style={`background:${index === 0 ? "rgba(255,255,255,0.08)" : index === 1 ? "rgba(255,255,255,0.06)" : index === 2 ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.07)"};`}
+                >
+                  <h3 class="sal-title-product uppercase text-white">{group.title}</h3>
+                  <p class="sal-ui-text mt-3 font-semibold uppercase tracking-[0.12em] text-white/64">{group.models}</p>
+                  <p class="sal-body-copy mt-4 text-white/78">{group.detail}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="lineup" class="sal-card sal-section mt-6">
+        <section class="sal-section mt-6 overflow-hidden">
+          <div class="sal-photo-strip sal-course-banner">
+            <img
+              src={resolveSalomonImage("/salomon/trailrunning3.jpg")}
+              alt="Trail running scene with varied outdoor terrain"
+              class="sal-course-banner-image"
+            />
+          </div>
+        </section>
+
+        <section id="lineup" class="sal-card sal-section mt-0 scroll-mt-28 md:scroll-mt-32">
           <div class={sectionPadding}>
             <p class="sal-kicker text-[#6a6257]">Trail lineup</p>
-            <h2 class="mt-3 text-[2.15rem] font-black uppercase leading-[0.96] tracking-[-0.06em] text-[var(--sal-ink)] md:text-[3rem]">
+            <h2 class="sal-topo-divider sal-title-section mt-3 text-[var(--sal-ink)]">
               The full trail running range
             </h2>
-
+            <p class="sal-body-copy mt-5 text-[#45413b]">
+              Click each shoe to reveal more product detail.
+            </p>
             <div class="mt-8 grid gap-5">
-              {products.map((product, index) => (
-                <article
-                  class="sal-model-card p-5 md:p-6"
-                  style={`background:${index % 2 === 0 ? "rgba(255,255,255,0.92)" : "rgba(247,246,243,0.96)"};`}
+              {lineupSections.map((section, index) => (
+                <section
+                  class={index % 2 === 1
+                    ? "rounded-[0.5625rem] border border-white/10 bg-[linear-gradient(140deg,rgba(24,24,24,0.96)_0%,rgba(10,10,10,0.98)_100%)] p-5 text-white md:p-6"
+                    : "rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#f3f1ed] p-5 md:p-6"}
                 >
-                  <div class="grid gap-6 xl:grid-cols-[0.72fr_1.28fr] xl:items-start">
-                    <div>
-                      <div class="sal-product-stage">
-                        <img src={resolveSalomonImage(product.image)} alt={`${product.title} product cutout`} />
-                      </div>
-                    </div>
-
-                    <div class="sal-model-card__header">
-                      <p class="sal-kicker text-[#6a6257]">{product.lane}</p>
-                      <h3 class="mt-2 text-[1.4rem] font-semibold tracking-[-0.04em] text-[var(--sal-ink)]">{product.title}</h3>
-                      <p class="mt-2 text-sm font-semibold uppercase tracking-[0.12em] text-[#5d584f]">{product.strap}</p>
-                      <p class="mt-4 text-sm leading-7 text-[#45413b]">{product.detail}</p>
-                    </div>
+                  <div>
+                    <p class={index % 2 === 1 ? "sal-kicker text-white" : "sal-kicker text-[#6a6257]"}>{section.title}</p>
+                    <p class={index % 2 === 1 ? "sal-body-copy mt-3 text-white" : "sal-body-copy mt-3 text-[#45413b]"}>{section.intro}</p>
                   </div>
 
-                  {product.highlight && (
-                    <div class="mt-5 rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#f2f1ed] p-4">
-                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#71695d]">Highlight</p>
-                      <div class="mt-4 grid gap-4 xl:grid-cols-[0.9fr_1.1fr]">
-                        <div class="sal-inline-figure rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white p-0">
-                          <img src={resolveSalomonImage(product.highlight.image)} alt={`${product.title} highlight view with numbered callouts`} class="rounded-[0.5625rem]" />
-                        </div>
-
-                        <div class="grid gap-3">
-                          {product.highlight.points.map((point) => (
-                            <article class="rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white p-4">
-                              <div class="flex items-start gap-3">
-                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--sal-ink)] text-xs font-black text-white">
-                                  {point.number}
-                                </span>
-                                <div>
-                                  <h4 class="text-[1rem] font-semibold tracking-[-0.03em] text-[var(--sal-ink)]">{point.title}</h4>
-                                  {point.detail && <p class="mt-2 text-sm leading-7 text-[#45413b]">{point.detail}</p>}
+                  <div class="mt-5 grid gap-5">
+                    {products
+                      .filter((product) => section.products.includes(product.title))
+                      .map((product) => (
+                        <details
+                          class={index % 2 === 1 ? "sal-model-card sal-model-card--dark p-5 md:p-6" : "sal-model-card p-5 md:p-6"}
+                          style={index % 2 === 1
+                            ? "background:linear-gradient(140deg, rgba(58, 58, 58, 0.96) 0%, rgba(36, 36, 36, 0.98) 100%); border-color:rgba(255,255,255,0.1); color:white;"
+                            : "background:white;"}
+                          name={`trail-shoe-${section.title}`}
+                        >
+                          <summary class="sal-product-reveal-summary">
+                            <div class="grid gap-6 xl:grid-cols-[0.72fr_1.28fr] xl:items-start">
+                              <div>
+                                <div class="sal-product-stage">
+                                  <img src={resolveSalomonImage(product.image)} alt={`${product.title} product cutout`} />
                                 </div>
                               </div>
-                            </article>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  )}
 
-                  <div class="mt-4 grid gap-4 xl:grid-cols-[1.02fr_0.98fr]">
-                    <div class="rounded-[0.5625rem] bg-[#f0efeb] p-4">
-                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#71695d]">Tech features</p>
-                      <div class="mt-4 sal-spec-grid">
-                        {product.specs.map((spec) => (
-                          <article class="sal-spec-card">
-                            <p class="sal-spec-label">{spec.label}</p>
-                            {spec.columns ? (
-                              <div class="sal-spec-columns">
-                                {spec.columns.map((column) => (
-                                  <div class="sal-spec-stack">
-                                    <p class="sal-spec-value">{column.value}</p>
-                                    {column.note && <p class="sal-spec-note">{column.note}</p>}
+                              <div class={index % 2 === 1 ? "sal-model-card__header border-white/10" : "sal-model-card__header"}>
+                                <h3 class={index % 2 === 1 ? "sal-title-product mt-3 text-white" : "sal-title-product mt-3 text-[var(--sal-ink)]"}>{product.title}</h3>
+                                <p class={index % 2 === 1 ? "sal-ui-text mt-3 font-semibold uppercase tracking-[0.12em] text-white" : "sal-ui-text mt-3 font-semibold uppercase tracking-[0.12em] text-[#5d584f]"}>{product.strap}</p>
+                                <p class={index % 2 === 1 ? "sal-body-copy mt-4 text-white" : "sal-body-copy mt-4 text-[#45413b]"}>{product.detail}</p>
+                                <span class={index % 2 === 1 ? "sal-product-reveal-summary__cta sal-product-reveal-summary__cta--dark" : "sal-product-reveal-summary__cta"}>Reveal more</span>
+                              </div>
+                            </div>
+                          </summary>
+
+                          <div class="sal-product-reveal-body">
+                            <div class="mt-5 grid gap-4 xl:grid-cols-[3fr_1fr]">
+                              {product.highlight && (
+                                <div class={index % 2 === 1
+                                  ? "rounded-[0.5625rem] border border-white/10 bg-[linear-gradient(140deg,rgba(92,92,92,0.96)_0%,rgba(66,66,66,0.98)_100%)] p-4 text-white"
+                                  : "rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#f2f1ed] p-4"}>
+                                <p class={index % 2 === 1 ? "text-[18px] font-bold uppercase tracking-[0.14em] text-white" : "text-[18px] font-bold uppercase tracking-[0.14em] text-[#71695d]"}>Highlight</p>
+                                <div class="mt-4 grid gap-4 xl:grid-cols-[0.9fr_1.1fr]">
+                                  <div class={index % 2 === 1
+                                    ? "sal-inline-figure rounded-[0.5625rem] border border-white/10 bg-white/8 p-0"
+                                    : "sal-inline-figure rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white p-0"}>
+                                    <img src={resolveSalomonImage(product.highlight.image)} alt={`${product.title} highlight view with numbered callouts`} class="rounded-[0.5625rem]" />
                                   </div>
+
+                                  <div class="grid gap-3">
+                                    {product.highlight.points.map((point) => (
+                                      <article class={index % 2 === 1
+                                        ? "rounded-[0.5625rem] border border-white/10 bg-white/8 p-4"
+                                        : "rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-white p-4"}>
+                                        <div class="flex min-h-full items-center gap-3">
+                                          <span class={index % 2 === 1
+                                            ? "flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/12 text-[18px] font-black text-white"
+                                            : "flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--sal-ink)] text-[18px] font-black text-white"}>
+                                            {point.number}
+                                          </span>
+                                          <div class="flex min-h-full flex-col justify-center">
+                                            <h4 class={index % 2 === 1
+                                              ? "text-[20px] font-semibold leading-[1.2] tracking-[-0.03em] text-white"
+                                              : "text-[20px] font-semibold leading-[1.2] tracking-[-0.03em] text-[var(--sal-ink)]"}>{point.title}</h4>
+                                            {point.detail && <p class={index % 2 === 1 ? "mt-2 text-[18px] leading-8 text-white" : "mt-2 text-[18px] leading-8 text-[#45413b]"}>{point.detail}</p>}
+                                          </div>
+                                        </div>
+                                      </article>
+                                    ))}
+                                  </div>
+                                </div>
+                                </div>
+                              )}
+
+                              <div class={index % 2 === 1
+                                ? "rounded-[0.5625rem] border border-white/10 bg-[linear-gradient(140deg,rgba(92,92,92,0.96)_0%,rgba(66,66,66,0.98)_100%)] p-4 text-white"
+                                : "rounded-[0.5625rem] bg-white p-4"}>
+                              <p class={index % 2 === 1 ? "text-[18px] font-bold uppercase tracking-[0.14em] text-white" : "text-[18px] font-bold uppercase tracking-[0.14em] text-[#71695d]"}>Key features</p>
+                              <ul class={index % 2 === 1 ? "mt-3 space-y-2 text-[18px] leading-8 text-white" : "mt-3 space-y-2 text-[18px] leading-8 text-[#403b34]"}>
+                                {product.benefits.map((item) => (
+                                  <li class="flex gap-2"><span class={index % 2 === 1 ? "mt-[0.7rem] h-1.5 w-1.5 shrink-0 rounded-full bg-white/64" : "mt-[0.7rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--sal-pink)]"}></span><span>{item}</span></li>
+                                ))}
+                                {product.benefitNote && (
+                                  <li class="flex gap-2">
+                                    <span class={index % 2 === 1 ? "mt-[0.7rem] h-1.5 w-1.5 shrink-0 rounded-full bg-white/64" : "mt-[0.7rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--sal-pink)]"}></span>
+                                    <span>{product.benefitNote}</span>
+                                  </li>
+                                )}
+                              </ul>
+                              </div>
+                            </div>
+
+                            <div class="mt-4">
+                              <div class={index % 2 === 1
+                                ? "rounded-[0.5625rem] border border-white/10 bg-[linear-gradient(140deg,rgba(92,92,92,0.96)_0%,rgba(66,66,66,0.98)_100%)] p-4 text-white"
+                                : "rounded-[0.5625rem] bg-[#f0efeb] p-4"}>
+                              <p class={index % 2 === 1 ? "text-[18px] font-bold uppercase tracking-[0.14em] text-white" : "text-[18px] font-bold uppercase tracking-[0.14em] text-[#71695d]"}>Tech features</p>
+                              <div class="mt-4 sal-spec-grid">
+                                {product.specs.map((spec) => (
+                                  <article class={index % 2 === 1 ? "sal-spec-card border-white/12" : "sal-spec-card"}>
+                                    <p class={index % 2 === 1 ? "sal-spec-label text-white/64" : "sal-spec-label"}>{spec.label}</p>
+                                    {spec.columns ? (
+                                      <div class="sal-spec-columns">
+                                        {spec.columns.map((column) => (
+                                          <div class="sal-spec-stack">
+                                            <p class={index % 2 === 1 ? "sal-spec-value text-white" : "sal-spec-value"}>{column.value}</p>
+                                            {column.note && <p class={index % 2 === 1 ? "sal-spec-note text-white/78" : "sal-spec-note"}>{column.note}</p>}
+                                          </div>
+                                        ))}
+                                      </div>
+                                    ) : (
+                                      <div class="sal-spec-stack">
+                                        {spec.lines.map((line) => (
+                                          <p class={index % 2 === 1 ? "sal-spec-value text-white" : "sal-spec-value"}>{line}</p>
+                                        ))}
+                                      </div>
+                                    )}
+                                  </article>
                                 ))}
                               </div>
-                            ) : (
-                              <div class="sal-spec-stack">
-                                {spec.lines.map((line) => (
-                                  <p class="sal-spec-value">{line}</p>
-                                ))}
+                            </div>
+                            </div>
+
+                            <div class={index % 2 === 1
+                              ? "mt-4 rounded-[0.5625rem] border border-white/10 bg-[linear-gradient(140deg,rgba(92,92,92,0.96)_0%,rgba(66,66,66,0.98)_100%)] p-4 text-white"
+                              : "mt-4 rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#151515] p-4 text-white"}>
+                              <p class={index % 2 === 1 ? "text-[18px] font-bold uppercase tracking-[0.14em] text-white" : "text-[18px] font-bold uppercase tracking-[0.14em] text-white"}>What to say</p>
+                              <p class={index % 2 === 1 ? "mt-2 text-[18px] leading-8 text-white" : "mt-2 text-[18px] leading-8 text-white"}>{product.say}</p>
+                            </div>
+
+                            {product.differenceTitle && product.difference && (
+                              <div class={index % 2 === 1
+                                ? "mt-4 rounded-[0.5625rem] border border-white/10 bg-[linear-gradient(140deg,rgba(92,92,92,0.96)_0%,rgba(66,66,66,0.98)_100%)] p-4 text-white"
+                                : "mt-4 rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#151515] p-4 text-white"}>
+                              <p class={index % 2 === 1 ? "text-[18px] font-bold uppercase tracking-[0.14em] text-white" : "text-[18px] font-bold uppercase tracking-[0.14em] text-white"}>{product.differenceTitle}</p>
+                              <p class={index % 2 === 1 ? "mt-2 text-[18px] leading-8 text-white" : "mt-2 text-[18px] leading-8 text-white"}>{product.difference}</p>
                               </div>
                             )}
-                          </article>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div class="rounded-[0.5625rem] bg-white p-4">
-                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#71695d]">Why people love this shoe</p>
-                      <ul class="mt-3 space-y-2 text-sm leading-7 text-[#403b34]">
-                        {product.benefits.map((item) => (
-                          <li class="flex gap-2"><span class="mt-[0.58rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--sal-pink)]"></span><span>{item}</span></li>
-                        ))}
-                      </ul>
-                    </div>
+                          </div>
+                        </details>
+                      ))}
                   </div>
-
-                  {product.differenceTitle && product.difference && (
-                    <div class="mt-4 rounded-[0.5625rem] border border-[rgba(12,12,12,0.08)] bg-[#151515] p-4 text-white">
-                      <p class="text-xs font-bold uppercase tracking-[0.14em] text-white/56">{product.differenceTitle}</p>
-                      <p class="mt-2 text-sm leading-7 text-white/82">{product.difference}</p>
-                    </div>
-                  )}
-                </article>
+                </section>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="sell" class="sal-section mt-6 grid gap-6 lg:grid-cols-[0.88fr_1.12fr]">
-          <article class="sal-card-dark px-6 py-7 md:px-8 md:py-8">
-            <p class="sal-kicker text-[var(--sal-lime)]">Selling starts</p>
-            <h2 class="mt-4 text-[2.1rem] font-black uppercase leading-[0.94] tracking-[-0.06em] text-white md:text-[3rem]">Keep the recommendation simple and easy to say</h2>
-            <p class="mt-5 text-[1.02rem] leading-8 text-white/78">
+        <section id="sell" class="sal-section mt-6 grid gap-4 scroll-mt-28 lg:grid-cols-[0.88fr_1.12fr] md:scroll-mt-32">
+          <article class="sal-card-dark flex h-full flex-col px-6 py-7 md:px-8 md:py-8">
+            <p class="sal-kicker text-white/64">Selling starts</p>
+            <h2 class="sal-topo-divider sal-title-section mt-3 text-white">Keep the recommendation simple and easy to say</h2>
+            <p class="sal-body-copy mt-5 text-white/78">
               Listen for the customer clue, name the best place to start, and explain the benefit in plain language.
             </p>
-            <div class="mt-8 overflow-hidden rounded-[0.5625rem]">
+            <div class="sal-course-banner sal-sell-banner mt-8 min-h-[14rem] flex-1 overflow-hidden rounded-[0.5625rem]">
               <img
                 src={resolveSalomonImage("/salomon/selling-trail-lifestyle.png")}
                 alt="Salomon runner moving through open mountain terrain"
-                class="h-[13.5rem] w-full object-cover md:h-[16rem]"
+                class="sal-course-banner-image"
               />
             </div>
           </article>
 
-          <article class="sal-card">
+          <article class="sal-card-dark">
             <div class={sectionPadding}>
-              <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Tap a customer line to reveal the answer</p>
+              <p class="sal-kicker text-white/64">Tap a customer line to reveal the answer</p>
               <div class="mt-4 grid gap-4">
                 {sellingRows.map((row) => (
                   <details class="sal-compare-reveal" name="trail-sell">
                     <summary class="sal-compare-summary">
                       <div>
-                        <p class="text-[1.02rem] font-semibold leading-7 tracking-[-0.02em] text-[var(--sal-ink)]">{row.prompt}</p>
+                        <p class="text-[18px] font-semibold leading-8 tracking-[-0.02em] text-white">{row.prompt}</p>
                       </div>
                       <span class="sal-compare-summary__cta">Reveal answer</span>
                     </summary>
@@ -809,18 +922,18 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
                     <div class="sal-compare-answer">
                       <div class={row.backup ? "grid gap-4 lg:grid-cols-[0.7fr_0.7fr_1.15fr]" : "grid gap-4 lg:grid-cols-[0.72fr_1.18fr]"}>
                         <div>
-                          <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Start with</p>
-                          <p class="mt-2 text-sm leading-7 text-[#44403a]">{row.start}</p>
+                          <p class="text-xs font-bold uppercase tracking-[0.14em] text-white/64">Start with</p>
+                          <p class="mt-2 text-[18px] leading-8 text-white">{row.start}</p>
                         </div>
                         {row.backup && (
                           <div>
-                            <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Backup</p>
-                            <p class="mt-2 text-sm leading-7 text-[#44403a]">{row.backup}</p>
+                            <p class="text-xs font-bold uppercase tracking-[0.14em] text-white/64">Backup</p>
+                            <p class="mt-2 text-[18px] leading-8 text-white">{row.backup}</p>
                           </div>
                         )}
                         <div>
-                          <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#736d61]">Why</p>
-                          <p class="mt-2 text-sm leading-7 text-[#44403a]">{row.why}</p>
+                          <p class="text-xs font-bold uppercase tracking-[0.14em] text-white/64">Why</p>
+                          <p class="mt-2 text-[18px] leading-8 text-white">{row.why}</p>
                         </div>
                       </div>
                     </div>

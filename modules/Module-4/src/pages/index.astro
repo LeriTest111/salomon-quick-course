@@ -214,8 +214,10 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
       <div class="w-full pb-4 pt-24 md:pb-6 md:pt-28">
         <section
           class="sal-card-dark sal-section sal-hero-banner mt-5 overflow-hidden px-6 py-8 md:mt-6 md:px-10 md:py-12"
-          style={`--sal-hero-image:url(${resolveSalomonImage("/salomon/hero-gravel.png")});`}
         >
+          <div class="sal-hero-banner__media" aria-hidden="true">
+            <img src={resolveSalomonImage("/salomon/hero-gravel.png")} alt="" class="sal-hero-banner__image" />
+          </div>
           <div class="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
             <div class="sal-hero-stack">
               <div class="sal-hero-lockup">

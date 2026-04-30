@@ -188,8 +188,10 @@ const sectionPadding = "px-6 pt-6 pb-10 md:px-8 md:pt-8 md:pb-12 lg:px-10 lg:pt-
       <div class="w-full pb-4 pt-24 md:pb-6 md:pt-28">
         <section
           class="sal-card-dark sal-section sal-hero-banner mt-5 overflow-hidden px-6 py-8 md:mt-6 md:px-10 md:py-12"
-          style={`--sal-hero-image:url(${resolveSalomonImage("/salomon/hero-brand.png")});`}
         >
+          <div class="sal-hero-banner__media" aria-hidden="true">
+            <img src={resolveSalomonImage("/salomon/hero-brand.png")} alt="" class="sal-hero-banner__image" />
+          </div>
           <div class="grid gap-8 lg:grid-cols-[1.18fr_0.82fr] lg:items-end">
             <div class="sal-hero-stack">
               <div class="sal-hero-lockup">

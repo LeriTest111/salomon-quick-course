@@ -427,14 +427,19 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
             <div class={sectionPadding}>
               <p class="sal-kicker text-white/64">Tap a customer line to reveal the answer</p>
               <div class="mt-4 grid gap-4">
-                {sellingRows.map((row) => (
-                  <details class="sal-compare-reveal" name="gravel-sell">
-                    <summary class="sal-compare-summary">
+                {sellingRows.map((row, index) => (
+                  <article class="sal-compare-reveal">
+                    <input
+                      id={`gravel-sell-${index}`}
+                      class="sal-compare-toggle"
+                      type="checkbox"
+                    />
+                    <label class="sal-compare-summary" for={`gravel-sell-${index}`}>
                       <div>
                         <p class="text-[18px] font-semibold leading-8 tracking-[-0.02em] text-white">{row.prompt}</p>
                       </div>
                       <span class="sal-compare-summary__cta">Reveal answer</span>
-                    </summary>
+                    </label>
 
                     <div class="sal-compare-answer">
                       <div class="grid gap-4 lg:grid-cols-[0.72fr_1.18fr]">
@@ -448,7 +453,7 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
                         </div>
                       </div>
                     </div>
-                  </details>
+                  </article>
                 ))}
               </div>
             </div>
@@ -475,32 +480,6 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
         });
       });
 
-      const compareReveals = document.querySelectorAll(".sal-compare-reveal");
-
-      compareReveals.forEach((reveal) => {
-        const summary = reveal.querySelector("summary");
-
-        summary?.addEventListener("click", (event) => {
-          event.preventDefault();
-
-          const group = reveal.getAttribute("name");
-          const isOpen = reveal.hasAttribute("open");
-
-          if (group) {
-            compareReveals.forEach((item) => {
-              if (item !== reveal && item.getAttribute("name") === group) {
-                item.removeAttribute("open");
-              }
-            });
-          }
-
-          if (isOpen) {
-            reveal.removeAttribute("open");
-          } else {
-            reveal.setAttribute("open", "");
-          }
-        });
-      });
     </script>
   </body>
 </html>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest
+  identifier="module-1"
+  version="1.0"
+  xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+    http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+
+  <organizations default="ORG-1">
+    <organization identifier="ORG-1">
+      <title>eLearning</title>
+      <item identifier="ITEM-1" identifierref="RES-1" isvisible="true">
+        <title>eLearning</title>
+      </item>
+    </organization>
+  </organizations>
+
+  <resources>
+    <resource
+      identifier="RES-1"
+      type="webcontent"
+      adlcp:scormtype="sco"
+      href="index.html">
+      <file href="_astro/ground-profeel-plate.rIxaurDI.png" />
+      <file href="_astro/hero-brand.B8eOcQ1u.png" />
+      <file href="_astro/hero-gravel.BTU6m2D6.png" />
+      <file href="_astro/hero-icons.RDYgRgHG.png" />
+      <file href="_astro/hero-road.BxSpoIl-.png" />
+      <file href="_astro/history-contagrip.CoR_qLuq.jpg" />
+      <file href="_astro/history-first-hiking-boot.Bxh2sdPi.jpg" />
+      <file href="_astro/history-quicklace.BzCwkvhI.jpg" />
+      <file href="_astro/history-speedcross.oaE9eleQ.jpg" />
+      <file href="_astro/history-tech-index.CihTAeph.jpg" />
+      <file href="_astro/history-ultra-glide.D9Ug5mbZ.jpg" />
+      <file href="_astro/history-x-ultra.CYRYeREa.jpg" />
+      <file href="_astro/history-xa-pro.D9E5bsrF.jpg" />
+      <file href="_astro/history-xt-6.D9x4N0Ul.jpg" />
+      <file href="_astro/index@_@astro.BobJcRUk.css" />
+      <file href="_astro/midsole-energy-cell-plus.C86rIWbu.png" />
+      <file href="_astro/midsole-energy-cell.DntZVZ-n.png" />
+      <file href="_astro/midsole-optifoam-plus.DpbHEiYK.png" />
+      <file href="_astro/midsole-optifoam.4g-ktoTN.png" />
+      <file href="_astro/midsole-optifoam2.31Loh4Qt.png" />
+      <file href="_astro/other-contagrip.CFvUjSaT.png" />
+      <file href="_astro/product-banner.CqWLR6JX.jpg" />
+      <file href="_astro/upper-construction-engineered-mesh.DkgUhpxP.png" />
+      <file href="_astro/upper-construction-ripstop-mesh.CRdoXewm.png" />
+      <file href="_astro/upper-construction-single-layer-mesh.B3JXMc9r.png" />
+      <file href="_astro/upper-matryx.B7tzMh3S.png" />
+      <file href="_astro/waterproof-activ-warm.B47tCdvd.png" />
+      <file href="_astro/who-we-are-1.C1sG-o9L.mp4" />
+      <file href="_astro/who-we-are-banner.BuUJGoI5.avif" />
+      <file href="downloads/.DS_Store" />
+      <file href="downloads/salomon-tech-legends-glossary.pdf" />
+      <file href="favicon.ico" />
+      <file href="favicon.svg" />
+      <file href="index.html" />
+      <file href="salomon-logo.svg" />
+      <file href="scorm/scorm-runtime.js" />
+      <file href="tfg-logo.svg" />
+      <file href="tfg-quick-course/index.html" />
+    </resource>
+  </resources>
+</manifest>

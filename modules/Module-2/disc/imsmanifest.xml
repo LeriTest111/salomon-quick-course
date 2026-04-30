@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest
+  identifier="module-2"
+  version="1.0"
+  xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+    http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+
+  <organizations default="ORG-1">
+    <organization identifier="ORG-1">
+      <title>eLearning</title>
+      <item identifier="ITEM-1" identifierref="RES-1" isvisible="true">
+        <title>eLearning</title>
+      </item>
+    </organization>
+  </organizations>
+
+  <resources>
+    <resource
+      identifier="RES-1"
+      type="webcontent"
+      adlcp:scormtype="sco"
+      href="index.html">
+      <file href="_astro/alphaglide-numbers.CjIsdCdF.jpg" />
+      <file href="_astro/alphaglide.DwIP3BJb.png" />
+      <file href="_astro/genesis-numbers.DT25huQa.jpg" />
+      <file href="_astro/genesis.CxI3a5aE.png" />
+      <file href="_astro/hero-icons.RDYgRgHG.png" />
+      <file href="_astro/index@_@astro.rEV-T8wG.css" />
+      <file href="_astro/pulsar-numbers.96jv7K1a.jpg" />
+      <file href="_astro/pulsar.B4f0XcpO.png" />
+      <file href="_astro/selling-trail-lifestyle.CqCddOaI.png" />
+      <file href="_astro/speedcross-6-numbers.C8PWVn2q.jpg" />
+      <file href="_astro/speedcross-6.BCKSDoK6.png" />
+      <file href="_astro/speedcross-peak-numbers.DHbjSvAo.jpg" />
+      <file href="_astro/speedcross-peak.ZpExtL9h.png" />
+      <file href="_astro/terrain-rolling.BdtX1DJK.png" />
+      <file href="_astro/terrain-smooth.DOe6ebtC.png" />
+      <file href="_astro/trailrunning2.BCs0iUjr.jpg" />
+      <file href="_astro/trailrunning3.Dnr-NXEm.jpg" />
+      <file href="_astro/ultra-flow-2-numbers.Dwfs1zk_.jpg" />
+      <file href="_astro/ultra-flow-2.DShpIU-u.png" />
+      <file href="_astro/ultra-glide-4-numbers.Czt-xNLR.jpg" />
+      <file href="_astro/ultra-glide-4.CADkTcG3.png" />
+      <file href="_astro/xa-pro-3d-v9-numbers.YG9xg3zT.jpg" />
+      <file href="_astro/xa-pro-3d-v9.CFZv9uV2.png" />
+      <file href="favicon.ico" />
+      <file href="favicon.svg" />
+      <file href="index.html" />
+      <file href="scorm/scorm-runtime.js" />
+      <file href="tfg-logo.svg" />
+      <file href="tfg-quick-course/index.html" />
+    </resource>
+  </resources>
+</manifest>

@@ -467,10 +467,10 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
             </div>
           </article>
 
-          <article class="sal-card-dark flex h-full flex-col">
-            <div class={`${sectionPadding} flex h-full flex-col`}>
+          <article class="sal-card-dark">
+            <div class={sectionPadding}>
               <p class="sal-kicker text-white/64">Tap a customer line to reveal the answer</p>
-              <div class="mt-6 flex flex-1 flex-col justify-end gap-4">
+              <div class="mt-6 grid gap-4">
                 {sellingRows.map((row) => (
                   <details class="sal-compare-reveal" name="road-sell">
                     <summary class="sal-compare-summary">
@@ -556,6 +556,33 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
           link.addEventListener("click", () => {
             menu.removeAttribute("open");
           });
+        });
+      });
+
+      const compareReveals = document.querySelectorAll(".sal-compare-reveal");
+
+      compareReveals.forEach((reveal) => {
+        const summary = reveal.querySelector("summary");
+
+        summary?.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          const group = reveal.getAttribute("name");
+          const isOpen = reveal.hasAttribute("open");
+
+          if (group) {
+            compareReveals.forEach((item) => {
+              if (item !== reveal && item.getAttribute("name") === group) {
+                item.removeAttribute("open");
+              }
+            });
+          }
+
+          if (isOpen) {
+            reveal.removeAttribute("open");
+          } else {
+            reveal.setAttribute("open", "");
+          }
         });
       });
     </script>

@@ -963,6 +963,33 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
           });
         });
       });
+
+      const compareReveals = document.querySelectorAll(".sal-compare-reveal");
+
+      compareReveals.forEach((reveal) => {
+        const summary = reveal.querySelector("summary");
+
+        summary?.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          const group = reveal.getAttribute("name");
+          const isOpen = reveal.hasAttribute("open");
+
+          if (group) {
+            compareReveals.forEach((item) => {
+              if (item !== reveal && item.getAttribute("name") === group) {
+                item.removeAttribute("open");
+              }
+            });
+          }
+
+          if (isOpen) {
+            reveal.removeAttribute("open");
+          } else {
+            reveal.setAttribute("open", "");
+          }
+        });
+      });
     </script>
   </body>
 </html>

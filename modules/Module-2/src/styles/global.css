@@ -732,8 +732,13 @@ section.sal-section.mt-0:has(+ section.sal-section.mt-0) .sal-photo-strip {
 }
 
 .sal-compare-answer {
+  display: none;
   padding: 1.15rem 1.25rem 1.25rem;
   background: rgba(244, 243, 239, 0.75);
+}
+
+.sal-compare-reveal[open] > .sal-compare-answer {
+  display: block;
 }
 
 .sal-card-dark .sal-compare-reveal {

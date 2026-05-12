@@ -10,6 +10,9 @@
   --sal-cinder: #141414;
   --sal-lime: #e6dfd3;
   --sal-pink: #9d7861;
+  --sal-accent: #00a8e1;
+  --sal-accent-deep: #008fbe;
+  --sal-accent-soft: rgba(0, 168, 225, 0.12);
   --sal-glacier: #d9ddd5;
   --sal-sand: #d7cebf;
   --sal-shadow: 0 24px 80px rgba(12, 12, 12, 0.08);
@@ -102,6 +105,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+  color: var(--sal-accent);
 }
 
 .sal-title-hero {
@@ -140,6 +144,11 @@ body {
   line-height: 1.7;
 }
 
+.sal-body-copy strong,
+.sal-ui-text strong {
+  color: var(--sal-accent);
+}
+
 .sal-ui-text {
   font-size: var(--sal-text-ui);
   line-height: 1.4;
@@ -164,13 +173,14 @@ body {
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.5625rem;
-  border: 1px solid rgba(12, 12, 12, 0.1);
-  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(0, 168, 225, 0.18);
+  background: rgba(0, 168, 225, 0.08);
   padding: 0.55rem 0.95rem;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--sal-accent-deep);
 }
 
 
@@ -187,12 +197,12 @@ body {
   height: 0.22rem;
   border-radius: 999px;
   background:
-    linear-gradient(90deg, rgba(12, 12, 12, 0.84) 0%, rgba(12, 12, 12, 0.18) 70%, var(--sal-sand) 100%);
+    linear-gradient(90deg, rgba(12, 12, 12, 0.84) 0%, rgba(0, 168, 225, 0.42) 72%, var(--sal-accent) 100%);
 }
 
 .sal-card-dark .sal-topo-divider::after {
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.34) 70%, rgba(255, 255, 255, 0.08) 100%);
+    linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.34) 62%, rgba(0, 168, 225, 0.9) 100%);
 }
 
 .sal-hero-banner {
@@ -595,20 +605,20 @@ section.sal-section.mt-0:has(+ section.sal-section.mt-0) .sal-photo-strip {
   align-items: center;
   justify-content: center;
   border-radius: 0.5625rem;
-  border: 1px solid rgba(12, 12, 12, 0.08);
-  background: rgba(240, 239, 235, 0.9);
+  border: 1px solid rgba(0, 168, 225, 0.2);
+  background: var(--sal-accent-soft);
   padding: 0.7rem 0.9rem;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #5e574d;
+  color: var(--sal-accent-deep);
   white-space: nowrap;
 }
 
 .sal-product-reveal-summary__cta--dark {
-  border-color: rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(0, 168, 225, 0.34);
+  background: rgba(0, 168, 225, 0.2);
   color: white;
 }
 
@@ -617,15 +627,15 @@ section.sal-section.mt-0:has(+ section.sal-section.mt-0) .sal-photo-strip {
 }
 
 .sal-model-card[open] .sal-product-reveal-summary__cta {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--sal-ink);
-  border-color: rgba(12, 12, 12, 0.12);
+  background: var(--sal-accent);
+  color: white;
+  border-color: var(--sal-accent);
 }
 
 .sal-model-card[open] .sal-product-reveal-summary__cta--dark {
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--sal-ink);
-  border-color: rgba(255, 255, 255, 0.18);
+  background: var(--sal-accent);
+  color: white;
+  border-color: var(--sal-accent);
 }
 
 .sal-model-card[open] .sal-product-reveal-body {
@@ -720,8 +730,8 @@ section.sal-section.mt-0:has(+ section.sal-section.mt-0) .sal-photo-strip {
   align-items: center;
   justify-content: center;
   border-radius: 0.5625rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(0, 168, 225, 0.34);
+  background: rgba(0, 168, 225, 0.2);
   padding: 0.7rem 0.9rem;
   font-size: 0.72rem;
   font-weight: 800;
@@ -736,9 +746,9 @@ section.sal-section.mt-0:has(+ section.sal-section.mt-0) .sal-photo-strip {
 }
 
 .sal-compare-toggle:checked + .sal-compare-summary .sal-compare-summary__cta {
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--sal-ink);
-  border-color: rgba(255, 255, 255, 0.18);
+  background: var(--sal-accent);
+  color: white;
+  border-color: var(--sal-accent);
 }
 
 .sal-compare-answer {

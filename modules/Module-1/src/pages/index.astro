@@ -296,39 +296,31 @@ const sectionPadding = "px-6 pt-6 pb-10 md:px-8 md:pt-8 md:pb-12 lg:px-10 lg:pt-
 
           <div class={`${sectionPadding} pt-7`}>
             <p class="sal-kicker text-[#6a6257]">Brand history</p>
-            <h2 class="sal-topo-divider sal-title-section mt-3 text-[var(--sal-ink)]">
+            <h2 class="sal-topo-divider sal-title-section sal-title-section--history mt-3 text-[var(--sal-ink)]">
               Learn how Salomon footwear evolved to meet different running and outdoor needs
             </h2>
             <p class="sal-body-copy mt-5 max-w-none text-[#403b34]">
-              Let's look at the brand history below. Scroll through the carousel to discover the milestones that shaped Salomon into the brand customers know today.
+              Let's look at the brand history below.
             </p>
 
-            <div class="sal-history-carousel mt-6" data-history-carousel>
-              <div class="sal-history-carousel__head">
-                <div class="sal-history-carousel__controls">
-                  <button type="button" class="sal-history-carousel__button" data-history-nav="prev" aria-label="Previous timeline slide">
-                    Prev
-                  </button>
-                  <button type="button" class="sal-history-carousel__button" data-history-nav="next" aria-label="Next timeline slide">
-                    Next
-                  </button>
-                </div>
-              </div>
+            <div class="sal-history-flow mt-8" aria-label="Salomon brand history timeline">
+              {timeline.map((item, index) => (
+                <article class={`sal-history-flow__item ${index % 2 === 0 ? "sal-history-flow__item--right" : "sal-history-flow__item--left"}`}>
+                  <div class="sal-history-flow__node" aria-hidden="true"></div>
+                  <div class="sal-history-slide__frame sal-history-slide__frame--compact">
+                    {item.image && (
+                      <div class="sal-history-slide__photo sal-history-slide__photo--compact">
+                        <img src={resolveSalomonImage(item.image)} alt={`${item.title} Salomon product visual`} />
+                      </div>
+                    )}
 
-              <div class="sal-history-carousel__track" data-history-track>
-                {timeline.map((item) => (
-                  <article class="sal-history-slide" data-history-slide>
-                    <div class="sal-history-slide__frame">
-                      <p class="sal-history-slide__year">{item.year}</p>
-                      <p class="sal-history-slide__title">{item.title}</p>
+                    <div class="sal-history-slide__content">
+                      <div class="sal-history-slide__header">
+                        <p class="sal-history-slide__year">{item.year}</p>
+                        <p class="sal-history-slide__title">{item.title}</p>
+                      </div>
 
-                      {item.image && (
-                        <div class="sal-history-slide__photo">
-                          <img src={resolveSalomonImage(item.image)} alt={`${item.title} Salomon product visual`} />
-                        </div>
-                      )}
-
-                      <div class="sal-history-slide__copy">
+                      <div class="sal-history-slide__copy sal-history-slide__copy--compact">
                         {item.detail ? (
                           <p class="sal-body-copy text-[#2f2b26]">{item.detail}</p>
                         ) : (
@@ -338,9 +330,9 @@ const sectionPadding = "px-6 pt-6 pb-10 md:px-8 md:pt-8 md:pb-12 lg:px-10 lg:pt-
                         )}
                       </div>
                     </div>
-                  </article>
-                ))}
-              </div>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -370,12 +362,6 @@ const sectionPadding = "px-6 pt-6 pb-10 md:px-8 md:pt-8 md:pb-12 lg:px-10 lg:pt-
     </main>
     <script>
       const mobileNavs = document.querySelectorAll("[data-mobile-nav]");
-      const historyCarousel = document.querySelector("[data-history-carousel]");
-      const historyTrack = historyCarousel?.querySelector("[data-history-track]");
-      const historySlides = historyTrack ? Array.from(historyTrack.querySelectorAll("[data-history-slide]")) : [];
-      const historyPrevButton = historyCarousel?.querySelector('[data-history-nav="prev"]');
-      const historyNextButton = historyCarousel?.querySelector('[data-history-nav="next"]');
-
       document.addEventListener("click", (event) => {
         mobileNavs.forEach((menu) => {
           if (!menu.contains(event.target)) {
@@ -391,21 +377,6 @@ const sectionPadding = "px-6 pt-6 pb-10 md:px-8 md:pt-8 md:pb-12 lg:px-10 lg:pt-
           });
         });
       });
-
-      if (historyTrack && historySlides.length) {
-        const scrollTimeline = (direction) => {
-          const firstSlide = historySlides[0];
-          const gap = 24;
-          const distance = firstSlide.getBoundingClientRect().width + gap;
-          historyTrack.scrollBy({
-            left: direction * distance,
-            behavior: "smooth",
-          });
-        };
-
-        historyPrevButton?.addEventListener("click", () => scrollTimeline(-1));
-        historyNextButton?.addEventListener("click", () => scrollTimeline(1));
-      }
     </script>
   </body>
 </html>

@@ -656,8 +656,8 @@ section.sal-section.mt-0:has(+ section.sal-section.mt-0) .sal-photo-strip {
 .sal-spec-columns {
   margin-top: 0.75rem;
   display: grid;
-  gap: 0.75rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.28rem;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .sal-spec-stack {
@@ -672,6 +672,12 @@ section.sal-section.mt-0:has(+ section.sal-section.mt-0) .sal-photo-strip {
   line-height: 1.45;
   text-transform: uppercase;
   color: var(--sal-ink);
+}
+
+.sal-spec-value--inline {
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 1.3;
 }
 
 .sal-spec-note {
@@ -743,4 +749,66 @@ section.sal-section.mt-0:has(+ section.sal-section.mt-0) .sal-photo-strip {
 
 .sal-compare-toggle:checked + .sal-compare-summary + .sal-compare-answer {
   display: block;
+}
+
+@media (max-width: 767px) {
+  #sell {
+    gap: 1rem;
+  }
+
+  #sell > .sal-card-dark:first-child {
+    padding: 1.25rem 1rem;
+  }
+
+  #sell > .sal-card-dark:first-child .sal-title-section {
+    font-size: clamp(1.6rem, 7vw, 2rem);
+    line-height: 1.06;
+  }
+
+  #sell > .sal-card-dark:first-child .sal-body-copy {
+    margin-top: 0.85rem;
+  }
+
+  .sal-sell-banner {
+    margin-top: 1.1rem;
+    min-height: 10rem;
+    flex: none;
+  }
+
+  #sell > .sal-card-dark:last-child > div {
+    padding: 1.25rem 1rem;
+  }
+
+  .sal-compare-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 1rem;
+  }
+
+  .sal-compare-summary > div {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .sal-compare-summary p.text-\[18px\] {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .sal-compare-summary__cta {
+    align-self: flex-start;
+    min-height: 2.625rem;
+    padding: 0.62rem 0.82rem;
+    white-space: normal;
+  }
+
+  .sal-compare-answer {
+    padding: 1rem;
+  }
+
+  .sal-compare-answer p.text-\[18px\] {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
 }

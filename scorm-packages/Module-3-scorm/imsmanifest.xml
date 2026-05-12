@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest
+  identifier="module-3"
+  version="1.0"
+  xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+    http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+
+  <organizations default="ORG-1">
+    <organization identifier="ORG-1">
+      <title>eLearning</title>
+      <item identifier="ITEM-1" identifierref="RES-1" isvisible="true">
+        <title>eLearning</title>
+      </item>
+    </organization>
+  </organizations>
+
+  <resources>
+    <resource
+      identifier="RES-1"
+      type="webcontent"
+      adlcp:scormtype="sco"
+      href="index.html">
+      <file href="_astro/aero-blaze-3.ChJZek7d.png" />
+      <file href="_astro/aero-glide-4.osHA30OV.png" />
+      <file href="_astro/gravelrunning2.sglZHDMO.jpg" />
+      <file href="_astro/hero-road.BxSpoIl-.png" />
+      <file href="_astro/index.CRjR0H-W.css" />
+      <file href="_astro/road-index-03.CIKWsKXB.png" />
+      <file href="_astro/road-phantasm-2-made-in-france.sfjYF0IN.png" />
+      <file href="_astro/road-spectur-3.DXKjhzse.png" />
+      <file href="_astro/road-spectur.KbJRrnkP.png" />
+      <file href="_astro/roadrunning2.MCZqwYMG.jpg" />
+      <file href="_astro/slab-phantasm-3.CabxluL_.png" />
+      <file href="_astro/store-image.CBDD0Nz-.jpg" />
+      <file href="favicon.ico" />
+      <file href="favicon.svg" />
+      <file href="index.html" />
+      <file href="scorm/scorm-runtime.js" />
+      <file href="tfg-logo.svg" />
+      <file href="tfg-quick-course/index.html" />
+    </resource>
+  </resources>
+</manifest>

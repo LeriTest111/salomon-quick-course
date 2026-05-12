@@ -849,8 +849,10 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
                                       <div class="sal-spec-columns">
                                         {spec.columns.map((column) => (
                                           <div class="sal-spec-stack">
-                                            <p class={index % 2 === 1 ? "sal-spec-value text-white" : "sal-spec-value"}>{column.value}</p>
-                                            {column.note && <p class={index % 2 === 1 ? "sal-spec-note text-white/78" : "sal-spec-note"}>{column.note}</p>}
+                                            <p class={index % 2 === 1 ? "sal-spec-value sal-spec-value--inline text-white" : "sal-spec-value sal-spec-value--inline"}>
+                                              {column.value}
+                                              {column.note && <span class={index % 2 === 1 ? "sal-spec-note text-white/78" : "sal-spec-note"}>{` - ${column.note}`}</span>}
+                                            </p>
                                           </div>
                                         ))}
                                       </div>
@@ -927,18 +929,22 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
                     </label>
 
                     <div class="sal-compare-answer">
-                      <div class={row.backup ? "grid gap-4 lg:grid-cols-[0.7fr_0.7fr_1.15fr]" : "grid gap-4 lg:grid-cols-[0.72fr_1.18fr]"}>
-                        <div>
-                          <p class="text-xs font-bold uppercase tracking-[0.14em] text-white/64">Start with</p>
-                          <p class="mt-2 text-[18px] leading-8 text-white">{row.start}</p>
-                        </div>
-                        {row.backup && (
+                      <div class="grid gap-4">
+                        <div class={row.backup ? "grid gap-4 lg:grid-cols-2" : "grid gap-4"}>
                           <div>
-                            <p class="text-xs font-bold uppercase tracking-[0.14em] text-white/64">Backup</p>
-                            <p class="mt-2 text-[18px] leading-8 text-white">{row.backup}</p>
+                            <p class="text-xs font-bold uppercase tracking-[0.14em] text-white/64">Start with</p>
+                            <p class="mt-2 text-[18px] leading-8 text-white">{row.start}</p>
                           </div>
-                        )}
-                        <div>
+
+                          {row.backup && (
+                            <div>
+                              <p class="text-xs font-bold uppercase tracking-[0.14em] text-white/64">Backup</p>
+                              <p class="mt-2 text-[18px] leading-8 text-white">{row.backup}</p>
+                            </div>
+                          )}
+                        </div>
+
+                        <div class="w-full">
                           <p class="text-xs font-bold uppercase tracking-[0.14em] text-white/64">Why</p>
                           <p class="mt-2 text-[18px] leading-8 text-white">{row.why}</p>
                         </div>

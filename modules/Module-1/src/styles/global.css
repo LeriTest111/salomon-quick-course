@@ -420,72 +420,59 @@ section.sal-section.mt-0:has(+ section.sal-section.mt-0) .sal-photo-strip {
   }
 }
 
-.sal-history-carousel {
-  display: grid;
-  gap: 1.25rem;
+.sal-title-section--history {
+  display: block;
+  width: 100%;
+  max-width: none;
+  font-size: clamp(1.7rem, 3vw, 2.45rem);
+  line-height: 1.08;
 }
 
-.sal-history-carousel__head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
+.sal-history-flow {
+  position: relative;
+  display: grid;
+  gap: 0.95rem;
+  margin-inline: auto;
+  max-width: 78rem;
+  padding: 0.5rem 0 0.75rem;
+}
+
+.sal-history-flow::before {
+  content: "";
+  position: absolute;
+  left: 0.45rem;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(133, 139, 152, 0.58), rgba(133, 139, 152, 0.92), rgba(133, 139, 152, 0.58));
+}
+
+.sal-history-flow__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
   gap: 1rem;
+  min-height: 11.5rem;
 }
 
-.sal-history-carousel__eyebrow {
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #6d665d;
-}
-
-.sal-history-carousel__controls {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-}
-
-.sal-history-carousel__button {
-  border: 1px solid rgba(12, 12, 12, 0.1);
-  background: white;
-  padding: 0.7rem 1rem;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--sal-ink);
-  transition:
-    background 180ms ease,
-    border-color 180ms ease;
-}
-
-.sal-history-carousel__button:hover {
-  border-color: rgba(12, 12, 12, 0.24);
-  background: #f4f1eb;
-}
-
-.sal-history-carousel__track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(21rem, 88vw);
-  gap: 1.8rem;
-  overflow-x: auto;
-  padding: 0 0 1.6rem;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-}
-
-.sal-history-slide {
-  scroll-snap-align: start;
-  min-width: 0;
+.sal-history-flow__node {
+  position: relative;
+  z-index: 2;
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-top: 1rem;
+  border: 2px solid #8c93a2;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 0 0 0.45rem #f6f4f1;
 }
 
 .sal-history-slide__frame {
   display: grid;
   align-content: start;
-  gap: 1.4rem;
+  gap: 1rem;
   min-height: 100%;
   border: 1px solid rgba(12, 12, 12, 0.12);
   border-radius: 1rem;
@@ -494,26 +481,75 @@ section.sal-section.mt-0:has(+ section.sal-section.mt-0) .sal-photo-strip {
   box-shadow: 0 12px 28px rgba(12, 12, 12, 0.06);
 }
 
+.sal-history-slide__frame--compact {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+  padding: 1rem;
+  min-height: 11.5rem;
+  border-radius: 0.85rem;
+  box-shadow:
+    0 10px 24px rgba(12, 12, 12, 0.06),
+    0 2px 6px rgba(12, 12, 12, 0.04);
+}
+
+.sal-history-slide__frame--compact::before {
+  content: "";
+  position: absolute;
+  top: 0.82rem;
+  left: -0.52rem;
+  width: 1rem;
+  height: 1rem;
+  background: #ffffff;
+  border-left: 1px solid rgba(12, 12, 12, 0.08);
+  border-bottom: 1px solid rgba(12, 12, 12, 0.08);
+  transform: rotate(45deg);
+}
+
+.sal-history-slide__header {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.sal-history-slide__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 100%;
+  min-width: 0;
+}
+
 .sal-history-slide__year {
-  font-size: clamp(4rem, 11vw, 6.2rem);
+  font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 900;
-  line-height: 0.88;
-  letter-spacing: -0.08em;
+  line-height: 0.94;
+  letter-spacing: -0.06em;
   color: #0c0c0c;
 }
 
 .sal-history-slide__title {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #24211c;
+  color: #5f6673;
 }
 
 .sal-history-slide__photo {
   overflow: hidden;
+  border-radius: 0.78rem;
   background: #ece9e1;
   aspect-ratio: 4 / 3;
+}
+
+.sal-history-slide__photo--compact {
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 8.2rem;
+  max-height: none;
 }
 
 .sal-history-slide__photo img {
@@ -527,18 +563,87 @@ section.sal-section.mt-0:has(+ section.sal-section.mt-0) .sal-photo-strip {
   max-width: 18rem;
 }
 
+.sal-history-slide__copy--compact {
+  max-width: none;
+}
+
 @media (min-width: 768px) {
-  .sal-history-carousel__track {
-    grid-auto-columns: minmax(24rem, 36%);
-    gap: 2.1rem;
-  }
-
-  .sal-history-slide__frame {
-    padding: 1.3rem 1.9rem 2.3rem;
-  }
-
   .sal-history-slide__copy {
     max-width: 20rem;
+  }
+
+  .sal-history-flow {
+    gap: 0.9rem;
+  }
+
+  .sal-history-flow__item {
+    grid-template-columns: minmax(0, 1fr) 2.5rem minmax(0, 1fr);
+    gap: 0;
+    min-height: 12rem;
+  }
+
+  .sal-history-flow__node {
+    grid-column: 2;
+    justify-self: center;
+    margin-top: 1rem;
+  }
+
+  .sal-history-flow::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .sal-history-flow__item--left .sal-history-slide__frame,
+  .sal-history-flow__item--right .sal-history-slide__frame {
+    width: min(100%, 29rem);
+    max-width: 29rem;
+  }
+
+  .sal-history-flow__item--left .sal-history-slide__frame {
+    grid-column: 1;
+    justify-self: end;
+    margin-right: 1rem;
+  }
+
+  .sal-history-flow__item--right .sal-history-slide__frame {
+    grid-column: 3;
+    justify-self: start;
+    margin-left: 1rem;
+  }
+
+  .sal-history-flow__item--left .sal-history-slide__frame--compact::before {
+    left: auto;
+    right: -0.52rem;
+    border-left: none;
+    border-bottom: 1px solid rgba(12, 12, 12, 0.08);
+    border-right: 1px solid rgba(12, 12, 12, 0.08);
+  }
+
+  .sal-history-flow__item--right .sal-history-slide__frame--compact::before {
+    left: -0.52rem;
+    right: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sal-history-flow__item {
+    min-height: 12.25rem;
+  }
+
+  .sal-history-flow__item--left .sal-history-slide__frame,
+  .sal-history-flow__item--right .sal-history-slide__frame {
+    width: min(100%, 34rem);
+    max-width: 34rem;
+  }
+
+  .sal-history-slide__frame--compact {
+    gap: 1.1rem;
+    padding: 1.05rem;
+    min-height: 12.25rem;
+  }
+
+  .sal-history-slide__photo--compact {
+    max-width: 9rem;
   }
 }
 

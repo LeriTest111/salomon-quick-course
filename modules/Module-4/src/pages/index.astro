@@ -352,12 +352,15 @@ const sectionPadding = "p-6 md:p-8 lg:p-10";
 
                   <div class="mt-4 grid gap-4 xl:grid-cols-[3fr_1fr]">
                     <div class={index % 2 === 1
-                      ? "rounded-[0.5625rem] border border-white/10 bg-[linear-gradient(140deg,rgba(92,92,92,0.96)_0%,rgba(66,66,66,0.98)_100%)] p-4 text-white"
-                      : "rounded-[0.5625rem] bg-[#f0efeb] p-4"}>
+                      ? "sal-tech-features rounded-[0.5625rem] border border-white/10 bg-[linear-gradient(140deg,rgba(92,92,92,0.96)_0%,rgba(66,66,66,0.98)_100%)] p-4 text-white"
+                      : "sal-tech-features rounded-[0.5625rem] bg-[#f0efeb] p-4"}>
                     <p class={index % 2 === 1 ? "text-[18px] font-bold uppercase tracking-[0.14em] text-white" : "text-[18px] font-bold uppercase tracking-[0.14em] text-[#71695d]"}>Tech features</p>
                     <div class="mt-4 sal-spec-grid">
                       {product.specs.map((spec) => (
-                        <article class={index % 2 === 1 ? "sal-spec-card border-white/12" : "sal-spec-card"}>
+                        <article
+                          class={index % 2 === 1 ? "sal-spec-card border-white/12" : "sal-spec-card"}
+                          data-spec={spec.label.toLowerCase().replace(/\s+/g, "-")}
+                        >
                           <p class={index % 2 === 1 ? "sal-spec-label text-white/64" : "sal-spec-label"}>{spec.label}</p>
                           {spec.columns ? (
                             <div class="sal-spec-columns">
